@@ -11,5 +11,6 @@ public class HolaMundo {
 		System.out.println("hola soy rodri se lee?");
 		System.out.println("ya te lei. cambio");
 		System.out.println("bokita el mas grande");
+		System.out.println("vamo nuuuels");
 	}
 }
