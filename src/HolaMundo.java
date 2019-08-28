@@ -6,5 +6,6 @@ public class HolaMundo {
 		System.out.println("river>boca");
 		System.out.println("ésta linea fue agregada por mati");
 		System.out.println("ésta linea fue agregada por juani");
+		System.out.println("falta rodri y ya estamosss");
 	}
 }
