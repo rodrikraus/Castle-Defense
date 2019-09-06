@@ -55,6 +55,6 @@ public class GUI {
 	
 
 	protected void mover(){
-		// acá va el algoritmo para mover el objeto
+		// aca va el algoritmo para mover el objeto
 	}
 }
