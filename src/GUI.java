@@ -55,10 +55,12 @@ public class GUI extends JFrame {
 	}
 	
 	protected void mover(KeyEvent key){
-		
+		// acá deberiamos vincular el JLabel en la matriz (clase Mapa)
+		// y hacer que vaya avanzando para la izquierda dentro de la matriz
 	}
 	
 	private void agregarDibujo(){
+		// ERROR: me da error al cargar la fucking imagen. pd: soy mati ahre
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("/img/probando.png"));
 		dibujo = new JLabel(imagen);		
 		dibujo.setBounds(0, 0, 25, 25);		
