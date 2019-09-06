@@ -1,19 +1,13 @@
 import java.awt.EventQueue;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+public class GUI {
 
-public class GUI extends JFrame {
-	private static final long serialVersionUID = 1L;
-
-	private JPanel contentPane;
-	
+	private JFrame frame;
 	private JLabel dibujo;
 
 	/**
@@ -23,8 +17,8 @@ public class GUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI frame = new GUI();
-					frame.setVisible(true);
+					GUI window = new GUI();
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -33,37 +27,34 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the application.
 	 */
 	public GUI() {
-		addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent arg0) {
-				mover(arg0);
-			}
-		});
-		getContentPane().setLayout(null);
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		this.agregarDibujo();
+		initialize();
 	}
-	
-	protected void mover(KeyEvent key){
-		// acá deberiamos vincular el JLabel en la matriz (clase Mapa)
-		// y hacer que vaya avanzando para la izquierda dentro de la matriz
-	}
-	
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(205, 133, 63));
+		frame.setBackground(new Color(205, 133, 63));
+		frame.setBounds(100, 100, 724, 420);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		agregarDibujo();	
+	}	
+
 	private void agregarDibujo(){
-		// ERROR: me da error al cargar la fucking imagen. pd: soy mati ahre
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("/img/probando.png"));
 		dibujo = new JLabel(imagen);		
-		dibujo.setBounds(0, 0, 25, 25);		
-		this.add(dibujo);
+		dibujo.setBounds(643, 41, 43, 35);		
+		frame.getContentPane().add(dibujo);
+	}
+	
+
+	protected void mover(){
+		// acá va el algoritmo para mover el objeto
 	}
 }
