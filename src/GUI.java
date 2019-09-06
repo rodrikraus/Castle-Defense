@@ -1,16 +1,20 @@
 import java.awt.EventQueue;
-import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
-public class GUI {
+public class GUI extends JFrame {
+	private static final long serialVersionUID = 1L;
 
-	private JFrame frame;
+	private JPanel contentPane;
+	
+	private JLabel dibujo;
 
 	/**
 	 * Launch the application.
@@ -19,8 +23,8 @@ public class GUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUI window = new GUI();
-					window.frame.setVisible(true);
+					GUI frame = new GUI();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -29,25 +33,35 @@ public class GUI {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public GUI() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 692, 429);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				mover(arg0);
+			}
+		});
+		getContentPane().setLayout(null);
 		
-		JLabel label = new JLabel("");
-		ImageIcon imagen = new ImageIcon("/mnt/Datos/01_MEGA/01_ESTUDIOS/2019_Segundo_Cuatrimestre/Tecnologias_de_programacion/Proyecto/Castle-Defense/img/de_prueba.png");
-		label.setIcon(imagen);
-		label.setBounds(580, 44, 53, 82);
-		frame.getContentPane().add(label);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		this.agregarDibujo();
+	}
+	
+	protected void mover(KeyEvent key){
+		
+	}
+	
+	private void agregarDibujo(){
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("/img/probando.png"));
+		dibujo = new JLabel(imagen);		
+		dibujo.setBounds(0, 0, 25, 25);		
+		this.add(dibujo);
 	}
 }
