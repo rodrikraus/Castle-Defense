@@ -1,60 +1,51 @@
-import java.awt.EventQueue;
-
+import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import java.awt.Color;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
-public class GUI {
-
-	private JFrame frame;
+public class GUI extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
 	private JLabel dibujo;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI window = new GUI();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
+	
 	public GUI() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(205, 133, 63));
-		frame.setBackground(new Color(205, 133, 63));
-		frame.setBounds(100, 100, 724, 420);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		agregarDibujo();	
-	}	
-
-	private void agregarDibujo(){
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("/img/probando.png"));
-		dibujo = new JLabel(imagen);		
-		dibujo.setBounds(643, 41, 43, 35);		
-		frame.getContentPane().add(dibujo);
+		getContentPane().setLayout(null);
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		this.agregarDibujo();
 	}
 	
-
-	protected void mover(){
-		// aca va el algoritmo para mover el objeto
+	public void moverse() {
+		
+		while(true) {
+			Rectangle pos = dibujo.getBounds();
+			
+			int newX = (int) pos.getX() - 1;
+			int newY = (int) pos.getY();
+			int ancho = (int) pos.getWidth();
+			int alto = (int) pos.getHeight();
+			
+			dibujo.setBounds(newX, newY, ancho, alto);
+			
+			try {
+				Thread.sleep(5); //Esto seria la velocidad a la que corre el juego
+			} catch (InterruptedException e) {}
+		}
+	}
+	
+	private void agregarDibujo(){
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
+		dibujo = new JLabel(imagen);
+		dibujo.setBounds(350, 120, 50, 50);
+		this.add(dibujo);
 	}
 }
