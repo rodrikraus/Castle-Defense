@@ -1,4 +1,12 @@
 import java.awt.Rectangle;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,8 +30,10 @@ public class GUI extends JFrame {
 		
 		this.agregarDibujo();
 		this.agregarFondo();
+		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
+		
 	}
-	
+
 	public void moverse() {
 		
 		while(true) {
@@ -54,5 +64,23 @@ public class GUI extends JFrame {
 		fondo = new JLabel(imagen);
 		fondo.setBounds(1, 1, 544, 349);
 		this.add(fondo);
+	}	
+
+	private void agregarMusicaDeFondo(String ruta) {
+		try {
+			
+			BufferedInputStream bis = new BufferedInputStream(this.getClass().getResourceAsStream(ruta));
+			AudioInputStream ais = AudioSystem.getAudioInputStream(bis);
+			Clip sonido = AudioSystem.getClip();
+			sonido.open(ais);			
+			sonido.start();		
+			
+		} catch (LineUnavailableException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (UnsupportedAudioFileException e) {
+			e.printStackTrace();
+		}		
 	}
 }
