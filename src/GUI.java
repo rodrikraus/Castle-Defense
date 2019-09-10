@@ -17,7 +17,8 @@ public class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JLabel dibujo, fondo;
+	private JLabel dibujo, fondo, dibujo2;
+	private int velocidad = 0;
 	
 	public GUI() {
 		getContentPane().setLayout(null);	
@@ -29,6 +30,7 @@ public class GUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		this.agregarDibujo();
+		this.agregarDibujo2();
 		this.agregarFondo();
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
 		
@@ -38,17 +40,26 @@ public class GUI extends JFrame {
 		
 		while(true) {
 			Rectangle pos = dibujo.getBounds();
+			Rectangle pos2 = dibujo2.getBounds();
 			
 			int newX = (int) pos.getX() - 1;
 			int newY = (int) pos.getY();
 			int ancho = (int) pos.getWidth();
-			int alto = (int) pos.getHeight();
+			int alto = (int) pos.getHeight();	
 			
-			dibujo.setBounds(newX, newY, ancho, alto);
+			int newX2 = (int) pos2.getX() - 2;			
+			int newY2 = (int) pos2.getY();
+			int ancho2 = (int) pos2.getWidth();
+			int alto2 = (int) pos2.getHeight();
+					
+			dibujo.setBounds(newX, newY, ancho, alto);	
+			dibujo2.setBounds(newX2, newY2, ancho2, alto2);
 			
 			try {
-				Thread.sleep(5);
-			} catch (InterruptedException e) {}
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				System.out.println("Error ");	
+			}
 		}
 	}
 	
@@ -57,6 +68,12 @@ public class GUI extends JFrame {
 		dibujo = new JLabel(imagen);
 		dibujo.setBounds(544, 150, 62, 38);
 		this.add(dibujo);
+	}
+	private void agregarDibujo2() {
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
+		dibujo2 = new JLabel(imagen);
+		dibujo2.setBounds(544, 200, 62, 38);
+		this.add(dibujo2);
 	}
 	
 	private void agregarFondo() {
