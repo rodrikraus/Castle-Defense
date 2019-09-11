@@ -12,19 +12,34 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
+import java.awt.Point;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel dibujo, fondo, dibujo2;
-	private int velocidad = 0;
+	private JPanel panel;
+	private JLabel lblTienda;
+    private Point initialClick;
 	
 	public GUI() {
 		getContentPane().setLayout(null);	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 544, 349);
+		setBounds(100, 100, 544, 461);
+		setUndecorated(true);
 		contentPane = new JPanel();
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -67,20 +82,88 @@ public class GUI extends JFrame {
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
 		dibujo = new JLabel(imagen);
 		dibujo.setBounds(544, 150, 62, 38);
-		this.add(dibujo);
+		getContentPane().add(dibujo);
+		
+		JButton btn_salir = new JButton("X"); 
+		btn_salir.setBounds(499, 0, 45, 30);
+		btn_salir.setFont(new Font("Dialog", Font.BOLD, 14));
+		btn_salir.setFocusPainted(false);
+		btn_salir.setContentAreaFilled(false);
+		btn_salir.setBorderPainted(false);
+		btn_salir.setOpaque(false);
+		contentPane.add(btn_salir);
+				
+		btn_salir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		JButton btn_mover_frame = new JButton("");
+		btn_mover_frame.addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseDragged(MouseEvent e) {
+	            // get location of Window
+	            int thisX = getLocation().x;
+	            int thisY = getLocation().y;
+
+	            // Determine how much the mouse moved since the initial click
+	            int xMoved = e.getX() - initialClick.x;
+	            int yMoved = e.getY() - initialClick.y;
+
+	            // Move window to this position
+	            int X = thisX + xMoved;
+	            int Y = thisY + yMoved;
+	            setLocation(X, Y);
+			}
+		});
+		btn_mover_frame.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+	            initialClick = e.getPoint();
+	            getComponentAt(initialClick);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				setCursor(new Cursor(Cursor.MOVE_CURSOR));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+		});
+		btn_mover_frame.setFocusPainted(false);
+		btn_mover_frame.setContentAreaFilled(false);
+		btn_mover_frame.setBorderPainted(false);
+		btn_mover_frame.setOpaque(false);
+		btn_mover_frame.setBounds(1, 0, 499, 46);
+		contentPane.add(btn_mover_frame);
+		
 	}
 	private void agregarDibujo2() {
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
 		dibujo2 = new JLabel(imagen);
 		dibujo2.setBounds(544, 200, 62, 38);
-		this.add(dibujo2);
+		getContentPane().add(dibujo2);
 	}
 	
 	private void agregarFondo() {
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/fondo.png"));
 		fondo = new JLabel(imagen);
 		fondo.setBounds(1, 1, 544, 349);
-		this.add(fondo);
+		getContentPane().add(fondo);
+		{
+			panel = new JPanel();
+			panel.setBackground(new Color(218, 165, 32));
+			panel.setBounds(0, 350, 545, 111);
+			contentPane.add(panel);
+			panel.setLayout(null);
+			{
+				lblTienda = new JLabel("Tienda");
+				lblTienda.setBounds(12, 12, 54, 17);
+				lblTienda.setFont(new Font("Dialog", Font.BOLD, 14));
+				panel.add(lblTienda);
+			}
+		}
 	}	
 
 	private void agregarMusicaDeFondo(String ruta) {

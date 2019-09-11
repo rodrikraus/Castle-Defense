@@ -7,7 +7,7 @@ public class Mapa {
 		matriz = new Celda[50][100];
 		for(int i=0; i<matriz.length; i++)
 			for(int j=0; j<matriz[0].length	; j++)
-				matriz[i][j] = Celda();
+				matriz[i][j] = new Celda();
 	}
 	
 }
