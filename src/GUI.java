@@ -36,7 +36,7 @@ public class GUI extends JFrame {
 	public GUI() {
 		getContentPane().setLayout(null);	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 544, 461);
+		setBounds(100, 100, 756, 580);
 		setUndecorated(true);
 		contentPane = new JPanel();
 		
@@ -81,11 +81,14 @@ public class GUI extends JFrame {
 	private void agregarDibujo() {
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
 		dibujo = new JLabel(imagen);
-		dibujo.setBounds(544, 150, 62, 38);
+		dibujo.setBounds(544, 249, 62, 38);
 		getContentPane().add(dibujo);
+		dibujo2 = new JLabel(imagen);
+		dibujo2.setBounds(544, 314, 62, 38);
+		getContentPane().add(dibujo2);
 		
 		JButton btn_salir = new JButton("X"); 
-		btn_salir.setBounds(499, 0, 45, 30);
+		btn_salir.setBounds(711, 0, 45, 30);
 		btn_salir.setFont(new Font("Dialog", Font.BOLD, 14));
 		btn_salir.setFocusPainted(false);
 		btn_salir.setContentAreaFilled(false);
@@ -135,31 +138,28 @@ public class GUI extends JFrame {
 		btn_mover_frame.setContentAreaFilled(false);
 		btn_mover_frame.setBorderPainted(false);
 		btn_mover_frame.setOpaque(false);
-		btn_mover_frame.setBounds(1, 0, 499, 46);
+		btn_mover_frame.setBounds(1, 0, 698, 38);
 		contentPane.add(btn_mover_frame);
 		
 	}
 	private void agregarDibujo2() {
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
-		dibujo2 = new JLabel(imagen);
-		dibujo2.setBounds(544, 200, 62, 38);
-		getContentPane().add(dibujo2);
 	}
 	
 	private void agregarFondo() {
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/fondo.png"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/fondo_grande.png"));
 		fondo = new JLabel(imagen);
-		fondo.setBounds(1, 1, 544, 349);
+		fondo.setBounds(0, 0, 756, 485);
 		getContentPane().add(fondo);
 		{
 			panel = new JPanel();
 			panel.setBackground(new Color(218, 165, 32));
-			panel.setBounds(0, 350, 545, 111);
+			panel.setBounds(0, 485, 756, 95);
 			contentPane.add(panel);
 			panel.setLayout(null);
 			{
 				lblTienda = new JLabel("Tienda");
-				lblTienda.setBounds(12, 12, 54, 17);
+				lblTienda.setBounds(30, 12, 54, 17);
 				lblTienda.setFont(new Font("Dialog", Font.BOLD, 14));
 				panel.add(lblTienda);
 			}
