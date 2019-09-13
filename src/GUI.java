@@ -32,6 +32,7 @@ public class GUI extends JFrame {
 	private JPanel panel;
 	private JLabel lblTienda;
     private Point initialClick;
+    private Perro p1;
 	
 	public GUI() {
 		getContentPane().setLayout(null);	
@@ -48,6 +49,10 @@ public class GUI extends JFrame {
 		this.agregarDibujo2();
 		this.agregarFondo();
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
+
+		p1 = new Perro(new Punto(544,400));
+		getContentPane().add(p1.getDibujo());
+		
 		
 	}
 
@@ -67,6 +72,13 @@ public class GUI extends JFrame {
 			int ancho2 = (int) pos2.getWidth();
 			int alto2 = (int) pos2.getHeight();
 					
+			/*
+			int Xperro = p1.getPunto().getX();
+			Xperro = Xperro - 3;
+			p1.getPunto().setX(Xperro);
+			int Yperro = p1.getPunto().getY();
+			p1.getDibujo().setBounds(Xperro, Yperro, p1.getAncho(), p1.getLargo());
+			*/
 			dibujo.setBounds(newX, newY, ancho, alto);	
 			dibujo2.setBounds(newX2, newY2, ancho2, alto2);
 			
@@ -79,13 +91,16 @@ public class GUI extends JFrame {
 	}
 	
 	private void agregarDibujo() {
+		
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
 		dibujo = new JLabel(imagen);
 		dibujo.setBounds(544, 249, 62, 38);
 		getContentPane().add(dibujo);
+		
 		dibujo2 = new JLabel(imagen);
 		dibujo2.setBounds(544, 314, 62, 38);
 		getContentPane().add(dibujo2);
+		
 		
 		JButton btn_salir = new JButton("X"); 
 		btn_salir.setBounds(711, 0, 45, 30);

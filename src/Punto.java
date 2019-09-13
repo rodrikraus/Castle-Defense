@@ -1,48 +1,29 @@
+import java.awt.Rectangle;
 
-public class Punto {
+public class Punto extends Rectangle {
 
-	protected int x;
-	protected int y;
-	protected int ancho;
-	protected int largo;
+	private static final long serialVersionUID = 1L;
+	protected double x;
+	protected double y;
 		
-	
-	
-	public Punto(int x, int y, int ancho, int largo) {
+		
+	public Punto(int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.ancho = ancho;
-		this.largo = largo;
 	}
 	
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 	public void setX(int x) {
 		this.x = x;
 	}
 	
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 	
 	public void setY(int y) {
 		this.y = y;
-	}
-	
-	public int getAncho() {
-		return ancho;
-	}
-	
-	public void setAncho(int ancho) {
-		this.ancho = ancho;
-	}
-	
-	public int getLargo() {
-		return largo;
-	}
-	
-	public void setLargo(int largo) {
-		this.largo = largo;
 	}
 }
