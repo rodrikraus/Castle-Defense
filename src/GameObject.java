@@ -12,10 +12,11 @@ public abstract class GameObject {
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
-	public Punto getPunto() {
+	
+	public Punto getUbicacion() {
 		return ubicacion;
 	}
-	public void setPunto(Punto punto) {
+	public void setUbicacion(Punto punto) {
 		this.ubicacion = punto;
 	}
 	public JLabel getDibujo() {
