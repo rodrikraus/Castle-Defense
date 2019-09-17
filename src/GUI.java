@@ -92,7 +92,7 @@ public class GUI extends JFrame {
 	
 	private void agregarDibujo() {
 		
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 		dibujo = new JLabel(imagen);
 		dibujo.setBounds(544, 249, 62, 38);
 		getContentPane().add(dibujo);
@@ -158,11 +158,11 @@ public class GUI extends JFrame {
 		
 	}
 	private void agregarDibujo2() {
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 	}
 	
 	private void agregarFondo() {
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/fondo_grande.png"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.png"));
 		fondo = new JLabel(imagen);
 		fondo.setBounds(0, 0, 756, 485);
 		getContentPane().add(fondo);

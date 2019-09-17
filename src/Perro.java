@@ -1,7 +1,7 @@
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Perro extends Enemigo{
+public class Perro extends Enemigo {
 	
 	private final int ancho = 62;
 	private final int largo = 38;
@@ -15,7 +15,7 @@ public class Perro extends Enemigo{
 		monedas = 30;
 		
 		
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("img/perro.gif"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 		dibujo = new JLabel(imagen);
 	//	dibujo.setBounds(p.getX(), p.getY(), ancho, largo);
 	}

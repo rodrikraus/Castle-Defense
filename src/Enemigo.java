@@ -1,5 +1,5 @@
 
-public abstract class Enemigo extends Personaje{
+public abstract class Enemigo extends Personaje {
 	
 	protected int velocidad;
 	protected int puntos;
