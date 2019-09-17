@@ -16,7 +16,7 @@ public abstract class GraphicGameObject {
 	
 	public GraphicGameObject(int veloc, int x, int y) {
 		pos = new Point(x, y);
-		velocidad = veloc;		
+		velocidad = veloc;
 	}
 	
 	public void mover() {
