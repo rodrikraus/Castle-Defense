@@ -15,9 +15,10 @@ public class Perro extends Enemigo {
 		monedas = 30;
 		
 		
+		ubicacion=p;
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 		dibujo = new JLabel(imagen);
-	//	dibujo.setBounds(p.getX(), p.getY(), ancho, largo);
+		//dibujo.setBounds(p.getX(), p.getY(), ancho, largo);
 	}
 	
 

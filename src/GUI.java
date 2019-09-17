@@ -27,31 +27,31 @@ import java.awt.event.MouseMotionAdapter;
 public class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	private JPanel panelFondo,panel;
 	private JLabel dibujo, fondo, dibujo2;
-	private JPanel panel;
 	private JLabel lblTienda;
     private Point initialClick;
-    private Perro p1;
+    //private Perro p1;
 	
 	public GUI() {
-		getContentPane().setLayout(null);	
+		
+		//panelFondo.setLayout(null);	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 580);
 		setUndecorated(true);
-		contentPane = new JPanel();
+		panelFondo = new JPanel();
 		
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		panelFondo.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(panelFondo);
+		panelFondo.setLayout(null);
 		
 		this.agregarDibujo();
 		this.agregarDibujo2();
 		this.agregarFondo();
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
 
-		p1 = new Perro(new Punto(544,400));
-		getContentPane().add(p1.getDibujo());
+		//p1 = new Perro(new Punto(544,400));
+		//panelFondo.add(p1.getDibujo());
 		
 		
 	}
@@ -72,13 +72,7 @@ public class GUI extends JFrame {
 			int ancho2 = (int) pos2.getWidth();
 			int alto2 = (int) pos2.getHeight();
 					
-			/*
-			int Xperro = p1.getPunto().getX();
-			Xperro = Xperro - 3;
-			p1.getPunto().setX(Xperro);
-			int Yperro = p1.getPunto().getY();
-			p1.getDibujo().setBounds(Xperro, Yperro, p1.getAncho(), p1.getLargo());
-			*/
+			
 			dibujo.setBounds(newX, newY, ancho, alto);	
 			dibujo2.setBounds(newX2, newY2, ancho2, alto2);
 			
@@ -90,16 +84,24 @@ public class GUI extends JFrame {
 		}
 	}
 	
-	private void agregarDibujo() {
+	public void agregarDibujoo(JLabel obj){
 		
+		obj.setBounds(544, 249, 62, 38);
+		obj.setVisible(true);
+		panelFondo.add(obj, 1);
+				
+	}
+	
+	public void agregarDibujo() {
+		/*	
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 		dibujo = new JLabel(imagen);
 		dibujo.setBounds(544, 249, 62, 38);
-		getContentPane().add(dibujo);
+		panelFondo.add(dibujo);
 		
 		dibujo2 = new JLabel(imagen);
 		dibujo2.setBounds(544, 314, 62, 38);
-		getContentPane().add(dibujo2);
+		panelFondo.add(dibujo2);
 		
 		
 		JButton btn_salir = new JButton("X"); 
@@ -109,7 +111,7 @@ public class GUI extends JFrame {
 		btn_salir.setContentAreaFilled(false);
 		btn_salir.setBorderPainted(false);
 		btn_salir.setOpaque(false);
-		contentPane.add(btn_salir);
+		panelFondo.add(btn_salir);
 				
 		btn_salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -154,7 +156,9 @@ public class GUI extends JFrame {
 		btn_mover_frame.setBorderPainted(false);
 		btn_mover_frame.setOpaque(false);
 		btn_mover_frame.setBounds(1, 0, 698, 38);
-		contentPane.add(btn_mover_frame);
+		panelFondo.add(btn_mover_frame);
+		
+		*/
 		
 	}
 	private void agregarDibujo2() {
@@ -165,12 +169,12 @@ public class GUI extends JFrame {
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.png"));
 		fondo = new JLabel(imagen);
 		fondo.setBounds(0, 0, 756, 485);
-		getContentPane().add(fondo);
+		panelFondo.add(fondo,0);
 		{
 			panel = new JPanel();
 			panel.setBackground(new Color(218, 165, 32));
 			panel.setBounds(0, 485, 756, 95);
-			contentPane.add(panel);
+			panelFondo.add(panel);
 			panel.setLayout(null);
 			{
 				lblTienda = new JLabel("Tienda");
