@@ -26,6 +26,4 @@ public abstract class GameObject {
 		this.dibujo = dibujo;
 	}
 	
-	
-
 }

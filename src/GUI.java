@@ -84,7 +84,7 @@ public class GUI extends JFrame {
 		
 		obj.setBounds(544, 249, 62, 38);
 		obj.setVisible(true);
-		panelFondo.add(obj, 1);
+		panelFondo.add(obj);
 				
 	}
 	
@@ -170,7 +170,7 @@ public class GUI extends JFrame {
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.png"));
 		fondo = new JLabel(imagen);
 		fondo.setBounds(0, 0, 756, 485);
-		panelFondo.add(fondo,0);
+		panelFondo.add(fondo);
 		{
 			panelTienda = new JPanel();
 			panelTienda.setBackground(new Color(218, 165, 32));
