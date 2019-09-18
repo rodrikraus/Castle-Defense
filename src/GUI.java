@@ -27,7 +27,7 @@ import java.awt.event.MouseMotionAdapter;
 public class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel panelFondo,panel;
+	private JPanel panelFondo,panelTienda;
 	private JLabel dibujo, fondo, dibujo2;
 	private JLabel lblTienda;
     private Point initialClick;
@@ -171,16 +171,16 @@ public class GUI extends JFrame {
 		fondo.setBounds(0, 0, 756, 485);
 		panelFondo.add(fondo,0);
 		{
-			panel = new JPanel();
-			panel.setBackground(new Color(218, 165, 32));
-			panel.setBounds(0, 485, 756, 95);
-			panelFondo.add(panel);
-			panel.setLayout(null);
+			panelTienda = new JPanel();
+			panelTienda.setBackground(new Color(218, 165, 32));
+			panelTienda.setBounds(0, 485, 756, 95);
+			panelFondo.add(panelTienda);
+			panelTienda.setLayout(null);
 			{
 				lblTienda = new JLabel("Tienda");
 				lblTienda.setBounds(30, 12, 54, 17);
 				lblTienda.setFont(new Font("Dialog", Font.BOLD, 14));
-				panel.add(lblTienda);
+				panelTienda.add(lblTienda);
 			}
 		}
 	}	
