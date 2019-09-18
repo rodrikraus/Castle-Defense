@@ -43,9 +43,10 @@ public class GUI extends JFrame {
 		panelFondo.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
-		this.agregarDibujo();
+		//this.agregarDibujo();
 		//this.agregarDibujo2();
-		//this.agregarFondo();
+		this.agregarFondo();
+		//this.agregarDibujo();
 		this.agregarBotonesGenerales();
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
 		//p1 = new Perro(new Punto(544,400));
