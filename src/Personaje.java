@@ -2,7 +2,7 @@
 public abstract class Personaje extends GameObject{
 	
 	protected int rango;
-	protected int daño;
+	protected int danio;
 	
 	public int getRango() {
 		return rango;
@@ -11,10 +11,10 @@ public abstract class Personaje extends GameObject{
 		this.rango = rango;
 	}
 	public int getDaño() {
-		return daño;
+		return danio;
 	}
-	public void setDaño(int daño) {
-		this.daño = daño;
+	public void setDaño(int danio) {
+		this.danio = danio;
 	}
 	
 	
