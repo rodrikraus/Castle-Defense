@@ -14,7 +14,7 @@ public class Perro extends Enemigo {
 		//dibujo.setBounds(p.getX(), p.getY(), ancho, largo);
 		rango = 1;
 		danio = 10;
-		//velocidad = ¿RAPIDA?
+		//velocidad = RAPIDA
 		puntos = 35;
 		monedas = 30;		
 	}
