@@ -10,10 +10,10 @@ public abstract class Personaje extends GameObject{
 	public void setRango(int rango) {
 		this.rango = rango;
 	}
-	public int getDaño() {
+	public int getDanio() {
 		return danio;
 	}
-	public void setDaño(int danio) {
+	public void setDanio(int danio) {
 		this.danio = danio;
 	}
 	
