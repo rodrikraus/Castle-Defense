@@ -40,20 +40,16 @@ public class GUI extends JFrame {
 		setBounds(100, 100, 756, 580);
 		setUndecorated(true);
 		panelFondo = new JPanel();
-		
 		panelFondo.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
-		
-		this.agregarDibujo();
-		this.agregarDibujo2();
+		//this.agregarDibujo();
+		//this.agregarDibujo2();
 		this.agregarFondo();
+		this.agregarBotonesGenerales();
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
-
 		//p1 = new Perro(new Punto(544,400));
-		//panelFondo.add(p1.getDibujo());
-		
-		
+		//panelFondo.add(p1.getDibujo());		
 	}
 
 	public void moverse() {
@@ -102,7 +98,16 @@ public class GUI extends JFrame {
 		dibujo2 = new JLabel(imagen);
 		dibujo2.setBounds(544, 314, 62, 38);
 		panelFondo.add(dibujo2);
+		*/		
+	}
 		
+	private void agregarDibujo2() {
+		
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
+	
+	}
+	
+	private void agregarBotonesGenerales() {
 		
 		JButton btn_salir = new JButton("X"); 
 		btn_salir.setBounds(711, 0, 45, 30);
@@ -157,15 +162,11 @@ public class GUI extends JFrame {
 		btn_mover_frame.setOpaque(false);
 		btn_mover_frame.setBounds(1, 0, 698, 38);
 		panelFondo.add(btn_mover_frame);
-		
-		*/
-		
-	}
-	private void agregarDibujo2() {
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
+			
 	}
 	
 	private void agregarFondo() {
+		
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.png"));
 		fondo = new JLabel(imagen);
 		fondo.setBounds(0, 0, 756, 485);
