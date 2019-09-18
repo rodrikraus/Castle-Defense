@@ -43,7 +43,7 @@ public class GUI extends JFrame {
 		panelFondo.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
-		//this.agregarDibujo();
+		this.agregarDibujo();
 		//this.agregarDibujo2();
 		//this.agregarFondo();
 		this.agregarBotonesGenerales();
@@ -80,6 +80,17 @@ public class GUI extends JFrame {
 		}
 	}
 	
+	public void agregarDibujooo(GameObject e) {
+		int x= e.getUbicacion().getX();
+		int y= e.getUbicacion().getY();
+		int ancho= e.getAncho();
+		int largo=e.getLargo();
+		JLabel dibujo= e.getDibujo();
+		dibujo.setBounds(x, y,ancho, largo);
+		dibujo.setVisible(true);
+		panelFondo.add(dibujo);		
+	}
+	
 	public void agregarDibujoo(JLabel obj){
 		
 		obj.setBounds(544, 249, 62, 38);
@@ -88,24 +99,25 @@ public class GUI extends JFrame {
 				
 	}
 	
-	public void agregarDibujo() {
-		/*	
+	public void agregarDibujo(){
+		
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 		dibujo = new JLabel(imagen);
 		dibujo.setBounds(544, 249, 62, 38);
 		panelFondo.add(dibujo);
-		
+		/*
 		dibujo2 = new JLabel(imagen);
 		dibujo2.setBounds(544, 314, 62, 38);
 		panelFondo.add(dibujo2);
 		*/		
 	}
-		
+	
+	/*
 	private void agregarDibujo2() {
 		
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 	
-	}
+	}*/
 	
 	private void agregarBotonesGenerales() {
 		

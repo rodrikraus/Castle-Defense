@@ -5,6 +5,8 @@ public abstract class GameObject {
 	protected int vida;
 	protected Punto ubicacion;
 	protected JLabel dibujo;
+	protected int ancho;
+	protected int largo;
 	
 	public int getVida() {
 		return vida;
@@ -25,5 +27,13 @@ public abstract class GameObject {
 	public void setDibujo(JLabel dibujo) {
 		this.dibujo = dibujo;
 	}
+	public int getAncho() {
+		return ancho;
+	}
+	public int getLargo() {
+		return largo;
+	}
+	
+	
 	
 }

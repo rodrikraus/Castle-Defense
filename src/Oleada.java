@@ -7,8 +7,9 @@ public class Oleada {
 		
 		Punto punto=new Punto(544, 249);
 		GameObject p1= new Perro(punto);
+		Perro p= new Perro(punto);
 		gg=g;
-		g.agregarDibujoo(p1.getDibujo());
+		gg.agregarDibujooo(p);
 		
 	}
 
