@@ -45,7 +45,7 @@ public class GUI extends JFrame {
 		panelFondo.setLayout(null);
 		//this.agregarDibujo();
 		//this.agregarDibujo2();
-		this.agregarFondo();
+		//this.agregarFondo();
 		this.agregarBotonesGenerales();
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
 		//p1 = new Perro(new Punto(544,400));
@@ -55,6 +55,7 @@ public class GUI extends JFrame {
 	public void moverse() {
 		
 		while(true) {
+			
 			Rectangle pos = dibujo.getBounds();
 			Rectangle pos2 = dibujo2.getBounds();
 			
@@ -67,8 +68,7 @@ public class GUI extends JFrame {
 			int newY2 = (int) pos2.getY();
 			int ancho2 = (int) pos2.getWidth();
 			int alto2 = (int) pos2.getHeight();
-					
-			
+						
 			dibujo.setBounds(newX, newY, ancho, alto);	
 			dibujo2.setBounds(newX2, newY2, ancho2, alto2);
 			
