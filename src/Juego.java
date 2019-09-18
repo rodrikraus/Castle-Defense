@@ -1,13 +1,13 @@
 
 public class Juego {
 	
-	Oleada o1;
+	protected Oleada o1;
 	
-	Juego(){
+	public Juego(){
 		
 		GUI frame = new GUI();
 		frame.setVisible(true);
-		o1=new Oleada(frame);
+		o1 = new Oleada(frame);
 	}
 	
 	

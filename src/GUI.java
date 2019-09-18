@@ -31,7 +31,6 @@ public class GUI extends JFrame {
 	private JLabel dibujo, fondo, dibujo2;
 	private JLabel lblTienda;
     private Point initialClick;
-    //private Perro p1;
 	
 	public GUI() {
 		
@@ -44,7 +43,6 @@ public class GUI extends JFrame {
 		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
 		//this.agregarDibujo();
-		//this.agregarDibujo2();
 		this.agregarFondo();
 		//this.agregarDibujo();
 		this.agregarBotonesGenerales();
@@ -82,14 +80,14 @@ public class GUI extends JFrame {
 	}
 	
 	public void agregarDibujooo(GameObject e) {
-		int x= e.getUbicacion().getX();
-		int y= e.getUbicacion().getY();
-		int ancho= e.getAncho();
-		int largo=e.getLargo();
-		JLabel dibujo= e.getDibujo();
-		dibujo.setBounds(x, y,ancho, largo);
+		int x = e.getUbicacion().getX();
+		int y = e.getUbicacion().getY();
+		int ancho = e.getAncho();
+		int largo = e.getLargo();
+		JLabel dibujo = e.getDibujo();
+		dibujo.setBounds(x, y, ancho, largo);
 		dibujo.setVisible(true);
-		panelFondo.add(dibujo);		
+		panelFondo.add(dibujo,2);		
 	}
 	
 	public void agregarDibujoo(JLabel obj){
@@ -113,14 +111,14 @@ public class GUI extends JFrame {
 		*/		
 	}
 	
-	/*
-	private void agregarDibujo2() {
-		
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
-	
-	}*/
 	
 	private void agregarBotonesGenerales() {
+			
+	}
+	
+	private void agregarFondo() {
+		
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.png"));
 		
 		JButton btn_salir = new JButton("X"); 
 		btn_salir.setBounds(711, 0, 45, 30);
@@ -130,10 +128,10 @@ public class GUI extends JFrame {
 		btn_salir.setBorderPainted(false);
 		btn_salir.setOpaque(false);
 		panelFondo.add(btn_salir);
-				
+		
 		btn_salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
+		System.exit(0);
 			}
 		});
 		JButton btn_mover_frame = new JButton("");
@@ -175,12 +173,6 @@ public class GUI extends JFrame {
 		btn_mover_frame.setOpaque(false);
 		btn_mover_frame.setBounds(1, 0, 698, 38);
 		panelFondo.add(btn_mover_frame);
-			
-	}
-	
-	private void agregarFondo() {
-		
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.png"));
 		fondo = new JLabel(imagen);
 		fondo.setBounds(0, 0, 756, 485);
 		panelFondo.add(fondo);
