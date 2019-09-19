@@ -30,10 +30,9 @@ public abstract class GameObject {
 	public int getAncho() {
 		return ancho;
 	}
+	
 	public int getLargo() {
 		return largo;
 	}
-	
-	
-	
+		
 }

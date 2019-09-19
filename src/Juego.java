@@ -1,13 +1,22 @@
 
 public class Juego {
 	
-	protected Oleada o1;
+	protected GUI g;
+	protected Oleada o;
 	
 	public Juego(){
+		g= new GUI();
+		g.setVisible(true);
+		o= new Oleada();
+		generarOleada();
+	}
+	
+	
+	public void generarOleada(){
 		
-		GUI frame = new GUI();
-		frame.setVisible(true);
-		o1 = new Oleada(frame);
+		Enemigo[] lista=o.oleada1();
+		g.agregarDibujo(lista[0]);
+		
 	}
 	
 	

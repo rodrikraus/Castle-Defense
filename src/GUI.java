@@ -34,7 +34,6 @@ public class GUI extends JFrame {
 	
 	public GUI() {
 		
-		//panelFondo.setLayout(null);	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 580);
 		setUndecorated(true);
@@ -42,13 +41,13 @@ public class GUI extends JFrame {
 		panelFondo.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
-		//this.agregarDibujo();
-		this.agregarFondo();
-		//this.agregarDibujo();
+		
 		this.agregarBotonesGenerales();
+		this.agregarFondo();
+		
+		
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
-		//p1 = new Perro(new Punto(544,400));
-		//panelFondo.add(p1.getDibujo());		
+				
 	}
 
 	public void moverse() {
@@ -79,7 +78,8 @@ public class GUI extends JFrame {
 		}
 	}
 	
-	public void agregarDibujooo(GameObject e) {
+	public void agregarDibujo(GameObject e) {
+		
 		int x = e.getUbicacion().getX();
 		int y = e.getUbicacion().getY();
 		int ancho = e.getAncho();
@@ -87,39 +87,10 @@ public class GUI extends JFrame {
 		JLabel dibujo = e.getDibujo();
 		dibujo.setBounds(x, y, ancho, largo);
 		dibujo.setVisible(true);
-		panelFondo.add(dibujo,2);		
+		panelFondo.add(dibujo,0);		
 	}
-	
-	public void agregarDibujoo(JLabel obj){
 		
-		obj.setBounds(544, 249, 62, 38);
-		obj.setVisible(true);
-		panelFondo.add(obj);
-				
-	}
-	
-	public void agregarDibujo(){
-		
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
-		dibujo = new JLabel(imagen);
-		dibujo.setBounds(544, 249, 62, 38);
-		panelFondo.add(dibujo);
-		/*
-		dibujo2 = new JLabel(imagen);
-		dibujo2.setBounds(544, 314, 62, 38);
-		panelFondo.add(dibujo2);
-		*/		
-	}
-	
-	
 	private void agregarBotonesGenerales() {
-			
-	}
-	
-	private void agregarFondo() {
-		
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.png"));
-		
 		JButton btn_salir = new JButton("X"); 
 		btn_salir.setBounds(711, 0, 45, 30);
 		btn_salir.setFont(new Font("Dialog", Font.BOLD, 14));
@@ -173,9 +144,18 @@ public class GUI extends JFrame {
 		btn_mover_frame.setOpaque(false);
 		btn_mover_frame.setBounds(1, 0, 698, 38);
 		panelFondo.add(btn_mover_frame);
+			
+	}
+	
+	private void agregarFondo() {
+		
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.png"));
 		fondo = new JLabel(imagen);
 		fondo.setBounds(0, 0, 756, 485);
 		panelFondo.add(fondo);
+		
+		
+		
 		{
 			panelTienda = new JPanel();
 			panelTienda.setBackground(new Color(218, 165, 32));
