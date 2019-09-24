@@ -99,7 +99,7 @@ public class GUI extends JFrame {
 		
 		btn_salir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-		System.exit(0);
+				System.exit(0);
 			}
 		});
 		JButton btn_mover_frame = new JButton("");
