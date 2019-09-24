@@ -11,7 +11,6 @@ public class Juego {
 		generarOleada();
 	}
 	
-	
 	public void generarOleada(){
 		
 		Enemigo[] lista=o.oleada1();

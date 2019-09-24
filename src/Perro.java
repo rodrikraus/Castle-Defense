@@ -11,7 +11,6 @@ public class Perro extends Enemigo {
 		vida = 30;
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 		dibujo = new JLabel(imagen);
-		//dibujo.setBounds(p.getX(), p.getY(), ancho, largo);
 		rango = 1;
 		danio = 10;
 		//velocidad = RAPIDA

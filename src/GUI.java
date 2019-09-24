@@ -41,11 +41,8 @@ public class GUI extends JFrame {
 		panelFondo.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
-		
 		this.agregarBotonesGenerales();
 		this.agregarFondo();
-		
-		
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
 				
 	}
@@ -153,8 +150,6 @@ public class GUI extends JFrame {
 		fondo = new JLabel(imagen);
 		fondo.setBounds(0, 0, 756, 485);
 		panelFondo.add(fondo);
-		
-		
 		
 		{
 			panelTienda = new JPanel();
