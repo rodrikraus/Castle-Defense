@@ -21,7 +21,7 @@ public abstract class GraphicGameObject {
 	
 	public void mover() {
 		int newX = GO.getUbicacion().x - velocidad;		
-		graphic.setBounds(newX, GO.getUbicacion().y, GO.getUbicacion().ancho , GO.getUbicacion().largo);
+		//graphic.setBounds(newX, GO.getUbicacion().y, GO.getUbicacion().ancho , GO.getUbicacion().largo);
 	}
 	
 	public void changeGraphic_mover() {
