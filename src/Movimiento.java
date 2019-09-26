@@ -11,7 +11,7 @@ public class Movimiento extends Thread {
 	public void run() {
 		while(true) {
 			try {
-				Thread.sleep(20);
+				Thread.sleep(10);
 			}catch (InterruptedException e) {
 				e.printStackTrace();
 			}

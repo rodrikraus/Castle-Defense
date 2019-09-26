@@ -17,7 +17,9 @@ public class Perro extends Enemigo {
 		danio = 10;
 		//velocidad = RAPIDA
 		puntos = 35;
-		monedas = 30;		
+		monedas = 30;	
+		dibujo.setBounds(ubicacion.getX(), ubicacion.getY(), ancho, largo);	
+		
 	}
 	
 	public int getAncho() {
@@ -27,6 +29,8 @@ public class Perro extends Enemigo {
 	public int getLargo() {
 		return largo;
 	}
+	
+	
 	
 	public void mover() {		
 		Rectangle pos = dibujo.getBounds();		
