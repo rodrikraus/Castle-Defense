@@ -34,5 +34,6 @@ public abstract class GameObject {
 	public int getLargo() {
 		return largo;
 	}
+	
 		
 }
