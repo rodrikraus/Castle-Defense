@@ -1,11 +1,15 @@
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 public class Oleada {
 	
 	protected Enemigo [] arreglo;
+	protected List<Enemigo> miLista=new LinkedList<>();
 	
 	public Oleada(){
-		arreglo= new Enemigo[1];				
+		arreglo= new Enemigo[1];	
+		//miLista.
 	}
 
 	public Enemigo[] oleada1(){		
