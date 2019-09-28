@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.LinkedList;
+import java.util.Random;
 
 import javax.swing.JLabel;
 
@@ -20,9 +21,24 @@ public class Juego {
 		oleada = new Oleada();
 		generarOleada();
 		eliminarPerroBoton();
+		crearAliado();
 		movimiento = new Movimiento(this);
 		movimiento.run();	
 	}
+	
+
+	private void crearAliado() {
+		Random random = new Random();
+		int x = 100;
+		int y = 220;
+		Punto punto = new Punto(x, y);
+		Aliado aliado = new Pirata(punto);
+		gui.agregarDibujo(aliado);
+	}
+
+	
+
+	
 	
 	public void generarOleada(){
 		LinkedList<Enemigo> listaEnemigo = oleada.enemigosToList();

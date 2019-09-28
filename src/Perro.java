@@ -18,22 +18,13 @@ public class Perro extends Enemigo {
 		//velocidad = RAPIDA
 		puntos = 35;
 		monedas = 30;	
-		dibujo.setBounds(ubicacion.getX(), ubicacion.getY(), ancho, largo);	
-		
-	}
-	
-	public int getAncho() {
-		return ancho;
-	}
-
-	public int getLargo() {
-		return largo;
-	}
-	
-	
+		dibujo.setBounds(ubicacion.getX(), ubicacion.getY(), ancho, largo);			
+	}	
 	
 	public void mover() {		
-		Rectangle pos = dibujo.getBounds();		
+		
+		Rectangle pos = dibujo.getBounds();
+		pos.
 		int newX = (int) pos.getX() - 1;
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
