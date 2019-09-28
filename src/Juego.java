@@ -25,19 +25,15 @@ public class Juego {
 	}
 	
 	public void generarOleada(){
-		LinkedList<Enemigo> listaEnemigo=oleada.oleada1();
+		LinkedList<Enemigo> listaEnemigo = oleada.enemigosToList();
 		for(Enemigo e: listaEnemigo) {
 			gui.agregarDibujo(e);			
-		}
-		System.out.println(oleada.getLista().size());
-			
-		//Enemigo[] enemigos = oleada.oleada1();
-		//gui.agregarDibujo(enemigos[0]);		
+		}	
 	}	
 	
 	public void mover() {
 		
-		LinkedList<Enemigo> listaEnemigo=oleada.getLista();
+		LinkedList<Enemigo> listaEnemigo=oleada.getListaEnemigos();
 		for(Enemigo e: listaEnemigo) {
 			e.mover();			
 		}
@@ -48,10 +44,10 @@ public class Juego {
 	}
 	
 	private void desaparecerObjeto( ) {
-		Enemigo ene= oleada.getLista().getFirst();
+		Enemigo ene= oleada.getListaEnemigos().getFirst();
 		JLabel labell=ene.getDibujo();
 		labell.setVisible(false);
-		oleada.getLista().remove(oleada.getLista().getFirst());
+		oleada.getListaEnemigos().remove(oleada.getListaEnemigos().getFirst());
 		/*
 		Enemigo ene = oleada.getArreglo()[0];
 		JLabel labell= ene.getDibujo();
@@ -68,11 +64,9 @@ public class Juego {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				desaparecerObjeto();	
-				System.out.println("hoo"+oleada.getLista().size());
+				System.out.println("hoo"+oleada.getListaEnemigos().size());
 			}
-		});
-		
-		
+		});		
 	}
 }
 
