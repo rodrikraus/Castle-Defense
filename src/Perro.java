@@ -24,7 +24,6 @@ public class Perro extends Enemigo {
 	public void mover() {		
 		
 		Rectangle pos = dibujo.getBounds();
-		pos.
 		int newX = (int) pos.getX() - 1;
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
