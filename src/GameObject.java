@@ -7,6 +7,7 @@ public abstract class GameObject {
 	protected JLabel dibujo;
 	protected int ancho;
 	protected int largo;
+	protected Visitor v;
 	
 	public int getVida() {
 		return vida;
@@ -33,5 +34,8 @@ public abstract class GameObject {
 	
 	public int getLargo() {
 		return largo;
-	}		
+	}	
+	
+	public abstract void accept(Visitor v);
+	
 }
