@@ -38,4 +38,5 @@ public abstract class GameObject {
 	
 	public abstract void accept(Visitor v);
 	
+	public abstract void atacar(GameObject obj); // no se si está bien
 }

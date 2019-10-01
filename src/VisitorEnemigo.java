@@ -1,10 +1,12 @@
 
 public class VisitorEnemigo extends Visitor {
 	
-	public visitAliado(Aliado a) {}
+	public void visitAliado(Aliado a) {
+		// No debe hacer nada		
+	}
 	
-	public visitEnemigo(Enemigo e) {
-		this.miEntidad.atacar(e);
+	public void visitEnemigo(Enemigo e) {
+		obj.atacar(e);
 	}
 
 }
