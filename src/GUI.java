@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Point;
@@ -33,8 +34,11 @@ public class GUI extends JFrame {
     private Point initialClick;
     public JButton btn_borrar;
 	
-	public GUI() {
-		
+    public Component buscarObjeto(int x, int y) {
+    		return findComponentAt(x,y);
+    }
+    
+	public GUI() {		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 580);
 		setUndecorated(true);
@@ -45,7 +49,6 @@ public class GUI extends JFrame {
 		this.agregarBotonesGenerales();
 		this.agregarFondo();
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
-				
 	}
 
 	public void moverse() {

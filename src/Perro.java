@@ -1,3 +1,4 @@
+import java.awt.Component;
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
@@ -21,18 +22,26 @@ public class Perro extends Enemigo {
 		dibujo.setBounds(ubicacion.getX(), ubicacion.getY(), ancho, largo);			
 	}	
 	
-	public void mover() {		
-		
+	public void mover() {			
 		Rectangle pos = dibujo.getBounds();
 		int newX = (int) pos.getX() - 1;
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
 		int alto = (int) pos.getHeight();	
-		dibujo.setBounds(newX, newY, ancho, alto);	
+
+//		if(mapa.intersectaRango(this) == null)
+			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
+//		else {
+			// tiene que atacar, no se como hacerlo con el Visitor
+//		}		
 	}
 	
 	public void morir() {
 		dibujo.setVisible(false); // no se si ésto funca
 	}
-	
+
+	@Override
+	public void atacar(GameObject obj) {
+		// TODO Auto-generated method stub		
+	}	
 }

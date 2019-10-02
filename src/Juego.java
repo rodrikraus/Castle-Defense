@@ -14,8 +14,10 @@ public class Juego {
 	protected GUI gui;
 	protected Oleada oleada;
 	protected Movimiento movimiento;
+	protected Mapa mapa;
 	
 	public Juego(){
+		mapa = new Mapa();
 		gui = new GUI();
 		gui.setVisible(true);
 		oleada = new Oleada();
@@ -24,8 +26,7 @@ public class Juego {
 		crearAliado();
 		movimiento = new Movimiento(this);
 		movimiento.run();	
-	}
-	
+	}	
 
 	private void crearAliado() {
 		Random random = new Random();
@@ -34,11 +35,8 @@ public class Juego {
 		Punto punto = new Punto(x, y);
 		Aliado aliado = new Pirata(punto);
 		gui.agregarDibujo(aliado);
+		mapa.agregarGameObject(aliado);
 	}
-
-	
-
-	
 	
 	public void generarOleada(){
 		LinkedList<Enemigo> listaEnemigo = oleada.enemigosToList();
@@ -47,32 +45,17 @@ public class Juego {
 		}	
 	}	
 	
-	public void mover() {
-		
-		LinkedList<Enemigo> listaEnemigo=oleada.getListaEnemigos();
-		for(Enemigo e: listaEnemigo) {
-			e.mover();			
-		}
-		
-		//Enemigo[] enemigos = oleada.getArreglo();
-		//for(int i=0; i<enemigos.length; i++)
-			//enemigos[i].mover();
+	public void mover() {		
+		LinkedList<Enemigo> listaEnemigo = oleada.getListaEnemigos();
+		for(Enemigo e: listaEnemigo) 
+			e.mover();
 	}
 	
 	private void desaparecerObjeto( ) {
-		Enemigo ene= oleada.getListaEnemigos().getFirst();
-		JLabel labell=ene.getDibujo();
+		Enemigo ene = oleada.getListaEnemigos().getFirst();
+		JLabel labell = ene.getDibujo();
 		labell.setVisible(false);
-		oleada.getListaEnemigos().remove(oleada.getListaEnemigos().getFirst());
-		/*
-		Enemigo ene = oleada.getArreglo()[0];
-		JLabel labell= ene.getDibujo();
-		labell.setVisible(false);
-		//gui.remove(labell);
-		oleada.getArreglo()[0]=null;
-		*/
-		
-		
+		oleada.getListaEnemigos().remove(oleada.getListaEnemigos().getFirst());		
 	}
 	
 	public void eliminarPerroBoton() {

@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Oleada {
 	
-	protected LinkedList<Enemigo> listaEnemigos;
+	protected static LinkedList<Enemigo> listaEnemigos;
 	
 	public Oleada(){
 		listaEnemigos=new LinkedList<Enemigo>();		

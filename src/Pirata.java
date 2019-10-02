@@ -21,4 +21,10 @@ public class Pirata extends Aliado {
 	public void morir() {
 		dibujo.setVisible(false); // no se si ésto funca
 	}
+
+	@Override
+	public void atacar(GameObject obj) {
+		// TODO Auto-generated method stub
+		
+	}
 }

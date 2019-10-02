@@ -8,6 +8,16 @@ public abstract class GameObject {
 	protected int ancho;
 	protected int largo;
 	protected Visitor v;
+	protected Mapa mapa;
+	protected int rango;
+	
+	
+	public int getRango() {
+		return rango;
+	}
+	public void setRango(int rango) {
+		this.rango = rango;
+	}
 	
 	public int getVida() {
 		return vida;
