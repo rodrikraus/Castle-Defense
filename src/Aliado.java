@@ -2,7 +2,6 @@
 public abstract class Aliado extends Personaje {
 	
 	protected int costo;
-	protected Visitor miVisitor;
 	
 	public void setCosto(int c) {
 		costo = c;
@@ -15,5 +14,4 @@ public abstract class Aliado extends Personaje {
 	public void accept(Visitor v) {
 		v.visitAliado(this);
 	}
-	
 }

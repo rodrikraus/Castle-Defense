@@ -11,6 +11,9 @@ public abstract class GameObject {
 	protected Mapa mapa;
 	protected int rango;
 	
+	public void setMapa(Mapa mapa) {
+		this.mapa = mapa;
+	}
 	
 	public int getRango() {
 		return rango;
@@ -48,5 +51,7 @@ public abstract class GameObject {
 	
 	public abstract void accept(Visitor v);
 	
-	public abstract void atacar(GameObject obj); // no se si está bien
+	public abstract void atacar(GameObject obj); // no se si está bien	
+
+	public abstract void interactuar();
 }

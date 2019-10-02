@@ -1,4 +1,4 @@
-
+	
 public class VisitorAliado extends Visitor {
 	
 	public void visitAliado(Aliado a) {

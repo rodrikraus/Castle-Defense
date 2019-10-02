@@ -19,7 +19,8 @@ public class Perro extends Enemigo {
 		//velocidad = RAPIDA
 		puntos = 35;
 		monedas = 30;	
-		dibujo.setBounds(ubicacion.getX(), ubicacion.getY(), ancho, largo);			
+		dibujo.setBounds(ubicacion.getX(), ubicacion.getY(), ancho, largo);	
+		v = new VisitorEnemigo();
 	}	
 	
 	public void mover() {			
@@ -29,11 +30,13 @@ public class Perro extends Enemigo {
 		int ancho = (int) pos.getWidth();
 		int alto = (int) pos.getHeight();	
 
-//		if(mapa.intersectaRango(this) == null)
+		GameObject objIntersectado = mapa.intersectaObjeto(this);
+		if(objIntersectado == null)
 			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
-//		else {
-			// tiene que atacar, no se como hacerlo con el Visitor
-//		}		
+		else {
+			v.setObj(objIntersectado);
+			accept(v);
+		}		
 	}
 	
 	public void morir() {
@@ -42,6 +45,20 @@ public class Perro extends Enemigo {
 
 	@Override
 	public void atacar(GameObject obj) {
-		// TODO Auto-generated method stub		
-	}	
+		obj.setVida(obj.getVida()-5);
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if(obj.getVida()<=0)
+			obj.getDibujo().setVisible(false);
+	}
+
+	@Override
+	public void interactuar() {
+		
+		
+	}
+
 }

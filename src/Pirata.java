@@ -14,7 +14,8 @@ public class Pirata extends Aliado {
 		dibujo.setBounds(ubicacion.getX(), ubicacion.getY(), ancho, largo);
 		rango = 3;
 		danio = 20;
-		costo = 160;		
+		costo = 160;			
+		v = new VisitorAliado();
 	}	
 	
 	@Override
@@ -24,7 +25,21 @@ public class Pirata extends Aliado {
 
 	@Override
 	public void atacar(GameObject obj) {
-		// TODO Auto-generated method stub
-		
+		obj.setVida(obj.getVida()-20);
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if(obj.getVida()<=0)
+			obj.getDibujo().setVisible(false);
 	}
+
+	@Override
+	public void interactuar() {
+		GameObject objIntersectado = mapa.intersectaObjeto(this);
+		if(objIntersectado != null)
+			v.setObj(objIntersectado);
+		//	accept(v);
+	}	
 }

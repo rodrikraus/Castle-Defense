@@ -36,11 +36,13 @@ public class Juego {
 		Aliado aliado = new Pirata(punto);
 		gui.agregarDibujo(aliado);
 		mapa.agregarGameObject(aliado);
+		aliado.setMapa(mapa);
 	}
 	
 	public void generarOleada(){
 		LinkedList<Enemigo> listaEnemigo = oleada.enemigosToList();
 		for(Enemigo e: listaEnemigo) {
+			e.setMapa(mapa);
 			gui.agregarDibujo(e);			
 		}	
 	}	
@@ -49,6 +51,9 @@ public class Juego {
 		LinkedList<Enemigo> listaEnemigo = oleada.getListaEnemigos();
 		for(Enemigo e: listaEnemigo) 
 			e.mover();
+		for(GameObject obj : mapa.getLista()) {
+			obj.interactuar();
+		}
 	}
 	
 	private void desaparecerObjeto( ) {
