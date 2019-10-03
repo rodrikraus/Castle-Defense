@@ -7,7 +7,7 @@ public abstract class Visitor {
 	public abstract void visitEnemigo(Enemigo e);
 	
 	public abstract void visitAliado(Aliado a);
-	
+	 /*
 	public GameObject getObj(){
 		return obj;
 	}
@@ -15,4 +15,5 @@ public abstract class Visitor {
 	public void setObj(GameObject obj) {
 		this.obj = obj;
 	}
+	*/
 }

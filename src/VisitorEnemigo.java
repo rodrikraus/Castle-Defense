@@ -1,12 +1,15 @@
 
 public class VisitorEnemigo extends Visitor {
 	
+	//usada por enemigos
+	
 	public void visitAliado(Aliado a) {
-		// No debe hacer nada		
+		obj.atacar(a);	
 	}
 	
 	public void visitEnemigo(Enemigo e) {
-		obj.atacar(e);
+		// No debe hacer nada
+		
 	}
 
 }

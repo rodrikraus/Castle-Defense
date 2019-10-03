@@ -2,6 +2,7 @@
 public abstract class Personaje extends GameObject{
 	
 	protected int danio;
+	protected Visitor v;
 	
 	public abstract void morir();
 
@@ -11,7 +12,6 @@ public abstract class Personaje extends GameObject{
 	public void setDanio(int danio) {
 		this.danio = danio;
 	}
-	
 	
 	
 }
