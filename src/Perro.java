@@ -20,7 +20,7 @@ public class Perro extends Enemigo {
 		puntos = 35;
 		monedas = 30;	
 		dibujo.setBounds(ubicacion.getX(), ubicacion.getY(), ancho, largo);	
-		v = new VisitorEnemigo();
+		v = new VisitorEnemigo(this);
 	}	
 	
 	public void mover() {			
@@ -34,7 +34,6 @@ public class Perro extends Enemigo {
 		if(objIntersectado == null)
 			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
 		else {
-			v.setObj(objIntersectado);
 			accept(v);
 		}		
 	}

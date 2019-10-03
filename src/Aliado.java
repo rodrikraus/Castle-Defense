@@ -12,6 +12,6 @@ public abstract class Aliado extends Personaje {
 	}
 	
 	public void accept(Visitor v) {
-		v.visitAliado(this);
+		//v.visitEnemigo(this);
 	}
 }

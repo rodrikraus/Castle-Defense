@@ -15,7 +15,7 @@ public class Pirata extends Aliado {
 		rango = 3;
 		danio = 20;
 		costo = 160;			
-		v = new VisitorAliado();
+		v = new VisitorAliado(this);
 	}	
 	
 	@Override
@@ -39,7 +39,6 @@ public class Pirata extends Aliado {
 	public void interactuar() {
 		GameObject objIntersectado = mapa.intersectaObjeto(this);
 		if(objIntersectado != null)
-			v.setObj(objIntersectado);
-		//	accept(v);
+			accept(v);
 	}	
 }
