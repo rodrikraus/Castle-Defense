@@ -5,8 +5,8 @@ public class Tienda {
 		
 	}
 	
-	public void setToAdd(Entrada e){
+	//public void setToAdd(Entrada e){
 		
-	}
+	//}
 
 }
