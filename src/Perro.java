@@ -36,7 +36,7 @@ public class Perro extends Enemigo {
 		else {
 			this.accept(objIntersectado.getVisitor());
 		}		
-	}
+	    }
 	
 	public void morir() {
 		dibujo.setVisible(false); // no se si ésto funca
