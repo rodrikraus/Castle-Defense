@@ -5,7 +5,7 @@ public abstract class Enemigo extends Personaje {
 	protected int puntos;
 	protected int monedas;
 	
-	public abstract void mover();
+	public abstract void interactuar();
 	
 	public int getVelocidad() {
 		return velocidad;

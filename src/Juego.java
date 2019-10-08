@@ -1,45 +1,20 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.LinkedList;
 import java.util.Random;
-
-import javax.swing.JLabel;
 
 public class Juego {
 	
 	protected GUI gui;
-	protected Oleada oleada;
 	protected Movimiento movimiento;
 	protected Mapa mapa;
 	
 	public Juego(){
-		mapa = new Mapa();
 		gui = new GUI();
 		gui.setVisible(true);
-		oleada = new Oleada(mapa);
-		generarOleada();
-		eliminarPerroBoton();
+		mapa = new Mapa(gui);
+		mapa.crearNivelUno();
 		crearAliado();
-//		crearEnemigo();
 		movimiento = new Movimiento(this);
 		movimiento.run();	
 	}	
-
-/*	private void crearEnemigo() {
-		Random random = new Random();
-		int x = 500;
-		int y = 230;
-		Punto punto = new Punto(x, y);
-		Enemigo aliado = new Perro(punto);
-		gui.agregarDibujo(aliado);
-		mapa.agregarGameObject(aliado);
-		aliado.setMapa(mapa);
-	}
-	*/
 
 	private void crearAliado() {
 		Random random = new Random();
@@ -48,42 +23,29 @@ public class Juego {
 		Punto punto = new Punto(x, y);
 		Aliado aliado = new Pirata(punto);
 		gui.agregarDibujo(aliado);
-		mapa.agregarGameObject(aliado);
+		mapa.getListaPrincipal().add(aliado);
 		aliado.setMapa(mapa);
 	}
 	
-	public void generarOleada(){
-		LinkedList<Enemigo> listaEnemigo = oleada.enemigosToList();
-		for(Enemigo e: listaEnemigo) {
-			e.setMapa(mapa);
-			gui.agregarDibujo(e);			
-		}	
-	}	
-	
-	public void mover() {		
-		LinkedList<Enemigo> listaEnemigo = oleada.getListaEnemigos();
-		for(Enemigo e: listaEnemigo) 
-			e.mover();
-		for(GameObject obj : mapa.getLista()) {
-			obj.interactuar();
+	public void interactuar() {	
+		
+		for(GameObject obj : mapa.getListaPrincipal()) {
+			if(obj.getVida()>0)
+				obj.interactuar();
+			else
+				obj.morir();
 		}
-	}
-	
-	private void desaparecerObjeto( ) {
-		Enemigo ene = oleada.getListaEnemigos().getFirst();
-		JLabel labell = ene.getDibujo();
-		labell.setVisible(false);
-		oleada.getListaEnemigos().remove(oleada.getListaEnemigos().getFirst());		
-	}
-	
-	public void eliminarPerroBoton() {
-		gui.btn_borrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				desaparecerObjeto();	
-				System.out.println("hoo"+oleada.getListaEnemigos().size());
-			}
-		});		
+		for(GameObject obj : mapa.getListaEliminar()) { 
+			mapa.getListaPrincipal().remove(obj);
+			mapa.getListaEliminar().remove(obj);
+			obj.getDibujo().setVisible(false);
+			obj = null;
+		}
+		
+		for(GameObject obj : mapa.getListaAgregar()) {
+			mapa.getListaPrincipal().add(obj);
+			mapa.getListaAgregar().remove(obj);
+		}
 	}
 }
 

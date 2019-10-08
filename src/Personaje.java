@@ -2,8 +2,6 @@
 public abstract class Personaje extends GameObject{
 	
 	protected int danio;
-	
-	public abstract void morir();
 
 	public int getDanio() {
 		return danio;

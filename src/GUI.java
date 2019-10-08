@@ -32,7 +32,6 @@ public class GUI extends JFrame {
 	private JLabel dibujo, fondo, dibujo2;
 	private JLabel lblTienda;
     private Point initialClick;
-    public JButton btn_borrar;
 	
     public Component buscarObjeto(int x, int y) {
     		return findComponentAt(x,y);
@@ -92,12 +91,7 @@ public class GUI extends JFrame {
 	}
 		
 	private void agregarBotonesGenerales() {
-		
-		btn_borrar=new JButton("BorrarPerro");
-		btn_borrar.setBounds(500, 80, 70, 70);
-		panelFondo.add(btn_borrar);
-		
-				
+						
 		JButton btn_salir = new JButton("X"); 
 		btn_salir.setBounds(711, 0, 45, 30);
 		btn_salir.setFont(new Font("Dialog", Font.BOLD, 14));

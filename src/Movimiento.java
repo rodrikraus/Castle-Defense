@@ -15,7 +15,7 @@ public class Movimiento extends Thread {
 			}catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			juego.mover();
+			juego.interactuar();
 		}
 	}
 }

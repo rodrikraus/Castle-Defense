@@ -2,6 +2,8 @@ import java.awt.Point;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
+
+// clase candidata a ser borrada
 public abstract class GraphicGameObject {
 	
 	protected JLabel graphic;

@@ -58,4 +58,8 @@ public abstract class GameObject {
 	public Visitor getVisitor() {
 		return v;
 	}
+	
+	public void morir() {
+		mapa.getListaEliminar().add(this);
+	}
 }
