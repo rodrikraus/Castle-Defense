@@ -27,7 +27,7 @@ public abstract class Enemigo extends Personaje {
 	}
 	
 	public void accept(Visitor v){
-		v.visitEnemigo(this);
+		v.visitEnemigo(this);   // bien
 	}
 
 }

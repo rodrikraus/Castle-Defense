@@ -8,12 +8,11 @@ public class VisitorAliado extends Visitor {
 		
 	}
 
-	public void visitAliado(Aliado a) {
+	public void visitAliado(Aliado a) { // bien
 		// No debe hacer nada
 	}
 	
-	public void visitEnemigo(Enemigo e) {
-		obj.atacar(e);
+	public void visitEnemigo(Enemigo e) { // bien
+		obj.atacar(e); 
 	}
-
 }

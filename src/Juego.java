@@ -20,13 +20,26 @@ public class Juego {
 		mapa = new Mapa();
 		gui = new GUI();
 		gui.setVisible(true);
-		oleada = new Oleada();
+		oleada = new Oleada(mapa);
 		generarOleada();
 		eliminarPerroBoton();
 		crearAliado();
+//		crearEnemigo();
 		movimiento = new Movimiento(this);
 		movimiento.run();	
 	}	
+
+/*	private void crearEnemigo() {
+		Random random = new Random();
+		int x = 500;
+		int y = 230;
+		Punto punto = new Punto(x, y);
+		Enemigo aliado = new Perro(punto);
+		gui.agregarDibujo(aliado);
+		mapa.agregarGameObject(aliado);
+		aliado.setMapa(mapa);
+	}
+	*/
 
 	private void crearAliado() {
 		Random random = new Random();

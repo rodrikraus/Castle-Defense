@@ -25,20 +25,21 @@ public class Pirata extends Aliado {
 
 	@Override
 	public void atacar(GameObject obj) {
-		obj.setVida(obj.getVida()-20);
+		obj.setVida(obj.getVida()-5);
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}
+	} 
 		if(obj.getVida()<=0)
-			obj.getDibujo().setVisible(false);
+			obj.getDibujo().setVisible(false); 
 	}
 
 	@Override
 	public void interactuar() {
 		GameObject objIntersectado = mapa.intersectaObjeto(this);
-		if(objIntersectado != null)
-			accept(v);
+		if(objIntersectado != null) {
+			accept(objIntersectado.getVisitor());
+		}
 	}	
 }

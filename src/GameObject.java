@@ -54,4 +54,8 @@ public abstract class GameObject {
 	public abstract void atacar(GameObject obj); // no se si está bien	
 
 	public abstract void interactuar();
+
+	public Visitor getVisitor() {
+		return v;
+	}
 }

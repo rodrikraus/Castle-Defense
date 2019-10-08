@@ -11,7 +11,7 @@ public class Perro extends Enemigo {
 		ubicacion = punto;
 		ancho = 62;
 		largo = 38;
-		vida = 30;
+		vida = 40;
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 		dibujo = new JLabel(imagen);
 		rango = 1;
@@ -34,7 +34,7 @@ public class Perro extends Enemigo {
 		if(objIntersectado == null)
 			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
 		else {
-			accept(v);
+			this.accept(objIntersectado.getVisitor());
 		}		
 	}
 	

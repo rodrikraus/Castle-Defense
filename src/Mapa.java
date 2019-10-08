@@ -22,8 +22,8 @@ public class Mapa {
 	
 	public GameObject intersectaObjeto(GameObject obj) {
 		for(GameObject elem : lista)
-			if(elem.getDibujo().getBounds().intersects(obj.getDibujo().getBounds()))
-				return elem;
+			if(obj!=elem && elem.getDibujo().getBounds().intersects(obj.getDibujo().getBounds()))
+					return elem;
 		return null;
 	}
 	

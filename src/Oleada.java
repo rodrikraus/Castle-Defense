@@ -3,11 +3,14 @@ import java.util.List;
 import java.util.Random;
 
 public class Oleada {
-	
+
+	protected Mapa mapa;
 	protected static LinkedList<Enemigo> listaEnemigos;
 	
-	public Oleada(){
-		listaEnemigos=new LinkedList<Enemigo>();		
+	public Oleada(Mapa mapa){
+		listaEnemigos=new LinkedList<Enemigo>();
+		this.mapa = mapa;
+		
 	}
 
 	public LinkedList<Enemigo> enemigosToList(){
@@ -22,6 +25,9 @@ public class Oleada {
 		Punto punto = new Punto(x, y);
 		Enemigo enemigo = new Perro(punto);
 		listaEnemigos.add(enemigo);
+		
+		mapa.agregarGameObject(enemigo);
+		
 		return listaEnemigos;		
 	}
 	

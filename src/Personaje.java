@@ -2,7 +2,6 @@
 public abstract class Personaje extends GameObject{
 	
 	protected int danio;
-	protected Visitor v;
 	
 	public abstract void morir();
 
