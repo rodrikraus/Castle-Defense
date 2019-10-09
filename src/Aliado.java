@@ -8,7 +8,7 @@ public abstract class Aliado extends Personaje {
 	}
 	
 	public int getCosto() {
-		return costo;
+		return costo;  
 	}
 	
 	public void accept(Visitor v) {
