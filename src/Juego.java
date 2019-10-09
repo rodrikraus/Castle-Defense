@@ -6,7 +6,7 @@ public class Juego {
 	protected Movimiento movimiento;
 	protected Mapa mapa;
 	
-	public Juego(){
+	public Juego(){ 
 		gui = new GUI();
 		gui.setVisible(true);
 		mapa = new Mapa(gui);
