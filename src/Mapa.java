@@ -17,6 +17,10 @@ public class Mapa {
 		lista_a_eliminar = new LinkedList<GameObject>();
 		gui = g;
 	}
+
+	public void resetLista(List<GameObject> l) {
+		l = new LinkedList<GameObject>();
+	}	
 	
 	public List<GameObject> getListaPrincipal() {
 		return lista_principal;

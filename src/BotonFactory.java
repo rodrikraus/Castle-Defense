@@ -1,33 +1,38 @@
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
 public abstract class BotonFactory extends JButton {
-	protected Tienda t;
+	protected Tienda tienda;
+	protected Mapa mapa;
 	
-	protected BotonFactory() {
+	protected BotonFactory(Tienda t, Mapa m) {
+		tienda = t;
+		mapa = m;
 		//Entrada e= crear();
 		//t.setToAdd(e);
-	}
-
-	
-	public abstract void agregarBotones() ;
-		/*				
-		JButton btn_salir = new JButton("X"); 
-		btn_salir.setBounds(711, 0, 45, 30);
-		btn_salir.setFont(new Font("Dialog", Font.BOLD, 14));
-		btn_salir.setFocusPainted(false);
-		btn_salir.setContentAreaFilled(false);
-		btn_salir.setBorderPainted(false);
-		btn_salir.setOpaque(false);
-		panelFondo.add(btn_salir);
 		
-		btn_salir.addActionListener(new ActionListener() {
+		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
+				Aliado aliado = crearAliado();
+				tienda.setToAdd(aliado);
+				
+	//			Punto punto = tienda.getJuego().getGUI().activarOyentePanelCesped();
+	//			aliado.setUbicacion(punto);
+				
+	//			tienda.getJuego().getGUI().agregarDibujo(aliado);
+	//			mapa.getListaPrincipal().add(aliado);
+	//			aliado.setMapa(mapa);
+				// obtener posicion en la que se va a agregar
+				// llamar oyente de GUI para capturar posicion de click
 			}
 		});
-		*/
+	}
+	
+	
+	public abstract Aliado crearAliado();
+
+	
+		
 }

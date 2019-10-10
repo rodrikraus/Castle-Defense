@@ -23,21 +23,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 
 public class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel panelFondo,panelTienda;
-	private JLabel dibujo, fondo, dibujo2;
-	private JLabel lblTienda;
+	private JPanel panelFondo,panelTienda, panelCesped;
+	private JLabel fondo; // por que global?
+	private JLabel lblTienda; // por que global??
     private Point initialClick;
-	
-    public Component buscarObjeto(int x, int y) {
-    		return findComponentAt(x,y);
-    }
+    private Tienda tienda;
+
+	private Punto punto = null; // punto para saber coordenada de insertar aliado de tienda
     
-	public GUI() {		
+	public GUI(Tienda t) {		
+		tienda = t;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 580);
 		setUndecorated(true);
@@ -45,41 +46,56 @@ public class GUI extends JFrame {
 		panelFondo.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
+		crearPanelCesped();
 		this.agregarBotonesGenerales();
 		this.agregarFondo();
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
-	}
-
-	public void moverse() {
 		
-		while(true) {
-			
-			Rectangle pos = dibujo.getBounds();
-			Rectangle pos2 = dibujo2.getBounds();
-			
-			int newX = (int) pos.getX() - 1;
-			int newY = (int) pos.getY();
-			int ancho = (int) pos.getWidth();
-			int alto = (int) pos.getHeight();	
-			
-			int newX2 = (int) pos2.getX() - 2;			
-			int newY2 = (int) pos2.getY();
-			int ancho2 = (int) pos2.getWidth();
-			int alto2 = (int) pos2.getHeight();
-						
-			dibujo.setBounds(newX, newY, ancho, alto);	
-			dibujo2.setBounds(newX2, newY2, ancho2, alto2);
-			
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				System.out.println("Error ");	
-			}
-		}
+
 	}
 	
-	public void agregarDibujo(GameObject e) {
+	public void crearPanelCesped() {
+		panelCesped = new JPanel();
+		panelCesped.setLayout(null);
+		panelCesped.setBounds(67, 215, 686, 265);
+		panelCesped.setBackground(Color.BLACK);
+		panelFondo.add(panelCesped);
 		
+		panelCesped.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {	
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int x = e.getPoint().x;
+				int y = e.getPoint().y;
+				punto = new Punto(x, y);
+				GameObject obj = tienda.getToAdd();
+				if(obj!=null) {
+					obj.setUbicacion(punto);
+					panelCesped.add(obj.getDibujo());
+					tienda.setToAdd(null);
+				}
+				System.out.println(punto.getX()+","+punto.getY());
+			}
+		});
+	}
+
+	public void agregarDibujo(GameObject e) {		
 		int x = e.getUbicacion().getX();
 		int y = e.getUbicacion().getY();
 		int ancho = e.getAncho();

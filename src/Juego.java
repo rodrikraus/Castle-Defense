@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Juego {
@@ -5,17 +6,28 @@ public class Juego {
 	protected GUI gui;
 	protected Movimiento movimiento;
 	protected Mapa mapa;
+	protected Tienda tienda;
 	
 	public Juego(){ 
-		gui = new GUI();
+		gui = new GUI(tienda);
 		gui.setVisible(true);
 		mapa = new Mapa(gui);
 		mapa.crearNivelUno();
 		crearAliado();
+		
+		tienda = new Tienda(this);
 		movimiento = new Movimiento(this);
 		movimiento.run();	
 	}	
 
+	public Mapa getMapa() {
+		return mapa;
+	}
+	
+	public GUI getGUI() {
+		return gui;
+	}
+	
 	private void crearAliado() {
 		Random random = new Random();
 		int x = 100;
@@ -37,15 +49,18 @@ public class Juego {
 		}
 		for(GameObject obj : mapa.getListaEliminar()) { 
 			mapa.getListaPrincipal().remove(obj);
-			mapa.getListaEliminar().remove(obj);
+			//mapa.getListaEliminar().remove(obj);
 			obj.getDibujo().setVisible(false);
 			obj = null;
 		}
+		mapa.resetLista(mapa.getListaEliminar());
+		
 		
 		for(GameObject obj : mapa.getListaAgregar()) {
 			mapa.getListaPrincipal().add(obj);
-			mapa.getListaAgregar().remove(obj);
+			//mapa.getListaAgregar().remove(obj);
 		}
+		mapa.resetLista(mapa.getListaAgregar());
 	}
 }
 
