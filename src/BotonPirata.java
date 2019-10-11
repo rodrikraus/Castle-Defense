@@ -13,8 +13,9 @@ public class BotonPirata extends BotonFactory{
 	@Override
 	public Aliado crearAliado() {
 		// verificar monedas
+		Aliado toReturn = new Pirata();
 		
-		return new Pirata();
+		return toReturn;
 	} 
 	
 }

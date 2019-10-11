@@ -3,6 +3,7 @@ public class Tienda {
 	
 	protected Juego juego;
 	protected GameObject toAdd;
+	protected int monedas;
 	
 	public Tienda(Juego j){
 		juego = j;
