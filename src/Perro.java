@@ -7,8 +7,8 @@ import javax.swing.JLabel;
 public class Perro extends Enemigo {
 	
 	
-	public Perro(Punto punto) {
-		ubicacion = punto;
+	public Perro() {
+		punto = null;
 		ancho = 62;
 		largo = 38;
 		vida = 40;
@@ -19,7 +19,7 @@ public class Perro extends Enemigo {
 		monedas = 30;	
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
 		dibujo = new JLabel(imagen);
-		dibujo.setBounds(ubicacion.getX(), ubicacion.getY(), ancho, largo);	
+		//dibujo.setBounds(punto.getX(), punto.getY(), ancho, largo);	
 		v = new VisitorEnemigo(this);
 	}	
 	

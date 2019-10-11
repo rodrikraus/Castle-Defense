@@ -22,7 +22,7 @@ public abstract class GraphicGameObject {
 	}
 	
 	public void mover() {
-		int newX = GO.getUbicacion().x - velocidad;		
+		int newX = GO.getPunto().x - velocidad;		
 		//graphic.setBounds(newX, GO.getUbicacion().y, GO.getUbicacion().ancho , GO.getUbicacion().largo);
 	}
 	

@@ -62,22 +62,10 @@ public class GUI extends JFrame {
 		panelFondo.add(panelCesped);
 		
 		panelCesped.addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {	
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-			}
+			public void mouseReleased(MouseEvent e) {}			
+			public void mousePressed(MouseEvent e) {}			
+			public void mouseExited(MouseEvent e) {}			
+			public void mouseEntered(MouseEvent e) {}
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -86,18 +74,17 @@ public class GUI extends JFrame {
 				punto = new Punto(x, y);
 				GameObject obj = tienda.getToAdd();
 				if(obj!=null) {
-					obj.setUbicacion(punto);
+					obj.setPunto(punto);
 					panelCesped.add(obj.getDibujo());
 					tienda.setToAdd(null);
 				}
-				System.out.println(punto.getX()+","+punto.getY());
 			}
 		});
 	}
 
 	public void agregarDibujo(GameObject e) {		
-		int x = e.getUbicacion().getX();
-		int y = e.getUbicacion().getY();
+		int x = e.getPunto().getX();
+		int y = e.getPunto().getY();
 		int ancho = e.getAncho();
 		int largo = e.getLargo();
 		JLabel dibujo = e.getDibujo();

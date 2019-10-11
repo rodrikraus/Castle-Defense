@@ -1,18 +1,23 @@
 	
+/*
+ * Clase usada por aliados
+ */
 public class VisitorAliado extends Visitor {
 	
-	//usada por aliados
 	
 	protected VisitorAliado(GameObject o) {
-		super(o);
-		
+		super(o);		
 	}
 
-	public void visitAliado(Aliado a) { // bien
+	
+	public void visitAliado(Aliado a) { 
 		// No debe hacer nada
 	}
 	
-	public void visitEnemigo(Enemigo e) { // bien
+	
+	public void visitEnemigo(Enemigo e) { 
 		obj.atacar(e); 
 	}
+	
+	
 }

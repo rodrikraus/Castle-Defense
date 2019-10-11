@@ -3,7 +3,7 @@ import javax.swing.JLabel;
 public abstract class GameObject {
 	
 	protected int vida;
-	protected Punto ubicacion;
+	protected Punto punto;
 	protected JLabel dibujo;
 	protected int ancho;
 	protected int largo;
@@ -29,11 +29,11 @@ public abstract class GameObject {
 		this.vida = vida;
 	}
 	
-	public Punto getUbicacion() {
-		return ubicacion;
+	public Punto getPunto() {
+		return punto;
 	}
-	public void setUbicacion(Punto punto) {
-		this.ubicacion = punto;
+	public void setPunto(Punto p) {
+		punto = p;
 	}
 	public JLabel getDibujo() {
 		return dibujo;

@@ -59,8 +59,9 @@ public class Mapa {
 		
 		//int x = 400 + random.nextInt(600 - 400 );
 		//int y = 200 + random.nextInt(300 - 200);
-		Punto punto = new Punto(x, y);
-		Enemigo enemigo = new Perro(punto);
+		Punto punto = new Punto(x,y);
+		Enemigo enemigo = new Perro();
+		enemigo.setPunto(punto);
 		lista_principal.add(enemigo);
 		enemigo.setMapa(this);
 		gui.agregarDibujo(enemigo);

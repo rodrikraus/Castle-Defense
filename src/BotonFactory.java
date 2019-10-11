@@ -30,9 +30,5 @@ public abstract class BotonFactory extends JButton {
 		});
 	}
 	
-	
 	public abstract Aliado crearAliado();
-
-	
-		
 }

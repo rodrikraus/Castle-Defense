@@ -33,7 +33,8 @@ public class Juego {
 		int x = 100;
 		int y = 220;
 		Punto punto = new Punto(x, y);
-		Aliado aliado = new Pirata(punto);
+		Aliado aliado = new Pirata();
+		aliado.setPunto(punto);
 		gui.agregarDibujo(aliado);
 		mapa.getListaPrincipal().add(aliado);
 		aliado.setMapa(mapa);
@@ -49,7 +50,6 @@ public class Juego {
 		}
 		for(GameObject obj : mapa.getListaEliminar()) { 
 			mapa.getListaPrincipal().remove(obj);
-			//mapa.getListaEliminar().remove(obj);
 			obj.getDibujo().setVisible(false);
 			obj = null;
 		}
@@ -58,7 +58,6 @@ public class Juego {
 		
 		for(GameObject obj : mapa.getListaAgregar()) {
 			mapa.getListaPrincipal().add(obj);
-			//mapa.getListaAgregar().remove(obj);
 		}
 		mapa.resetLista(mapa.getListaAgregar());
 	}

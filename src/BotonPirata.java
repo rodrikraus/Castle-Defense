@@ -14,7 +14,7 @@ public class BotonPirata extends BotonFactory{
 	public Aliado crearAliado() {
 		// verificar monedas
 		
-		return new Pirata(new Punto(0,0));
+		return new Pirata();
 	} 
 	
 }
