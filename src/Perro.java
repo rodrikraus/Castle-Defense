@@ -25,7 +25,7 @@ public class Perro extends Enemigo {
 	
 	public void interactuar() {			
 		Rectangle pos = dibujo.getBounds();
-		int newX = (int) pos.getX() - 1;
+		int newX = (int) ((pos.getX()>0)? pos.getX()-1 : pos.getX());
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
 		int alto = (int) pos.getHeight();	

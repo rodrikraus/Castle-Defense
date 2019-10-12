@@ -90,7 +90,7 @@ public class GUI extends JFrame {
 		JLabel dibujo = e.getDibujo();
 		dibujo.setBounds(x, y, ancho, largo);
 		dibujo.setVisible(true);
-		panelFondo.add(dibujo,0);		
+		panelCesped.add(dibujo,0);		
 	}
 		
 	private void agregarBotonesGenerales() {
