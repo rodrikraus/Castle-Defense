@@ -10,6 +10,15 @@ public abstract class GameObject {
 	protected Visitor v;
 	protected Mapa mapa;
 	protected int rango;
+	protected int danio;
+
+	public int getDanio() {
+		return danio;
+	}
+	public void setDanio(int danio) {
+		this.danio = danio;
+	}
+	
 	
 	public void setMapa(Mapa mapa) {
 		this.mapa = mapa;

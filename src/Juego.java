@@ -38,6 +38,14 @@ public class Juego {
 		gui.agregarDibujo(aliado);
 		mapa.getListaPrincipal().add(aliado);
 		aliado.setMapa(mapa);
+		crearDisparo(aliado.getDanio(), aliado.getPunto());
+	}
+	
+	public void crearDisparo(int danio, Punto punto){
+		Disparo disparo = new Disparo(danio, new Punto(punto.getX()+80,punto.getY()));
+		gui.agregarDibujo(disparo);
+		mapa.getListaPrincipal().add(disparo);
+		disparo.setMapa(mapa);
 	}
 	
 	public void interactuar() {	

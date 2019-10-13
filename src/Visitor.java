@@ -13,4 +13,6 @@ public abstract class Visitor {
 	
 	public abstract void visitAliado(Aliado a);
 	
+	public abstract void visitDisparo(Disparo d);
+	
 }

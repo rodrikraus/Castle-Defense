@@ -18,6 +18,12 @@ public class VisitorAliado extends Visitor {
 	public void visitEnemigo(Enemigo e) { 
 		obj.atacar(e); 
 	}
+
+
+	@Override
+	public void visitDisparo(Disparo d) {
+		
+	}
 	
 	
 }

@@ -20,4 +20,11 @@ public class VisitorEnemigo extends Visitor {
 	}
 
 
+	@Override
+	public void visitDisparo(Disparo d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }
