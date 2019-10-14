@@ -8,8 +8,8 @@ public class Disparo extends GameObject {
 	public Disparo(int danio, Punto p) {
 		punto = p;
 		this.danio = danio+100;
-		ancho = 60;
-		largo = 60;
+		ancho = 12;
+		largo = 12;
 		vida = 40;
 		rango = 0;
 		v = new VisitorDisparo(this);

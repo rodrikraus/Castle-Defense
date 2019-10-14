@@ -1,4 +1,3 @@
-import java.util.LinkedList;
 import java.util.Random;
 
 public class Juego {
@@ -8,14 +7,14 @@ public class Juego {
 	protected Mapa mapa;
 	protected Tienda tienda;
 	
-	public Juego(){ 
+	public Juego(){
+		tienda = new Tienda(this); 
 		gui = new GUI(tienda);
 		gui.setVisible(true);
 		mapa = new Mapa(gui);
 		crearAliado();
 		mapa.crearNivelUno();
 		
-		tienda = new Tienda(this);
 		movimiento = new Movimiento(this);
 		movimiento.run();	
 	}	
@@ -42,7 +41,7 @@ public class Juego {
 	}
 	
 	public void crearDisparo(int danio, Punto punto){
-		Disparo disparo = new Disparo(danio, new Punto(punto.getX()+80,punto.getY()));
+		Disparo disparo = new Disparo(danio, new Punto(punto.getX()+74,punto.getY()+20));
 		gui.agregarDibujo(disparo);
 		mapa.getListaPrincipal().add(disparo);
 		disparo.setMapa(mapa);
