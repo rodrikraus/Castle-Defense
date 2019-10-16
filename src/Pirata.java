@@ -20,7 +20,7 @@ public class Pirata extends Aliado {
 	@Override
 	public void atacar(GameObject obj) {
 		if(vida>0) {  // si estoy vivo, ataco
-			//obj.setVida(obj.getVida()-danio);
+			obj.setVida(obj.getVida()-danio);
 			try {
 				Thread.sleep(5000);
 			} catch (InterruptedException e) {
@@ -33,7 +33,7 @@ public class Pirata extends Aliado {
 
 	@Override
 	public void interactuar() {
-		GameObject objIntersectado = mapa.intersectaObjeto(this);
+		GameObject objIntersectado = mapa.intersectaRango(this);
 		if(objIntersectado != null) {
 			accept(objIntersectado.getVisitor());
 		}
@@ -43,7 +43,7 @@ public class Pirata extends Aliado {
 	}	
 	
 	public void disparar() {
-		Disparo disparo = new Disparo(danio, new Punto(punto.getX()+10,punto.getY()));
+		Disparo disparo = new DisparoAliado(danio, new Punto(punto.getX()+10,punto.getY()));
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {

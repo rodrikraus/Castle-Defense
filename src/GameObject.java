@@ -5,8 +5,8 @@ public abstract class GameObject {
 	protected int vida;
 	protected Punto punto;
 	protected JLabel dibujo;
-	protected int ancho;
-	protected int largo;
+	protected int ancho; // o se obtiene del dibujo ??
+	protected int largo; // o se obtiene del dibujo ??
 	protected Visitor v;
 	protected Mapa mapa;
 	protected int rango;
@@ -18,7 +18,6 @@ public abstract class GameObject {
 	public void setDanio(int danio) {
 		this.danio = danio;
 	}
-	
 	
 	public void setMapa(Mapa mapa) {
 		this.mapa = mapa;

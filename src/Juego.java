@@ -41,7 +41,7 @@ public class Juego {
 	}
 	
 	public void crearDisparo(int danio, Punto punto){
-		Disparo disparo = new Disparo(danio, new Punto(punto.getX()+74,punto.getY()+20));
+		Disparo disparo = new DisparoAliado(danio, new Punto(punto.getX()+74,punto.getY()+20));
 		gui.agregarDibujo(disparo);
 		mapa.getListaPrincipal().add(disparo);
 		disparo.setMapa(mapa);
