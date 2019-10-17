@@ -34,7 +34,8 @@ public class Perro extends Enemigo {
 		if(objIntersectado == null)
 			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
 		else 
-			this.accept(objIntersectado.getVisitor()); // lo visitan
+			//this.accept(objIntersectado.getVisitor()); // lo visitan
+			objIntersectado.accept(v);
 	}
 
 	@Override

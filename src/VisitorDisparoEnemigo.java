@@ -9,22 +9,22 @@ public class VisitorDisparoEnemigo extends Visitor {
 	}
 
 	@Override
-	public void visitAliado(Aliado a) {
+	public void visit(Aliado a) {
 		obj.atacar(a);		
 	}
 
 	@Override
-	public void visitEnemigo(Enemigo e) {
+	public void visit(Enemigo e) {
 		// No debe hacer nada
 	}
 
 	@Override
-	public void visitDisparoAliado(DisparoAliado d) {
+	public void visit(DisparoAliado d) {
 		// No debe hacer nada
 	}
 
 	@Override
-	public void visitDisparoEnemigo(DisparoEnemigo d) {
+	public void visit(DisparoEnemigo d) {
 		// No debe hacer nada
 	}
 

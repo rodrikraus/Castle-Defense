@@ -69,5 +69,6 @@ public abstract class GameObject {
 	
 	public void morir() {
 		mapa.getListaEliminar().add(this);
+		System.out.println("MURIÓ "+this.getClass().toString());
 	}
 }

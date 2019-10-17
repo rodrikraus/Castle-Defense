@@ -9,21 +9,29 @@ public class DisparoAliado extends Disparo {
 
 	@Override
 	public void accept(Visitor v){
-		v.visitDisparoAliado(this);  
+		v.visit(this);  
 	} 
 	
 	@Override
 	public void interactuar() {		
 		Rectangle pos = dibujo.getBounds();
-		int newX = (int) pos.getX()+1;
+		int newX = (int) pos.getX()+7;
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
 		int alto = (int) pos.getHeight();	
 
 		GameObject objIntersectado = mapa.intersectaObjeto(this);
-		if(objIntersectado == null)
+		if(objIntersectado == null) {
 			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
-		else 
-			this.accept(objIntersectado.getVisitor()); // lo visitan
+			
+			System.out.println("disparo se mueveeee");
+		}
+		else { 
+			//this.accept(objIntersectado.getVisitor()); // lo visitan
+
+			System.out.println("Disparo Aliado accept - obj intersecado: "+objIntersectado.getClass().toString());
+			objIntersectado.accept(v);
+		}
 	}
+	
 }

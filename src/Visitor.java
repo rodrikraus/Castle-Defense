@@ -9,13 +9,13 @@ public abstract class Visitor {
 	}
 
 	
-	public abstract void visitAliado(Aliado a);
+	public abstract void visit(Aliado a);
 	
-	public abstract void visitEnemigo(Enemigo e);
+	public abstract void visit(Enemigo e);
 	
-	public abstract void visitDisparoAliado(DisparoAliado d);
+	public abstract void visit(DisparoAliado d);
 	
-	public abstract void visitDisparoEnemigo(DisparoEnemigo d);
+	public abstract void visit(DisparoEnemigo d);
 	
 	
 }

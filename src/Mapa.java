@@ -32,6 +32,18 @@ public class Mapa {
 		return lista_a_eliminar;
 	}
 	
+	/*
+	public GameObject estoyEnRangoDeAlguien(GameObject obj) {
+		Rectangle tamanioObj = obj.getDibujo().getBounds();
+		for(GameObject elem : lista_principal) {
+			Rectangle tamanioElem = elem.getDibujo().getBounds();
+			tamanioElem.width += elem.getRango();
+			
+		}
+		return null;
+	}
+	*/
+	
 	public GameObject intersectaObjeto(GameObject obj) {
 		for(GameObject elem : lista_principal)
 			if(obj!=elem && elem.getDibujo().getBounds().intersects(obj.getDibujo().getBounds()))
@@ -43,7 +55,7 @@ public class Mapa {
 		Rectangle tamanioObj = obj.getDibujo().getBounds();
 		tamanioObj.width += obj.getRango();
 		for(GameObject elem : lista_principal) {
-			if(elem.getDibujo().getBounds().intersects(tamanioObj))
+			if(elem!=obj && elem.getDibujo().getBounds().intersects(tamanioObj))
 				return elem;
 		}
 		return null;

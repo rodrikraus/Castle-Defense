@@ -10,7 +10,7 @@ public class DisparoEnemigo extends Disparo {
 
 	@Override
 	public void accept(Visitor v){
-		v.visitDisparoEnemigo(this);  
+		v.visit(this);  
 	} 
 	
 	@Override

@@ -16,13 +16,15 @@ public abstract class Disparo extends GameObject {
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("aliados/disparo.gif"));
 		dibujo = new JLabel(imagen);
 		//dibujo.setBounds(punto.getX(), punto.getY(), ancho, largo);
-		//dibujo.setVisible(true);
+		dibujo.setVisible(true);
 		
 	}
 
 	@Override
 	public void atacar(GameObject obj) {
 		obj.setVida(obj.getVida()-danio);
+		if(obj.getVida()<=0)
+			obj.morir();
 		morir();
 	}
 }

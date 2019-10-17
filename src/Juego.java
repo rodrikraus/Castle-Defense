@@ -37,7 +37,7 @@ public class Juego {
 		gui.agregarDibujo(aliado);
 		mapa.getListaPrincipal().add(aliado);
 		aliado.setMapa(mapa);
-		crearDisparo(aliado.getDanio(), aliado.getPunto());
+		//crearDisparo(aliado.getDanio(), aliado.getPunto());
 	}
 	
 	public void crearDisparo(int danio, Punto punto){
@@ -65,6 +65,8 @@ public class Juego {
 		
 		for(GameObject obj : mapa.getListaAgregar()) {
 			mapa.getListaPrincipal().add(obj);
+			gui.agregarDibujo(obj);
+			//obj.setMapa(mapa);
 		}
 		mapa.resetLista(mapa.getListaAgregar());
 	}
