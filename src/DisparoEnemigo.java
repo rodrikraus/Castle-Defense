@@ -16,16 +16,16 @@ public class DisparoEnemigo extends Disparo {
 	@Override
 	public void interactuar() {		
 		Rectangle pos = dibujo.getBounds();
-		int newX = (int) pos.getX()-1;
+		int newX = (int) pos.getX()-3;
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
 		int alto = (int) pos.getHeight();	
 
 		GameObject objIntersectado = mapa.intersectaObjeto(this);
-		if(objIntersectado == null)
-			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
-		else 
-			this.accept(objIntersectado.getVisitor()); // lo visitan
+		
+		dibujo.setBounds(newX, newY, ancho, alto); // se mueve
+		if(objIntersectado != null) 
+			objIntersectado.accept(v);
 	}
 
 }

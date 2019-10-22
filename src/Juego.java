@@ -48,11 +48,11 @@ public class Juego {
 	}
 	
 	public void interactuar() {	
-
+/*
 		System.out.println("Tamaño lista principal: "+mapa.getListaPrincipal().size());
 		System.out.println("Tamaño lista eliminar: "+mapa.getListaEliminar().size());
 		System.out.println("Tamaño lista agregar: "+mapa.getListaAgregar().size());
-		
+	*/	
 		for(GameObject obj : mapa.getListaPrincipal()) {
 			if(obj.getVida()>0)
 				obj.interactuar();

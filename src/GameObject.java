@@ -11,7 +11,12 @@ public abstract class GameObject {
 	protected Mapa mapa;
 	protected int rango;
 	protected int danio;
+	protected boolean agresivo;
 
+	public void setAgresivo(boolean b) {
+		agresivo = b;
+	}
+	
 	public int getDanio() {
 		return danio;
 	}

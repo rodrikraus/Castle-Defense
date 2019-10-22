@@ -11,7 +11,7 @@ public class Pirata extends Aliado {
 		ancho = 74;
 		largo = 56;
 		vida = 40;
-		danio = 10;
+		danio = 1;
 		rango = 200;
 		costo = 160;			
 		imagen = new ImageIcon(this.getClass().getResource("aliados/pirata.gif"));
@@ -22,18 +22,18 @@ public class Pirata extends Aliado {
 
 	@Override
 	public void atacar(GameObject obj) {
-		System.out.println("pirata.atacar()");
+		//System.out.println("pirata.atacar()");
 		if(vida>0) {  // si estoy vivo, ataco
 		//	obj.setVida(obj.getVida()-danio);
 		
-			if(cantDisparos%10==0)
+			if(cantDisparos%20 == 0)
 				disparar();
 			cantDisparos++;
-			try {
+			/*try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
+			}*/
 		} 
 		else
 			morir();
@@ -43,7 +43,7 @@ public class Pirata extends Aliado {
 	public void interactuar() {
 		GameObject objIntersectado = mapa.intersectaRango(this);
 		if(objIntersectado != null) {
-			System.out.println("intersectar() de Pirata encuentra objeto en su rango: "+objIntersectado.getClass().toString());
+			//System.out.println("intersectar() de Pirata encuentra objeto en su rango: "+objIntersectado.getClass().toString());
 			objIntersectado.accept(v);
 			//accept(objIntersectado.getVisitor());
 			//disparar();
@@ -60,7 +60,7 @@ public class Pirata extends Aliado {
 		Disparo disparo = new DisparoAliado(danio, new Punto(punto.getX()+80,punto.getY()+20));
 		mapa.getListaAgregar().add(disparo);
 		disparo.setMapa(mapa);
-		System.out.println("pirata.disparar()\n\n");
+		//System.out.println("pirata.disparar()\n\n");
 		
 	}
 }

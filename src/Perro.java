@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 
 public class Perro extends Enemigo {
 	
+	int cantDisparos;
 	
 	public Perro() {
 		punto = null;
@@ -13,7 +14,7 @@ public class Perro extends Enemigo {
 		largo = 38;
 		vida = 40;
 		danio = 10;
-		rango = 1;
+		rango = 100;
 		//velocidad = RAPIDA
 		puntos = 35;
 		monedas = 30;	
@@ -21,33 +22,68 @@ public class Perro extends Enemigo {
 		dibujo = new JLabel(imagen);
 		//dibujo.setBounds(punto.getX(), punto.getY(), ancho, largo);	
 		v = new VisitorEnemigo(this);
+		cantDisparos = 0;
+		agresivo = false;
 	}	
 	
 	public void interactuar() {			
 		Rectangle pos = dibujo.getBounds();
-		int newX = (int) ((pos.getX()>0)? pos.getX()-1 : pos.getX());
+		int newX = (int) ((pos.getX()>0)? pos.getX()-3 : pos.getX());
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
 		int alto = (int) pos.getHeight();	
 
-		GameObject objIntersectado = mapa.intersectaObjeto(this);
-		if(objIntersectado == null)
-			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
-		else 
-			//this.accept(objIntersectado.getVisitor()); // lo visitan
+		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);
+		if(objIntersectado!=null) 
 			objIntersectado.accept(v);
+		else
+			agresivo = false;
+		System.out.println(agresivo);
+		if(!agresivo) {
+			punto.setX(newX);
+			punto.setY(newY);
+			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
+		}
+		else { 
+			//objIntersectado.accept(v);
+
+			if(cantDisparos%30 == 0)
+				//obj.setVida(obj.getVida()-danio);
+				disparar();
+			cantDisparos++;
+		}
+		//System.out.println(agresivo);
 	}
+	
 
 	@Override
 	public void atacar(GameObject obj) {
+		
+
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro_ataque.gif"));		
+		dibujo.setIcon(imagen);
 		if(vida>0) {  // si estoy vivo, ataco
-			obj.setVida(obj.getVida()-danio);
-			try {
+
+			if(cantDisparos%30 == 0)
+				//obj.setVida(obj.getVida()-danio);
+				disparar();
+			cantDisparos++;
+	/*		try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
+			}*/
 		} else
 			morir();
+	}
+	
+
+	public void disparar() {
+		
+		Disparo disparo = new DisparoEnemigo(danio, new Punto(punto.getX()-dibujo.getWidth(),punto.getY()+20));
+		mapa.getListaAgregar().add(disparo);
+		disparo.setMapa(mapa);
+		
+		
 	}
 }

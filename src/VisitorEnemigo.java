@@ -10,7 +10,8 @@ public class VisitorEnemigo extends Visitor {
 
 	@Override
 	public void visit(Aliado a) {
-		obj.atacar(a);
+		obj.setAgresivo(true);
+		//obj.atacar(a);
 		//a.atacar(obj);
 		System.out.println("VisitorEnemigo.visit(Aliado)");
 	}
@@ -24,6 +25,7 @@ public class VisitorEnemigo extends Visitor {
 	@Override
 	public void visit(DisparoAliado d) {
 		// No debe hacer nada
+		obj.setAgresivo(false);
 		System.out.println("VisitorEnemigo.visit(DisparoAliado)");
 	}
 
