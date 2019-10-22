@@ -15,7 +15,7 @@ public class DisparoAliado extends Disparo {
 	@Override
 	public void interactuar() {		
 		Rectangle pos = dibujo.getBounds();
-		int newX = (int) pos.getX()+7;
+		int newX = (int) pos.getX()+5;
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
 		int alto = (int) pos.getHeight();	
@@ -24,7 +24,7 @@ public class DisparoAliado extends Disparo {
 		if(objIntersectado == null) {
 			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
 			
-			System.out.println("disparo se mueveeee");
+			System.out.println("disparo se mueve");
 		}
 		else { 
 			//this.accept(objIntersectado.getVisitor()); // lo visitan

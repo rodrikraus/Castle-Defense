@@ -5,7 +5,7 @@ public abstract class Visitor {
 	
 	
 	protected Visitor(GameObject o) {
-		this.obj=o;		
+		obj = o;		
 	}
 
 	

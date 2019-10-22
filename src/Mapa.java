@@ -19,7 +19,7 @@ public class Mapa {
 	}
 
 	public void resetLista(List<GameObject> l) {
-		l = new LinkedList<GameObject>();
+		l.clear();
 	}	
 	
 	public List<GameObject> getListaPrincipal() {

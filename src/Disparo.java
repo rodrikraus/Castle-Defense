@@ -11,7 +11,7 @@ public abstract class Disparo extends GameObject {
 		ancho = 12;
 		largo = 12;
 		vida = 40;
-		rango = 0;
+		rango = 1;
 
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("aliados/disparo.gif"));
 		dibujo = new JLabel(imagen);
