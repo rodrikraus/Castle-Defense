@@ -11,7 +11,7 @@ public class VisitorAliado extends Visitor {
 	@Override
 	public void visit(Aliado a) {
 		// No debe hacer nada	
-		System.out.println("VisitorAliado.visit(Aliado)");
+		//System.out.println("VisitorAliado.visit(Aliado)");
 	}
 
 	@Override
@@ -24,13 +24,13 @@ public class VisitorAliado extends Visitor {
 	@Override
 	public void visit(DisparoAliado d) {
 		// No debe hacer nada		
-		System.out.println("VisitorAliado.visit(DisparoAliado)");
+	//	System.out.println("VisitorAliado.visit(DisparoAliado)");
 	}
 
 	@Override
 	public void visit(DisparoEnemigo d) {
 		// No debe hacer nada	
-		System.out.println("VisitorAliado.visit(DisparoEnemigo)");	
+		//System.out.println("VisitorAliado.visit(DisparoEnemigo)");	
 	}
 	
 }

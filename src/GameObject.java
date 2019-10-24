@@ -11,7 +11,19 @@ public abstract class GameObject {
 	protected Mapa mapa;
 	protected int rango;
 	protected int danio;
+	
 	protected boolean agresivo;
+	protected EstrategiaEnemigoInteractuar estrategia;
+	
+	
+	
+	public EstrategiaEnemigoInteractuar getEstrategia() {
+		return estrategia;
+	}
+	
+	public void setEstrategia(EstrategiaEnemigoInteractuar estrategia) {
+		this.estrategia = estrategia;
+	}
 
 	public void setAgresivo(boolean b) {
 		agresivo = b;

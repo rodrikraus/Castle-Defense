@@ -14,6 +14,10 @@ public class VisitorEnemigo extends Visitor {
 		//obj.atacar(a);
 		//a.atacar(obj);
 		System.out.println("VisitorEnemigo.visit(Aliado)");
+		
+		
+		EstrategiaEnemigoInteractuar est = new EstrategiaEnemigoInteractuarAtacar( (Enemigo)obj );
+		obj.setEstrategia(est);
 	}
 
 	@Override
@@ -26,7 +30,9 @@ public class VisitorEnemigo extends Visitor {
 	public void visit(DisparoAliado d) {
 		// No debe hacer nada
 		obj.setAgresivo(false);
+		
 		System.out.println("VisitorEnemigo.visit(DisparoAliado)");
+
 	}
 
 	@Override

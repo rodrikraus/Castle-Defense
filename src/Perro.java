@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 
 public class Perro extends Enemigo {
 	
-	int cantDisparos;
+	protected int cantDisparos;
 	
 	public Perro() {
 		punto = null;
@@ -24,15 +24,33 @@ public class Perro extends Enemigo {
 		v = new VisitorEnemigo(this);
 		cantDisparos = 0;
 		agresivo = false;
+		estrategia = new EstrategiaEnemigoInteractuarMover(this);
 	}	
 	
-	public void interactuar() {			
+	public void mover() {
 		Rectangle pos = dibujo.getBounds();
 		int newX = (int) ((pos.getX()>0)? pos.getX()-3 : pos.getX());
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
-		int alto = (int) pos.getHeight();	
-
+		int alto = (int) pos.getHeight();
+		punto.setX(newX);
+		//punto.setY(newY); // al pedo, no cambia nada
+		dibujo.setBounds(newX, newY, ancho, alto);
+	}
+	
+	public void interactuar() {
+		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);
+		if(objIntersectado!=null) 
+			objIntersectado.accept(v);
+		
+		estrategia.interactuar(objIntersectado);
+/*		
+		Rectangle pos = dibujo.getBounds();
+		int newX = (int) ((pos.getX()>0)? pos.getX()-3 : pos.getX());
+		int newY = (int) pos.getY();
+		int ancho = (int) pos.getWidth();
+		int alto = (int) pos.getHeight();
+		
 		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);
 		if(objIntersectado!=null) 
 			objIntersectado.accept(v);
@@ -48,11 +66,10 @@ public class Perro extends Enemigo {
 			//objIntersectado.accept(v);
 
 			if(cantDisparos%30 == 0)
-				//obj.setVida(obj.getVida()-danio);
 				disparar();
 			cantDisparos++;
 		}
-		//System.out.println(agresivo);
+*/
 	}
 	
 
@@ -68,6 +85,11 @@ public class Perro extends Enemigo {
 				//obj.setVida(obj.getVida()-danio);
 				disparar();
 			cantDisparos++;
+			
+			if(obj.getVida()<=0) {
+				estrategia = new EstrategiaEnemigoInteractuarMover(null);
+			}
+			
 	/*		try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
