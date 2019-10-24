@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 public class Perro extends Enemigo {
 	
 	protected int cantDisparos;
+	protected int velocidad_de_movimiento;
+	protected int velocidad_de_disparo;
 	
 	public Perro() {
 		punto = null;
@@ -15,7 +17,8 @@ public class Perro extends Enemigo {
 		vida = 40;
 		danio = 10;
 		rango = 100;
-		//velocidad = RAPIDA
+		velocidad_de_movimiento = 3;
+		velocidad_de_disparo = 10;
 		puntos = 35;
 		monedas = 30;	
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
@@ -23,13 +26,16 @@ public class Perro extends Enemigo {
 		//dibujo.setBounds(punto.getX(), punto.getY(), ancho, largo);	
 		v = new VisitorEnemigo(this);
 		cantDisparos = 0;
-		agresivo = false;
-		estrategia = new EstrategiaEnemigoInteractuarMover(this);
+		//agresivo = false;
+		//estrategia = new EstrategiaEnemigoInteractuarMover(this);
 	}	
 	
 	public void mover() {
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
+		dibujo.setIcon(imagen);
+		
 		Rectangle pos = dibujo.getBounds();
-		int newX = (int) ((pos.getX()>0)? pos.getX()-3 : pos.getX());
+		int newX = (int) ((pos.getX()>0)? pos.getX()-velocidad_de_movimiento : pos.getX());
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
 		int alto = (int) pos.getHeight();
@@ -39,12 +45,14 @@ public class Perro extends Enemigo {
 	}
 	
 	public void interactuar() {
+		
 		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);
 		if(objIntersectado!=null) 
 			objIntersectado.accept(v);
-		
-		estrategia.interactuar(objIntersectado);
-/*		
+		else
+			mover();
+	}
+/*
 		Rectangle pos = dibujo.getBounds();
 		int newX = (int) ((pos.getX()>0)? pos.getX()-3 : pos.getX());
 		int newY = (int) pos.getY();
@@ -70,7 +78,7 @@ public class Perro extends Enemigo {
 			cantDisparos++;
 		}
 */
-	}
+	
 	
 
 	@Override
@@ -81,14 +89,14 @@ public class Perro extends Enemigo {
 		dibujo.setIcon(imagen);
 		if(vida>0) {  // si estoy vivo, ataco
 
-			if(cantDisparos%30 == 0)
+			if(cantDisparos%velocidad_de_disparo == 0)
 				//obj.setVida(obj.getVida()-danio);
 				disparar();
 			cantDisparos++;
 			
-			if(obj.getVida()<=0) {
-				estrategia = new EstrategiaEnemigoInteractuarMover(null);
-			}
+			//if(obj.getVida()<=0) {
+				//estrategia = new EstrategiaEnemigoInteractuarMover(null);
+			//}
 			
 	/*		try {
 				Thread.sleep(500);

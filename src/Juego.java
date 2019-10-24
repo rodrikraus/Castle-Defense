@@ -13,6 +13,7 @@ public class Juego {
 		gui.setVisible(true);
 		mapa = new Mapa(gui);
 		crearAliado();
+		crearAliado1();
 		mapa.crearNivelUno();
 		
 		movimiento = new Movimiento(this);
@@ -30,6 +31,20 @@ public class Juego {
 	private void crearAliado() {
 		Random random = new Random();
 		int x = 100;
+		int y = 220;
+		Punto punto = new Punto(x, y);
+		Aliado aliado = new Pirata();
+		aliado.setPunto(punto);
+		gui.agregarDibujo(aliado);
+		mapa.getListaPrincipal().add(aliado);
+		aliado.setMapa(mapa);
+		//crearDisparo(aliado.getDanio(), aliado.getPunto());
+	}
+	
+
+	private void crearAliado1() {
+		Random random = new Random();
+		int x = 100-77;
 		int y = 220;
 		Punto punto = new Punto(x, y);
 		Aliado aliado = new Pirata();
@@ -74,6 +89,8 @@ public class Juego {
 			//obj.setMapa(mapa);
 		}
 		mapa.resetLista(mapa.getListaAgregar());
+		
+		
 	}
 }
 

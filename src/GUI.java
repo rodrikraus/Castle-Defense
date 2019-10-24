@@ -58,7 +58,7 @@ public class GUI extends JFrame {
 		panelCesped = new JPanel();
 		panelCesped.setLayout(null);
 		panelCesped.setBounds(67, 215, 686, 265);
-		panelCesped.setBackground(Color.BLACK);
+		panelCesped.setBackground(Color.RED);
 		panelFondo.add(panelCesped);
 		
 		panelCesped.addMouseListener(new MouseListener() {

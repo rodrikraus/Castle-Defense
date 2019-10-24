@@ -1,4 +1,5 @@
-	
+import javax.swing.ImageIcon;
+
 /*
  * Clase usada por aliados
  */
@@ -17,7 +18,13 @@ public class VisitorAliado extends Visitor {
 	@Override
 	public void visit(Enemigo e) {
 		obj.atacar(e);
-		e.setAgresivo(true);
+
+		/*
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("aliados/pirata.gif"));		
+		obj.getDibujo().setIcon(imagen);
+		obj.getDibujo().repaint();
+		*/
+		//e.setAgresivo(true);
 		//System.out.println("VisitorAliado.visit(Enemigo)");
 	}
 

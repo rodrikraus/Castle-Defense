@@ -53,6 +53,7 @@ public class Mapa {
 	}
 	
 	public GameObject intersectaRango(GameObject obj) {
+		
 		Rectangle tamanioObj = obj.getDibujo().getBounds();
 		tamanioObj.width += obj.getRango();
 		for(GameObject elem : lista_principal) {
@@ -60,6 +61,7 @@ public class Mapa {
 				return elem;
 		}
 		return null;
+		
 	}
 	
 	public GameObject intersectaRangoDeEnemigo(GameObject obj) {
@@ -89,6 +91,16 @@ public class Mapa {
 		lista_principal.add(enemigo);
 		enemigo.setMapa(this);
 		gui.agregarDibujo(enemigo);
+		
+		
+//
+//		Punto punto1 = new Punto(500,100);
+//		Enemigo enemigo1 = new Perro();
+//		enemigo1.setPunto(punto1);
+//		lista_principal.add(enemigo1);
+//		enemigo1.setMapa(this);
+//		gui.agregarDibujo(enemigo1);
+//		
 	}
 	
 	public void crearNivelDos() {

@@ -19,10 +19,13 @@ public class DisparoAliado extends Disparo {
 		int newY = (int) pos.getY();
 		int ancho = (int) pos.getWidth();
 		int alto = (int) pos.getHeight();	
-
+		punto.setX(newX);
+		punto.setY(newY);
+		
 		GameObject objIntersectado = mapa.intersectaObjeto(this);
-			dibujo.setBounds(newX, newY, ancho, alto); // se mueve
-			
+		dibujo.setBounds(newX, newY, ancho, alto); // se mueve
+		System.out.println("Disparo aliado.interactuar()");
+		
 		//	System.out.println("disparo se mueve");
 		
 		
@@ -30,8 +33,15 @@ public class DisparoAliado extends Disparo {
 
 		//	System.out.println("Disparo Aliado accept - obj intersecado: "+objIntersectado.getClass().toString());
 
-			if(objIntersectado != null) 
+			if(objIntersectado != null) {
 				objIntersectado.accept(v);
+			}
+		
+	}
+
+	@Override
+	public void mover() {
+		// TODO Auto-generated method stub
 		
 	}
 	

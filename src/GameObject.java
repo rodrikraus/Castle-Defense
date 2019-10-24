@@ -12,11 +12,12 @@ public abstract class GameObject {
 	protected int rango;
 	protected int danio;
 	
-	protected boolean agresivo;
-	protected EstrategiaEnemigoInteractuar estrategia;
+	//protected boolean agresivo;
+	//protected EstrategiaEnemigoInteractuar estrategia;
 	
+	public abstract void mover();
 	
-	
+	/*
 	public EstrategiaEnemigoInteractuar getEstrategia() {
 		return estrategia;
 	}
@@ -28,7 +29,7 @@ public abstract class GameObject {
 	public void setAgresivo(boolean b) {
 		agresivo = b;
 	}
-	
+	*/
 	public int getDanio() {
 		return danio;
 	}
@@ -86,6 +87,6 @@ public abstract class GameObject {
 	
 	public void morir() {
 		mapa.getListaEliminar().add(this);
-		System.out.println("MURIÓ "+this.getClass().toString());
+		//System.out.println("MURIÓ "+this.getClass().toString());
 	}
 }

@@ -24,8 +24,16 @@ public class DisparoEnemigo extends Disparo {
 		GameObject objIntersectado = mapa.intersectaObjeto(this);
 		
 		dibujo.setBounds(newX, newY, ancho, alto); // se mueve
-		if(objIntersectado != null) 
+		if(objIntersectado != null) {
 			objIntersectado.accept(v);
+		}
+	}
+
+
+	@Override
+	public void mover() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

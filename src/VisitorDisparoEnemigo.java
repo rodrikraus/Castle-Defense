@@ -11,25 +11,25 @@ public class VisitorDisparoEnemigo extends Visitor {
 	@Override
 	public void visit(Aliado a) {
 		obj.atacar(a);		
-		System.out.println("VisitorDisparoEnemigo.visit(Aliado)");
+		//System.out.println("VisitorDisparoEnemigo.visit(Aliado)");
 	}
 
 	@Override
 	public void visit(Enemigo e) {
 		// No debe hacer nada
-		System.out.println("VisitorDisparoEnemigo.visit(Enemigo)");
+		//System.out.println("VisitorDisparoEnemigo.visit(Enemigo)");
 	}
 
 	@Override
 	public void visit(DisparoAliado d) {
 		// No debe hacer nada
-		System.out.println("VisitorDisparoEnemigo.visit(DisparoAliado)");
+		//System.out.println("VisitorDisparoEnemigo.visit(DisparoAliado)");
 	}
 
 	@Override
 	public void visit(DisparoEnemigo d) {
 		// No debe hacer nada
-		System.out.println("VisitorDisparoEnemigo.visit(DisparoEnemigo)");
+		//System.out.println("VisitorDisparoEnemigo.visit(DisparoEnemigo)");
 	}
 
 }

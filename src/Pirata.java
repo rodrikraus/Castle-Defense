@@ -3,15 +3,20 @@ import javax.swing.JLabel;
 
 public class Pirata extends Aliado {
 
-	int cantDisparos;
+	protected int cantDisparos;
 	ImageIcon imagen;
+
+	protected int velocidad_de_movimiento;
+	protected int velocidad_de_disparo;
 	
 	public Pirata() {
 		punto = null;
 		ancho = 74;
 		largo = 56;
 		vida = 40;
-		danio = 1;
+		danio = 10;
+		velocidad_de_movimiento = 0;
+		velocidad_de_disparo = 20;
 		rango = 200;
 		costo = 160;			
 		imagen = new ImageIcon(this.getClass().getResource("aliados/pirata.gif"));
@@ -23,10 +28,11 @@ public class Pirata extends Aliado {
 	@Override
 	public void atacar(GameObject obj) {
 		//System.out.println("pirata.atacar()");
+		
 		if(vida>0) {  // si estoy vivo, ataco
 		//	obj.setVida(obj.getVida()-danio);
 		
-			if(cantDisparos%20 == 0)
+			if(cantDisparos%velocidad_de_disparo == 0)
 				disparar();
 			cantDisparos++;
 			/*try {
@@ -43,8 +49,10 @@ public class Pirata extends Aliado {
 	public void interactuar() {
 		GameObject objIntersectado = mapa.intersectaRango(this);
 		if(objIntersectado != null) {
+			//System.out.println(objIntersectado.getClass().toString());
 			//System.out.println("intersectar() de Pirata encuentra objeto en su rango: "+objIntersectado.getClass().toString());
 			objIntersectado.accept(v);
+			
 			//accept(objIntersectado.getVisitor());
 			//disparar();
 		}
@@ -54,13 +62,22 @@ public class Pirata extends Aliado {
 	}	
 	
 	public void disparar() {
-		imagen = new ImageIcon(this.getClass().getResource("aliados/pirata_ataque.gif"));		
+		imagen = new ImageIcon(this.getClass().getResource("aliados/pirata_ataque.gif"));
+		imagen.getImage().flush();  // el flush() vuelve a iniciar el gif
 		dibujo.setIcon(imagen);
+		//dibujo.repaint();
+		
 		
 		Disparo disparo = new DisparoAliado(danio, new Punto(punto.getX()+80,punto.getY()+20));
 		mapa.getListaAgregar().add(disparo);
 		disparo.setMapa(mapa);
 		//System.out.println("pirata.disparar()\n\n");
+		
+	}
+
+	@Override
+	public void mover() {
+		// TODO Auto-generated method stub
 		
 	}
 }
