@@ -72,7 +72,7 @@ public class Pirata extends Aliado {
 		//dibujo.repaint();
 		
 		
-		Disparo disparo = new DisparoAliado(danio, new Punto(punto.getX()+80,punto.getY()+20));
+		Disparo disparo = new DisparoAliado(danio, new Punto(punto.getX()+80,punto.getY()+20), rango);
 		mapa.getListaAgregar().add(disparo);
 		disparo.setMapa(mapa);
 		//System.out.println("pirata.disparar()\n\n");

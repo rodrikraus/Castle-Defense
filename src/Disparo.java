@@ -5,11 +5,13 @@ import javax.swing.JLabel;
 
 public abstract class Disparo extends GameObject {
 
-	public Disparo(int d, Punto p) {
+	public Disparo(int d, Punto p, int r) {
 		danio = d;
 		punto = p;
 		vida = 20;
-		rango = 0;
+		rango = r;
+		velocidad_de_movimiento = 3;
+		
 		
 		ruta_dibujo = "aliados/disparo.gif";
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource(ruta_dibujo));

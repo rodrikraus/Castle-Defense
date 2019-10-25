@@ -110,7 +110,7 @@ public class Perro extends Enemigo {
 
 	public void disparar() {
 		
-		Disparo disparo = new DisparoEnemigo(danio, new Punto(punto.getX()-dibujo.getWidth(),punto.getY()+20));
+		Disparo disparo = new DisparoEnemigo(danio, new Punto(punto.getX()-dibujo.getWidth(),punto.getY()+20), rango);
 		mapa.getListaAgregar().add(disparo);
 		disparo.setMapa(mapa);
 		

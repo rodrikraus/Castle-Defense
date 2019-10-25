@@ -13,7 +13,7 @@ public class Juego {
 		gui.setVisible(true);
 		mapa = new Mapa(gui);
 		crearAliado();
-		crearAliado1();
+//		crearAliado1();
 		mapa.crearNivelUno();
 		
 		movimiento = new Movimiento(this);
@@ -43,7 +43,7 @@ public class Juego {
 
 	private void crearAliado1() {
 		Random random = new Random();
-		int x = 100-77;
+		int x = 100-77-20;
 		int y = 220;
 		Punto punto = new Punto(x, y);
 		Aliado aliado = new Pirata();
@@ -53,18 +53,12 @@ public class Juego {
 		aliado.setMapa(mapa);
 	}
 	
-	public void crearDisparo(int danio, Punto punto){
-		Disparo disparo = new DisparoAliado(danio, new Punto(punto.getX()+74,punto.getY()+20));
-		gui.agregarDibujo(disparo);
-		mapa.getListaPrincipal().add(disparo);
-		disparo.setMapa(mapa);
-	}
 	
 	public void interactuar() {	
 
-//		System.out.println("Tamaño lista principal: "+mapa.getListaPrincipal().size());
-//		System.out.println("Tamaño lista eliminar: "+mapa.getListaEliminar().size());
-//		System.out.println("Tamaño lista agregar: "+mapa.getListaAgregar().size());
+		System.out.println("Tamaño lista principal: "+mapa.getListaPrincipal().size());
+		System.out.println("Tamaño lista eliminar: "+mapa.getListaEliminar().size());
+		System.out.println("Tamaño lista agregar: "+mapa.getListaAgregar().size());
 		
 		for(GameObject obj : mapa.getListaPrincipal()) {
 			if(obj.getVida()>0)
