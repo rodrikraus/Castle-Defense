@@ -12,8 +12,6 @@ public class Perro extends Enemigo {
 	
 	public Perro() {
 		punto = null;
-		ancho = 62;
-		largo = 38;
 		vida = 40;
 		danio = 10;
 		rango = 100;
@@ -21,13 +19,14 @@ public class Perro extends Enemigo {
 		velocidad_de_disparo = 10;
 		puntos = 35;
 		monedas = 30;	
+		
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("enemigos/perro.gif"));
-		dibujo = new JLabel(imagen);
-		//dibujo.setBounds(punto.getX(), punto.getY(), ancho, largo);	
+		dibujo = new JLabel(imagen);	
+		ancho = imagen.getIconWidth();
+		largo = imagen.getIconHeight();
+		
 		v = new VisitorEnemigo(this);
 		cantDisparos = 0;
-		//agresivo = false;
-		//estrategia = new EstrategiaEnemigoInteractuarMover(this);
 	}	
 	
 	public void mover() {

@@ -1,4 +1,3 @@
-
 public abstract class Visitor {
 	
 	protected GameObject obj;

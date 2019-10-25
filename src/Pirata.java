@@ -4,7 +4,6 @@ import javax.swing.JLabel;
 public class Pirata extends Aliado {
 
 	protected int cantAtaques;
-	protected ImageIcon imagen;
 
 	
 	public Pirata() {
@@ -18,7 +17,7 @@ public class Pirata extends Aliado {
 		velocidad_de_disparo = 20;
 		cantAtaques = 0;	
 		
-		imagen = new ImageIcon(this.getClass().getResource("aliados/pirata.gif"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("aliados/pirata.gif"));
 		dibujo = new JLabel(imagen);
 		ancho = imagen.getIconWidth();
 		largo = imagen.getIconHeight();
@@ -66,7 +65,7 @@ public class Pirata extends Aliado {
 	}	
 	
 	public void disparar() {
-		imagen = new ImageIcon(this.getClass().getResource("aliados/pirata_ataque.gif"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("aliados/pirata_ataque.gif"));
 		imagen.getImage().flush();  // el flush() vuelve a iniciar el gif
 		dibujo.setIcon(imagen);
 		//dibujo.repaint();

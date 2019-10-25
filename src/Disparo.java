@@ -1,16 +1,18 @@
+
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+
 public abstract class Disparo extends GameObject {
 
-	public Disparo(int d, Punto p, int r) {
-		danio = d;
-		punto = p;
-		vida = 20;
-		rango = r;
+	public Disparo(int danio, Punto punto, int rango) {
+		this.danio = danio;
+		this.punto = punto;
+		this.rango = rango;
 		velocidad_de_movimiento = 3;
+		vida = 20;
 		
 		
 		ruta_dibujo = "aliados/disparo.gif";
