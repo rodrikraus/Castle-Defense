@@ -1,3 +1,4 @@
+import java.awt.Rectangle;
 
 public abstract class Enemigo extends Personaje   {
 	
@@ -5,7 +6,20 @@ public abstract class Enemigo extends Personaje   {
 	protected int puntos;
 	protected int monedas;
 	
-	public abstract void mover();
+	
+	public void mover() {	
+		Rectangle rectangulo = dibujo.getBounds();
+		int newX = (int) rectangulo.getX();
+		if(rectangulo.getX()>0 && rectangulo.getX()<686) // si estoy dentro del panel
+			newX = (int) (rectangulo.getX()-velocidad_de_movimiento);
+			
+		int newY = (int) rectangulo.getY();
+//		int largo = (int) rectangulo.getWidth();
+//		int alto = (int) rectangulo.getHeight();
+		punto.setX(newX);
+		dibujo.setBounds(newX, newY, ancho, largo);
+//		dibujo.setLocation(newX, (int) rectangulo.getY());
+	}
 	
 	public abstract void interactuar();
 	

@@ -93,14 +93,14 @@ public class Mapa {
 		gui.agregarDibujo(enemigo);
 		
 		
-//
-//		Punto punto1 = new Punto(500,100);
+
+//		Punto punto1 = new Punto(600,100);
 //		Enemigo enemigo1 = new Perro();
 //		enemigo1.setPunto(punto1);
 //		lista_principal.add(enemigo1);
 //		enemigo1.setMapa(this);
 //		gui.agregarDibujo(enemigo1);
-//		
+		
 	}
 	
 	public void crearNivelDos() {

@@ -1,4 +1,3 @@
-import java.awt.Rectangle;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 
@@ -13,7 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Point;
@@ -91,7 +89,7 @@ public class GUI extends JFrame {
 		dibujo.setBounds(x, y, ancho, largo);
 		dibujo.setVisible(true);
 		panelCesped.add(dibujo,0);		
-		panelCesped.repaint();
+		//panelCesped.repaint();
 	}
 		
 	private void agregarBotonesGenerales() {
@@ -154,7 +152,7 @@ public class GUI extends JFrame {
 	
 	private void agregarFondo() {
 		
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.png"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.gif"));
 		fondo = new JLabel(imagen);
 		fondo.setBounds(0, 0, 756, 485);
 		panelFondo.add(fondo);

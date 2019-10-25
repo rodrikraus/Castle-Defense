@@ -38,7 +38,6 @@ public class Juego {
 		gui.agregarDibujo(aliado);
 		mapa.getListaPrincipal().add(aliado);
 		aliado.setMapa(mapa);
-		//crearDisparo(aliado.getDanio(), aliado.getPunto());
 	}
 	
 
@@ -52,7 +51,6 @@ public class Juego {
 		gui.agregarDibujo(aliado);
 		mapa.getListaPrincipal().add(aliado);
 		aliado.setMapa(mapa);
-		//crearDisparo(aliado.getDanio(), aliado.getPunto());
 	}
 	
 	public void crearDisparo(int danio, Punto punto){
@@ -63,11 +61,11 @@ public class Juego {
 	}
 	
 	public void interactuar() {	
-/*
-		System.out.println("Tamaño lista principal: "+mapa.getListaPrincipal().size());
-		System.out.println("Tamaño lista eliminar: "+mapa.getListaEliminar().size());
-		System.out.println("Tamaño lista agregar: "+mapa.getListaAgregar().size());
-	*/	
+
+//		System.out.println("Tamaño lista principal: "+mapa.getListaPrincipal().size());
+//		System.out.println("Tamaño lista eliminar: "+mapa.getListaEliminar().size());
+//		System.out.println("Tamaño lista agregar: "+mapa.getListaAgregar().size());
+		
 		for(GameObject obj : mapa.getListaPrincipal()) {
 			if(obj.getVida()>0)
 				obj.interactuar();

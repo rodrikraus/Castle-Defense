@@ -1,3 +1,6 @@
+import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public abstract class GameObject {
@@ -5,31 +8,23 @@ public abstract class GameObject {
 	protected int vida;
 	protected Punto punto;
 	protected JLabel dibujo;
-	protected int ancho; // o se obtiene del dibujo ??
-	protected int largo; // o se obtiene del dibujo ??
+	protected int ancho; 
+	protected int largo; 
 	protected Visitor v;
 	protected Mapa mapa;
 	protected int rango;
 	protected int danio;
+	protected String ruta_dibujo;
+	protected int velocidad_de_movimiento;
 	
-	//protected boolean agresivo;
-	//protected EstrategiaEnemigoInteractuar estrategia;
+	
+	public int getVelocidad_de_movimiento() {
+		return velocidad_de_movimiento;
+	}
 	
 	public abstract void mover();
 	
-	/*
-	public EstrategiaEnemigoInteractuar getEstrategia() {
-		return estrategia;
-	}
 	
-	public void setEstrategia(EstrategiaEnemigoInteractuar estrategia) {
-		this.estrategia = estrategia;
-	}
-
-	public void setAgresivo(boolean b) {
-		agresivo = b;
-	}
-	*/
 	public int getDanio() {
 		return danio;
 	}
@@ -77,7 +72,7 @@ public abstract class GameObject {
 	
 	public abstract void accept(Visitor v);
 	
-	public abstract void atacar(GameObject obj); // no se si está bien	
+	public abstract void atacar(GameObject obj); 
 
 	public abstract void interactuar();
 

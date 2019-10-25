@@ -3,26 +3,29 @@ import javax.swing.JLabel;
 
 public class Pirata extends Aliado {
 
-	protected int cantDisparos;
-	ImageIcon imagen;
+	protected int cantAtaques;
+	protected ImageIcon imagen;
 
-	protected int velocidad_de_movimiento;
-	protected int velocidad_de_disparo;
 	
 	public Pirata() {
 		punto = null;
-		ancho = 74;
-		largo = 56;
 		vida = 40;
 		danio = 10;
+		rango = 200;
+		costo = 160;		
+		
 		velocidad_de_movimiento = 0;
 		velocidad_de_disparo = 20;
-		rango = 200;
-		costo = 160;			
+		cantAtaques = 0;	
+		
 		imagen = new ImageIcon(this.getClass().getResource("aliados/pirata.gif"));
 		dibujo = new JLabel(imagen);
+		ancho = imagen.getIconWidth();
+		largo = imagen.getIconHeight();
+		
 		v = new VisitorAliado(this);
-		cantDisparos = 0;
+		
+		
 	}	
 
 	@Override
@@ -32,9 +35,9 @@ public class Pirata extends Aliado {
 		if(vida>0) {  // si estoy vivo, ataco
 		//	obj.setVida(obj.getVida()-danio);
 		
-			if(cantDisparos%velocidad_de_disparo == 0)
+			if(cantAtaques%velocidad_de_disparo == 0)
 				disparar();
-			cantDisparos++;
+			cantAtaques++;
 			/*try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -59,6 +62,7 @@ public class Pirata extends Aliado {
 		//GameObject obj = mapa.intersectaRango(this);
 		//if(obj!=null)
 		//	disparar();
+
 	}	
 	
 	public void disparar() {

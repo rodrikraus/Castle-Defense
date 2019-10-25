@@ -37,11 +37,11 @@ public class Perro extends Enemigo {
 		Rectangle pos = dibujo.getBounds();
 		int newX = (int) ((pos.getX()>0)? pos.getX()-velocidad_de_movimiento : pos.getX());
 		int newY = (int) pos.getY();
-		int ancho = (int) pos.getWidth();
-		int alto = (int) pos.getHeight();
+//		int ancho = (int) pos.getWidth();
+//		int alto = (int) pos.getHeight();
 		punto.setX(newX);
-		//punto.setY(newY); // al pedo, no cambia nada
-		dibujo.setBounds(newX, newY, ancho, alto);
+//		dibujo.setBounds(newX, newY, ancho, alto);
+		dibujo.setLocation(newX, newY);
 	}
 	
 	public void interactuar() {

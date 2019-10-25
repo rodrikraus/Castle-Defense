@@ -5,18 +5,18 @@ import javax.swing.JLabel;
 
 public abstract class Disparo extends GameObject {
 
-	public Disparo(int danio, Punto p) {
+	public Disparo(int d, Punto p) {
+		danio = d;
 		punto = p;
-		this.danio = danio ;
-		ancho = 12;
-		largo = 12;
-		vida = 40;
+		vida = 20;
 		rango = 0;
-
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("aliados/disparo.gif"));
+		
+		ruta_dibujo = "aliados/disparo.gif";
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource(ruta_dibujo));
 		dibujo = new JLabel(imagen);
-		//dibujo.setBounds(punto.getX(), punto.getY(), ancho, largo);
-		dibujo.setVisible(true);
+		dibujo.setVisible(true);		
+		ancho = 12; //dibujo.getWidth();
+		largo = 12; //dibujo.getHeight();
 		
 	}
 
@@ -27,4 +27,5 @@ public abstract class Disparo extends GameObject {
 			obj.morir();
 		morir();
 	}
+	
 }
