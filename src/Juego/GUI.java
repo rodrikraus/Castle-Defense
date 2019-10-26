@@ -20,6 +20,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -55,6 +56,10 @@ public class GUI extends JFrame {
 		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
 		
 
+	}
+	
+	public Rectangle getRectanglePanelCesped() {
+		return panelCesped.getBounds();
 	}
 	
 	public void crearPanelCesped() {

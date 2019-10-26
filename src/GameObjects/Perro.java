@@ -1,4 +1,5 @@
 package GameObjects;
+
 import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
@@ -12,8 +13,6 @@ import Visitor.VisitorEnemigo;
 public class Perro extends Enemigo {
 	
 	protected int cantDisparos;
-	protected int velocidad_de_movimiento;
-	protected int velocidad_de_disparo;
 	
 	
 	public Perro() {
@@ -38,14 +37,6 @@ public class Perro extends Enemigo {
 		v = new VisitorEnemigo(this);
 		cantDisparos = 0;
 	}	
-	
-	public void mover() {
-		Rectangle pos = dibujo.getBounds();
-		int newX = (int) ((pos.getX()>0)? pos.getX()-velocidad_de_movimiento : pos.getX());
-		int newY = (int) pos.getY();
-		punto.setX(newX);
-		dibujo.setLocation(newX, newY);
-	}
 	
 	public void interactuar() {		
 		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);

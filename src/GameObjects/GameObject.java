@@ -1,4 +1,6 @@
 package GameObjects;
+import java.awt.Rectangle;
+
 import javax.swing.JLabel;
 
 import Juego.Mapa;
@@ -17,6 +19,7 @@ public abstract class GameObject {
 	protected int rango;
 	protected int danio;
 	protected int velocidad_de_movimiento;
+	protected int velocidad_de_disparo;
 	
 	protected String ruta_dibujo_quieto;
 	protected String ruta_dibujo_moviendose;
@@ -28,7 +31,6 @@ public abstract class GameObject {
 	}
 	
 	public abstract void mover();
-	
 	
 	public int getDanio() {
 		return danio;

@@ -17,6 +17,7 @@ public class Mapa {
 	protected static List<GameObject> lista_a_eliminar;
 	
 	
+	
 	public Mapa(GUI g) {
 		lista_principal = new LinkedList<GameObject>();
 		lista_a_agregar = new LinkedList<GameObject>();
@@ -24,6 +25,10 @@ public class Mapa {
 		gui = g;
 	}
 
+	public GUI getGui() {
+		return gui;
+	}
+	
 	public void resetLista(List<GameObject> l) {
 		l.clear();
 	}	

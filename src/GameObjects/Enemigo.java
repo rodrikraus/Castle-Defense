@@ -1,7 +1,7 @@
 package GameObjects;
+
 import java.awt.Rectangle;
 
-import Juego.Personaje;
 import Visitor.Visitor;
 
 public abstract class Enemigo extends Personaje   {
@@ -14,17 +14,13 @@ public abstract class Enemigo extends Personaje   {
 	public void mover() {	
 		Rectangle rectangulo = dibujo.getBounds();
 		int newX = (int) rectangulo.getX();
-		if(rectangulo.getX()>0 && rectangulo.getX()<686) // si estoy dentro del panel
-			newX = (int) (rectangulo.getX()-velocidad_de_movimiento);
-			
-		int newY = (int) rectangulo.getY();
-//		int largo = (int) rectangulo.getWidth();
-//		int alto = (int) rectangulo.getHeight();
-		punto.setX(newX);
-//		dibujo.setBounds(newX, newY, ancho, largo);
-		dibujo.setLocation(newX, newY);
+		if( newX > 0 ) {
+			newX = newX - velocidad_de_movimiento;		
+			punto.setX(newX);
+			dibujo.setLocation(newX, (int)rectangulo.getY());
+		}
 	}
-	
+		
 	public abstract void interactuar();
 	
 	public int getVelocidad() {

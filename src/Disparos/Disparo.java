@@ -1,6 +1,5 @@
 package Disparos;
 
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -17,14 +16,12 @@ public abstract class Disparo extends GameObject {
 		velocidad_de_movimiento = 3;
 		vida = 20;
 		
-		
 		ruta_dibujo_quieto = "img/disparos/disparo.gif";
+		
 		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_quieto));
 		dibujo = new JLabel(imagen);
-		dibujo.setVisible(true);		
-		ancho = 12; //dibujo.getWidth();
-		largo = 12; //dibujo.getHeight();
-		
+		ancho = imagen.getIconWidth();
+		largo = imagen.getIconHeight();
 	}
 
 	@Override
@@ -34,5 +31,12 @@ public abstract class Disparo extends GameObject {
 			obj.morir();
 		morir();
 	}
-	
+
+	@Override
+	public void interactuar() {
+		mover();
+		GameObject objIntersectado = mapa.intersectaObjeto(this);
+		if(objIntersectado != null) 
+			objIntersectado.accept(v);	
+	}
 }
