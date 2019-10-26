@@ -1,7 +1,12 @@
+package Disparos;
 
 import java.awt.Rectangle;
 
-import javax.swing.ImageIcon;
+
+import GameObjects.GameObject;
+import Juego.Punto;
+import Visitor.Visitor;
+import Visitor.VisitorDisparoAliado;
 
 public class DisparoAliado extends Disparo {
 

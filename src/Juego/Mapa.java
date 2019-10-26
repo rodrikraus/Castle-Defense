@@ -1,8 +1,13 @@
+package Juego;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
+import GameObjects.Enemigo;
+import GameObjects.GameObject;
+import GameObjects.Perro;
 
 public class Mapa {
 
@@ -93,14 +98,14 @@ public class Mapa {
 		gui.agregarDibujo(enemigo);
 		
 		
-
+/*
 		Punto punto1 = new Punto(600,100);
 		Enemigo enemigo1 = new Perro();
 		enemigo1.setPunto(punto1);
 		lista_principal.add(enemigo1);
 		enemigo1.setMapa(this);
 		gui.agregarDibujo(enemigo1);
-		
+		*/
 	}
 	
 	public void crearNivelDos() {

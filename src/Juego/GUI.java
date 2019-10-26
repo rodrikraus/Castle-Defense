@@ -1,3 +1,4 @@
+package Juego;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 
@@ -11,6 +12,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import GameObjects.GameObject;
+import Tienda.Tienda;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -57,6 +62,7 @@ public class GUI extends JFrame {
 		panelCesped.setLayout(null);
 		panelCesped.setBounds(67, 215, 686, 265);
 		panelCesped.setBackground(Color.RED);
+		panelCesped.setOpaque(false);
 		panelFondo.add(panelCesped);
 		
 		panelCesped.addMouseListener(new MouseListener() {
@@ -152,7 +158,7 @@ public class GUI extends JFrame {
 	
 	private void agregarFondo() {
 		
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("mapa/fondo_grande.gif"));
+		ImageIcon imagen = new ImageIcon(getClass().getClassLoader().getResource("img/mapa/fondo_grande.gif"));
 		fondo = new JLabel(imagen);
 		fondo.setBounds(0, 0, 756, 485);
 		panelFondo.add(fondo);

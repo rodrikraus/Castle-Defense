@@ -1,3 +1,6 @@
+package Tienda;
+import GameObjects.GameObject;
+import Juego.Juego;
 
 public class Tienda {
 	

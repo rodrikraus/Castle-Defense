@@ -1,7 +1,9 @@
-import java.awt.Rectangle;
-
-import javax.swing.ImageIcon;
+package GameObjects;
 import javax.swing.JLabel;
+
+import Juego.Mapa;
+import Juego.Punto;
+import Visitor.Visitor;
 
 public abstract class GameObject {
 	
@@ -14,8 +16,11 @@ public abstract class GameObject {
 	protected Mapa mapa;
 	protected int rango;
 	protected int danio;
-	protected String ruta_dibujo;
 	protected int velocidad_de_movimiento;
+	
+	protected String ruta_dibujo_quieto;
+	protected String ruta_dibujo_moviendose;
+	protected String ruta_dibujo_ataque;
 	
 	
 	public int getVelocidad_de_movimiento() {

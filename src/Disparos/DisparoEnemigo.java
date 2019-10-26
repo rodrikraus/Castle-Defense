@@ -1,5 +1,11 @@
+package Disparos;
 
 import java.awt.Rectangle;
+
+import GameObjects.GameObject;
+import Juego.Punto;
+import Visitor.Visitor;
+import Visitor.VisitorDisparoEnemigo;
 
 public class DisparoEnemigo extends Disparo {
 

@@ -1,9 +1,16 @@
+package Visitor;
+import Disparos.DisparoAliado;
+import Disparos.DisparoEnemigo;
+import GameObjects.Aliado;
+import GameObjects.Enemigo;
+import GameObjects.GameObject;
+
 /*
  *  Clase usada por disparos enemigos
  */
 public class VisitorDisparoEnemigo extends Visitor {
 
-	protected VisitorDisparoEnemigo(GameObject o) {
+	public VisitorDisparoEnemigo(GameObject o) {
 		super(o);
 	}
 

@@ -1,7 +1,11 @@
+package Tienda;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+
+import GameObjects.Aliado;
+import Juego.Mapa;
 
 public abstract class BotonFactory extends JButton {
 	protected Tienda tienda;

@@ -1,9 +1,17 @@
+package Visitor;
+
+import Disparos.DisparoAliado;
+import Disparos.DisparoEnemigo;
+import GameObjects.Aliado;
+import GameObjects.Enemigo;
+import GameObjects.GameObject;
+
 public abstract class Visitor {
 	
 	protected GameObject obj;
 	
 	
-	protected Visitor(GameObject o) {
+	public Visitor(GameObject o) {
 		obj = o;		
 	}
 

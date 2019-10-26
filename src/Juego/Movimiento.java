@@ -1,3 +1,4 @@
+package Juego;
 
 public class Movimiento extends Thread {
 
@@ -8,7 +9,7 @@ public class Movimiento extends Thread {
 		juego = j;
 	}
 	
-	public void run() {
+	public void run() {		
 		while(true) {
 			try {
 				Thread.sleep(40); // 40 anda bien

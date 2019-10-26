@@ -1,3 +1,5 @@
+package Juego;
+import GameObjects.GameObject;
 
 public abstract class Personaje extends GameObject{
 

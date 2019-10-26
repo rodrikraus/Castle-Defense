@@ -1,4 +1,8 @@
+package GameObjects;
 import java.awt.Rectangle;
+
+import Juego.Personaje;
+import Visitor.Visitor;
 
 public abstract class Enemigo extends Personaje   {
 	
@@ -17,8 +21,8 @@ public abstract class Enemigo extends Personaje   {
 //		int largo = (int) rectangulo.getWidth();
 //		int alto = (int) rectangulo.getHeight();
 		punto.setX(newX);
-		dibujo.setBounds(newX, newY, ancho, largo);
-//		dibujo.setLocation(newX, (int) rectangulo.getY());
+//		dibujo.setBounds(newX, newY, ancho, largo);
+		dibujo.setLocation(newX, newY);
 	}
 	
 	public abstract void interactuar();

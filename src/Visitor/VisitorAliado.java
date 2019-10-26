@@ -1,11 +1,18 @@
+package Visitor;
 import javax.swing.ImageIcon;
+
+import Disparos.DisparoAliado;
+import Disparos.DisparoEnemigo;
+import GameObjects.Aliado;
+import GameObjects.Enemigo;
+import GameObjects.GameObject;
 
 /*
  * Clase usada por aliados
  */
 public class VisitorAliado extends Visitor {
 
-	protected VisitorAliado(GameObject o) {
+	public VisitorAliado(GameObject o) {
 		super(o);
 	}
 

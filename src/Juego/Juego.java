@@ -1,4 +1,10 @@
+package Juego;
 import java.util.Random;
+
+import GameObjects.Aliado;
+import GameObjects.GameObject;
+import GameObjects.Pirata;
+import Tienda.Tienda;
 
 public class Juego {
 	
@@ -8,6 +14,7 @@ public class Juego {
 	protected Tienda tienda;
 	
 	public Juego(){
+
 		tienda = new Tienda(this); 
 		gui = new GUI(tienda);
 		gui.setVisible(true);

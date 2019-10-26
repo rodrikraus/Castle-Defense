@@ -1,4 +1,9 @@
+package Tienda;
 import javax.swing.JButton;
+
+import GameObjects.Aliado;
+import GameObjects.Pirata;
+import Juego.Mapa;
 
 public class BotonPirata extends BotonFactory{
 

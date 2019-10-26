@@ -1,8 +1,11 @@
+package Disparos;
 
-import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import GameObjects.GameObject;
+import Juego.Punto;
 
 
 public abstract class Disparo extends GameObject {
@@ -15,8 +18,8 @@ public abstract class Disparo extends GameObject {
 		vida = 20;
 		
 		
-		ruta_dibujo = "aliados/disparo.gif";
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource(ruta_dibujo));
+		ruta_dibujo_quieto = "img/disparos/disparo.gif";
+		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_quieto));
 		dibujo = new JLabel(imagen);
 		dibujo.setVisible(true);		
 		ancho = 12; //dibujo.getWidth();

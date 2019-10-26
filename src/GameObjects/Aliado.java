@@ -1,3 +1,6 @@
+package GameObjects;
+import Juego.Personaje;
+import Visitor.Visitor;
 
 public abstract class Aliado extends Personaje  {
 	  
