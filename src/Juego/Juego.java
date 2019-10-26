@@ -43,7 +43,8 @@ public class Juego {
 		Aliado aliado = new Pirata();
 		aliado.setPunto(punto);
 		gui.agregarDibujo(aliado);
-		mapa.getListaPrincipal().add(aliado);
+		//mapa.getListaPrincipal().add(aliado);
+		mapa.add(aliado);
 		aliado.setMapa(mapa);
 	}
 	
@@ -56,7 +57,8 @@ public class Juego {
 		Aliado aliado = new Pirata();
 		aliado.setPunto(punto);
 		gui.agregarDibujo(aliado);
-		mapa.getListaPrincipal().add(aliado);
+		//mapa.getListaPrincipal().add(aliado);
+		mapa.add(aliado);
 		aliado.setMapa(mapa);
 	}
 	
@@ -73,7 +75,8 @@ public class Juego {
 			else
 				obj.morir();
 		}
-		for(GameObject obj : mapa.getListaEliminar()) { 
+		
+		for(GameObject obj : mapa.getListaEliminar()) {
 			mapa.getListaPrincipal().remove(obj);
 			obj.getDibujo().setVisible(false);
 			obj = null;
@@ -81,11 +84,10 @@ public class Juego {
 		mapa.resetLista(mapa.getListaEliminar());
 		
 		
-		
 		for(GameObject obj : mapa.getListaAgregar()) {
 			mapa.getListaPrincipal().add(obj);
 			gui.agregarDibujo(obj);
-			//obj.setMapa(mapa);
+			obj.setMapa(mapa);
 		}
 		mapa.resetLista(mapa.getListaAgregar());
 		

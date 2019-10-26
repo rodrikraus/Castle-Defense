@@ -25,14 +25,6 @@ public class VisitorAliado extends Visitor {
 	@Override
 	public void visit(Enemigo e) {
 		obj.atacar(e);
-
-		/*
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("aliados/pirata.gif"));		
-		obj.getDibujo().setIcon(imagen);
-		obj.getDibujo().repaint();
-		*/
-		//e.setAgresivo(true);
-		//System.out.println("VisitorAliado.visit(Enemigo)");
 	}
 
 	@Override

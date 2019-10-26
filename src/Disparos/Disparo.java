@@ -4,17 +4,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import GameObjects.GameObject;
+import Juego.Mapa;
 import Juego.Punto;
 
 
 public abstract class Disparo extends GameObject {
 
 	public Disparo(int danio, Punto punto, int rango) {
-		this.danio = danio;
+		// vida, danio, rango, velocidad de movimiento
+		super(20, danio, rango, 3);
 		this.punto = punto;
-		this.rango = rango;
-		velocidad_de_movimiento = 3;
-		vida = 20;
 		
 		ruta_dibujo_quieto = "img/disparos/disparo.gif";
 		
@@ -37,6 +36,6 @@ public abstract class Disparo extends GameObject {
 		mover();
 		GameObject objIntersectado = mapa.intersectaObjeto(this);
 		if(objIntersectado != null) 
-			objIntersectado.accept(v);	
+			objIntersectado.accept(visitor);	
 	}
 }

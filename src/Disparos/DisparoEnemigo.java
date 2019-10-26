@@ -9,8 +9,8 @@ import Visitor.VisitorDisparoEnemigo;
 public class DisparoEnemigo extends Disparo {
 
 	public DisparoEnemigo(int danio, Punto punto, int rango) {
-		super(danio, punto, rango);
-		v = new VisitorDisparoEnemigo(this);
+		super(danio, punto, rango+30);
+		visitor = new VisitorDisparoEnemigo(this);
 	}
 	
 	@Override
@@ -19,11 +19,11 @@ public class DisparoEnemigo extends Disparo {
 	} 
 
 	public void mover() {	
-		rango = rango - velocidad_de_movimiento;
+		rango = rango - velocidad_movimiento;
 		Rectangle rectangulo = dibujo.getBounds();
 		int newX = (int) rectangulo.getX();
 		if( newX > 0 && rango>0 ) {
-			newX = newX - velocidad_de_movimiento;		
+			newX = newX - velocidad_movimiento;		
 			punto.setX(newX);
 			dibujo.setLocation(newX, (int)rectangulo.getY());
 		} else 

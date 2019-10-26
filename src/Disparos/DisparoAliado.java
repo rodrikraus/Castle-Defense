@@ -10,7 +10,7 @@ public class DisparoAliado extends Disparo {
 
 	public DisparoAliado(int danio, Punto punto, int rango) {
 		super(danio, punto, rango);
-		v = new VisitorDisparoAliado(this);
+		visitor = new VisitorDisparoAliado(this);
 	}
 
 	@Override
@@ -19,11 +19,11 @@ public class DisparoAliado extends Disparo {
 	} 
 
 	public void mover() {	
-		rango = rango - velocidad_de_movimiento;
+		rango = rango - velocidad_movimiento;
 		Rectangle rectangulo = dibujo.getBounds();
 		int newX = (int) rectangulo.getX();
 		if( newX < mapa.getGui().getRectanglePanelCesped().width && rango>0) {
-			newX = newX + velocidad_de_movimiento;		
+			newX = newX + velocidad_movimiento;		
 			punto.setX(newX);
 			dibujo.setLocation(newX, (int)rectangulo.getY());
 		} else 

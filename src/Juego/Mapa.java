@@ -29,6 +29,11 @@ public class Mapa {
 		return gui;
 	}
 	
+	public void add(GameObject obj) {
+		lista_a_agregar.add(obj);
+	}
+	
+	
 	public void resetLista(List<GameObject> l) {
 		l.clear();
 	}	
@@ -42,19 +47,7 @@ public class Mapa {
 	public List<GameObject> getListaEliminar() {
 		return lista_a_eliminar;
 	}
-	
-	/*
-	public GameObject estoyEnRangoDeAlguien(GameObject obj) {
-		Rectangle tamanioObj = obj.getDibujo().getBounds();
-		for(GameObject elem : lista_principal) {
-			Rectangle tamanioElem = elem.getDibujo().getBounds();
-			tamanioElem.width += elem.getRango();
-			
-		}
-		return null;
-	}
-	*/
-	
+		
 	public GameObject intersectaObjeto(GameObject obj) {
 		for(GameObject elem : lista_principal)
 			if(obj!=elem && elem.getDibujo().getBounds().intersects(obj.getDibujo().getBounds()))

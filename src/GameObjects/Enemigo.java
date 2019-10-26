@@ -2,33 +2,37 @@ package GameObjects;
 
 import java.awt.Rectangle;
 
+import javax.swing.ImageIcon;
+
 import Visitor.Visitor;
 
-public abstract class Enemigo extends Personaje   {
+public abstract class Enemigo extends GameObject   {
 	
-	protected int velocidad;
 	protected int puntos;
 	protected int monedas;
 	
+	public Enemigo(int vida, int danio, int rango, int velMov, int velAt, int puntos, int monedas) {
+		super(vida, danio, rango, velMov);
+		velocidad_ataque = velAt;
+		this.puntos = puntos;
+		this.monedas = monedas;
+	}
+
+	
 	
 	public void mover() {	
+		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_moviendose));		
+		dibujo.setIcon(imagen);
 		Rectangle rectangulo = dibujo.getBounds();
 		int newX = (int) rectangulo.getX();
 		if( newX > 0 ) {
-			newX = newX - velocidad_de_movimiento;		
+			newX = newX - velocidad_movimiento;		
 			punto.setX(newX);
 			dibujo.setLocation(newX, (int)rectangulo.getY());
 		}
 	}
 		
-	public abstract void interactuar();
 	
-	public int getVelocidad() {
-		return velocidad;
-	}
-	public void setVelocidad(int velocidad) {
-		this.velocidad = velocidad;
-	}
 	public int getPuntos() {
 		return puntos;
 	}

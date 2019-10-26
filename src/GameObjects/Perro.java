@@ -1,47 +1,33 @@
 package GameObjects;
 
-import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Disparos.Disparo;
+import Disparos.DisparoAliado;
 import Disparos.DisparoEnemigo;
 import Juego.Punto;
 import Visitor.VisitorEnemigo;
 
 public class Perro extends Enemigo {
-	
-	protected int cantDisparos;
-	
-	
+		
 	public Perro() {
-
+		// Vida, Daño, Rango, VelMov, VelAtaq, Puntos, Monedas
+		super(40, 5, 100, 3, 20, 35, 30);
+		visitor = new VisitorEnemigo(this);
+				
+		ruta_dibujo_quieto = null;
 		ruta_dibujo_moviendose = "img/enemigos/perro.gif";
 		ruta_dibujo_ataque = "img/enemigos/perro_ataque.gif";
-		
-		punto = null;
-		vida = 40;
-		danio = 10;
-		rango = 100;
-		velocidad_de_movimiento = 3;
-		velocidad_de_disparo = 10;
-		puntos = 35;
-		monedas = 30;	
-		
-		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_moviendose));
-		dibujo = new JLabel(imagen);	
-		ancho = imagen.getIconWidth();
-		largo = imagen.getIconHeight();
-		
-		v = new VisitorEnemigo(this);
-		cantDisparos = 0;
+
+		cambiarDibujo(ruta_dibujo_moviendose);
 	}	
 	
 	public void interactuar() {		
 		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);
 		if(objIntersectado!=null) 
-			objIntersectado.accept(v);
+			objIntersectado.accept(visitor);
 		else
 			mover();
 	}
@@ -51,17 +37,20 @@ public class Perro extends Enemigo {
 		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_ataque));		
 		dibujo.setIcon(imagen);
 		if(vida>0) {  // si estoy vivo, ataco
-			if(cantDisparos%velocidad_de_disparo == 0)
+			if(frecuencia_ataques%velocidad_ataque == 0)
 				disparar();
-			cantDisparos++;
+			frecuencia_ataques++;
 		} else
 			morir();
 	}
 	
 
 	public void disparar() {
-		Disparo disparo = new DisparoEnemigo(danio, new Punto(punto.getX()-dibujo.getWidth(),punto.getY()+20), rango);
-		mapa.getListaAgregar().add(disparo);
-		disparo.setMapa(mapa);		
+		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_ataque));		
+		dibujo.setIcon(imagen);
+		Disparo disparo = new DisparoEnemigo(danio, null, rango);
+		Punto p = new Punto(punto.getX()+disparo.getAncho(), punto.getY()+(largo/2));
+		disparo.setPunto(p);
+		mapa.add(disparo);	
 	}
 }
