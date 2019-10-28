@@ -1,4 +1,7 @@
 package GameObjects;
+import Disparos.Disparo;
+import Disparos.DisparoAliado;
+import Juego.Punto;
 import Visitor.Visitor;
 
 public abstract class Aliado extends GameObject  {
@@ -11,6 +14,33 @@ public abstract class Aliado extends GameObject  {
 		velocidad_ataque = velAt;
 		this.costo = costo;		
 	}
+
+	@Override
+	public void atacar(GameObject obj) {
+		frecuencia_ataques++;
+		if(vida>0) {  // si estoy vivo, ataco		
+			if(frecuencia_ataques%velocidad_ataque== 0)
+				iniciarAtaque(obj);
+		} 
+		else
+			morir();
+	}
+
+	public void iniciarAtaque(GameObject obj) { 
+		flushDibujo(ruta_dibujo_ataque);		
+		Punto p = new Punto(punto.getX()+ancho-10, punto.getY()+20);
+		Disparo disparo = new DisparoAliado(danio, p, rango);
+		mapa.getListaAgregar().add(disparo);
+		disparo.setMapa(mapa);
+	}
+
+	@Override
+	public void interactuar() {
+		GameObject objIntersectado = mapa.intersectaRango(this);
+		if(objIntersectado != null) {
+			objIntersectado.accept(visitor);
+		}
+	}	
 	
 	public void accept(Visitor v) {
 		v.visit(this);

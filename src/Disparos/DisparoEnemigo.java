@@ -9,7 +9,7 @@ import Visitor.VisitorDisparoEnemigo;
 public class DisparoEnemigo extends Disparo {
 
 	public DisparoEnemigo(int danio, Punto punto, int rango) {
-		super(danio, punto, rango+30);
+		super(danio, punto, rango);
 		visitor = new VisitorDisparoEnemigo(this);
 	}
 	

@@ -16,21 +16,15 @@ public abstract class Disparo extends GameObject {
 		this.punto = punto;
 		
 		ruta_dibujo_quieto = "img/disparos/disparo.gif";
+		ruta_dibujo_ataque = null;
+		ruta_dibujo_moviendose = null;
 		
 		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_quieto));
 		dibujo = new JLabel(imagen);
 		ancho = imagen.getIconWidth();
 		largo = imagen.getIconHeight();
 	}
-
-	@Override
-	public void atacar(GameObject obj) {
-		obj.setVida(obj.getVida()-danio);
-		if(obj.getVida()<=0)
-			obj.morir();
-		morir();
-	}
-
+	
 	@Override
 	public void interactuar() {
 		mover();
@@ -38,4 +32,19 @@ public abstract class Disparo extends GameObject {
 		if(objIntersectado != null) 
 			objIntersectado.accept(visitor);	
 	}
+
+	@Override
+	public void atacar(GameObject obj) {
+		iniciarAtaque(obj);
+		if(obj.getVida()<=0)
+			obj.morir();
+		morir();
+	}
+	
+	@Override
+	public void iniciarAtaque(GameObject obj) {
+		obj.setVida(obj.getVida()-danio); // los disparos hacen daño directamente		
+	}	
+
+
 }
