@@ -1,48 +1,43 @@
 package Visitor;
-import javax.swing.ImageIcon;
 
 import Disparos.DisparoAliado;
 import Disparos.DisparoEnemigo;
 import GameObjects.Aliado;
 import GameObjects.Enemigo;
 import GameObjects.GameObject;
-import GameObjects.Premio;
+import GameObjects.Premio;;
 
-/*
- * Clase usada por aliados
- */
-public class VisitorAliado extends Visitor {
+public class VisitorPremio extends Visitor {
 
-	public VisitorAliado(GameObject o) {
+	public VisitorPremio(GameObject o) {
 		super(o);
 	}
 
 	@Override
 	public void visit(Aliado a) {
-		// No debe hacer nada	
-		//System.out.println("VisitorAliado.visit(Aliado)");
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void visit(Enemigo e) {
-		obj.atacar(e);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void visit(DisparoAliado d) {
-		// No debe hacer nada		
-	//	System.out.println("VisitorAliado.visit(DisparoAliado)");
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void visit(DisparoEnemigo d) {
-		// No debe hacer nada	
-		//System.out.println("VisitorAliado.visit(DisparoEnemigo)");	
+		
 	}
-
+	
 	@Override
 	public void visit(Premio p) {
 		// TODO Auto-generated method stub
 	}
-	
 }

@@ -100,7 +100,7 @@ public class GUI extends JFrame {
 		dibujo.setBounds(x, y, ancho, largo);
 		dibujo.setVisible(true);
 		panelCesped.add(dibujo,0);		
-		//panelCesped.repaint();
+		panelCesped.repaint();
 	}
 		
 	private void agregarBotonesGenerales() {

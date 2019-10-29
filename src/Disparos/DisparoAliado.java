@@ -28,6 +28,7 @@ public class DisparoAliado extends Disparo {
 			dibujo.setLocation(newX, (int)rectangulo.getY());
 		} else 
 			morir();
+		
 	}
 
 }

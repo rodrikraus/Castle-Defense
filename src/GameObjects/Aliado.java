@@ -28,9 +28,9 @@ public abstract class Aliado extends GameObject  {
 
 	public void iniciarAtaque(GameObject obj) { 
 		flushDibujo(ruta_dibujo_ataque);		
-		Punto p = new Punto(punto.getX()+ancho-10, punto.getY()+20);
+		Punto p = new Punto(punto.getX()+ancho, punto.getY()+30);  // -10,20
 		Disparo disparo = new DisparoAliado(danio, p, rango);
-		mapa.getListaAgregar().add(disparo);
+		mapa.add(disparo);
 		disparo.setMapa(mapa);
 	}
 

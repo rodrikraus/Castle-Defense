@@ -4,6 +4,7 @@ import Disparos.DisparoEnemigo;
 import GameObjects.Aliado;
 import GameObjects.Enemigo;
 import GameObjects.GameObject;
+import GameObjects.Premio;
 
 /*
  * Clase usada por disparos aliados
@@ -39,5 +40,9 @@ public class VisitorDisparoAliado extends Visitor {
 		// No debe hacer nada
 //		System.out.println("VisitorDisparoAliado.visit(DisparoEnemigo)");
 	}
-
+	
+	@Override
+	public void visit(Premio p) {
+		// TODO Auto-generated method stub
+	}
 }

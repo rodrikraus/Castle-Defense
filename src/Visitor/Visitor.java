@@ -5,6 +5,7 @@ import Disparos.DisparoEnemigo;
 import GameObjects.Aliado;
 import GameObjects.Enemigo;
 import GameObjects.GameObject;
+import GameObjects.Premio;
 
 public abstract class Visitor {
 	
@@ -23,6 +24,6 @@ public abstract class Visitor {
 	public abstract void visit(DisparoAliado d);
 	
 	public abstract void visit(DisparoEnemigo d);
-	
-	
+
+	public abstract void visit(Premio p);
 }

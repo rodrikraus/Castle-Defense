@@ -1,6 +1,7 @@
 package GameObjects;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import Juego.Mapa;
@@ -20,7 +21,7 @@ public abstract class GameObject {
 	
 	protected Punto punto; 
 	protected JLabel dibujo;
-	//protected ImageIcon imagen;
+
 	protected int ancho; 
 	protected int largo; 
 	protected Visitor visitor;

@@ -91,9 +91,9 @@ public class Mapa {
 		Punto punto = new Punto(x,y);
 		Enemigo enemigo = new Perro();
 		enemigo.setPunto(punto);
-		lista_principal.add(enemigo);
+		//lista_principal.add(enemigo);
+		add(enemigo);
 		enemigo.setMapa(this);
-		gui.agregarDibujo(enemigo);
 		
 		
 /*
