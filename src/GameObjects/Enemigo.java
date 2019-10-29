@@ -1,6 +1,7 @@
 package GameObjects;
 
 import java.awt.Rectangle;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 
@@ -80,5 +81,19 @@ public abstract class Enemigo extends GameObject   {
 	public void accept(Visitor v){
 		v.visit(this);
 	} 
+	
+	public void morir() {        //redefino el metodo morir para tener una chance de tirar un premio cuando muera
+		Random random = new Random();
+		int numero = random.nextInt(10);
+		if(numero<4)
+			System.out.println("Tirando poder al piso.");
+			//GameObject poder = new PowerUp();
+			//poder.setPunto(new Punto(this.getPunto().getX(), this.getPunto().getY())); //lo creo en la posicion del enemigo
+			//gui.agregarDibujo(poder);
+			//mapa.getListaPrincipal().add(poder);
+			//mapa.add(poder);
+			//poder.setMapa(mapa);
+		mapa.getListaEliminar().add(this);
+	}
 
 }
