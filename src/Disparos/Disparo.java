@@ -15,7 +15,8 @@ public abstract class Disparo extends GameObject {
 		super(20, danio, rango, 3);
 		this.punto = punto;
 		
-		ruta_dibujo_quieto = "img/disparos/disparo_muylargo.gif";
+		ruta_dibujo_quieto = "img/disparos/disparo.gif";
+		//ruta_dibujo_quieto = "img/disparos/disparo_muylargo.gif";
 		ruta_dibujo_ataque = null;
 		ruta_dibujo_moviendose = null;
 		
