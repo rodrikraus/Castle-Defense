@@ -85,12 +85,12 @@ public abstract class Enemigo extends GameObject   {
 	public void morir() {        //redefino el metodo morir para tener una chance de tirar un premio cuando muera
 		Random random = new Random();
 		int numero = random.nextInt(10);
-		if(numero<3) {
+		if(numero<=3) {
 			System.out.println("Tirando doble oro al piso.");
 			GameObject poder = new DobleOro(new Punto(this.getPunto().getX(), this.getPunto().getY()));
 			mapa.add(poder);
 		}
-		if (numero>=3 && numero<=4) {
+		if (numero>=4 && numero<=6) {
 			System.out.println("Tirando doble danio al piso.");
 			GameObject poder = new DobleDanio(new Punto(this.getPunto().getX(), this.getPunto().getY()));
 			mapa.add(poder);
