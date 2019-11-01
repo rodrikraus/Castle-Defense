@@ -15,8 +15,6 @@ public class DobleOro extends Premio {
 		ruta_dibujo_quieto = "img/mapa/powerupDobleOro.gif";
 		ruta_dibujo_moviendose = null;
 		ruta_dibujo_ataque = null;
-
-
 		
 		cambiarDibujo(ruta_dibujo_quieto);
 
