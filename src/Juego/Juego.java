@@ -38,7 +38,7 @@ public class Juego {
 	private void crearAliado() {
 		Random random = new Random();
 		int x = 100;
-		int y = 220;
+		int y = 200;
 		Punto punto = new Punto(x, y);
 		Aliado aliado = new Pirata();
 		aliado.setPunto(punto);

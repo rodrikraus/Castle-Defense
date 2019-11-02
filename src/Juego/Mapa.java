@@ -84,7 +84,7 @@ public class Mapa {
 		
 		// fijo el x,y para tester, lo correcto sería usar el random de mas abajo
 		int x = 500; 
-		int y = 230;
+		int y = 200;
 		
 		//int x = 400 + random.nextInt(600 - 400 );
 		//int y = 200 + random.nextInt(300 - 200);
