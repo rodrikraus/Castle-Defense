@@ -36,14 +36,11 @@ public class Juego {
 	}
 	
 	private void crearAliado() {
-		Random random = new Random();
 		int x = 100;
 		int y = 200;
 		Punto punto = new Punto(x, y);
 		Aliado aliado = new Pirata();
 		aliado.setPunto(punto);
-		gui.agregarDibujo(aliado);
-		//mapa.getListaPrincipal().add(aliado);
 		mapa.add(aliado);
 		aliado.setMapa(mapa);
 	}
@@ -56,10 +53,8 @@ public class Juego {
 		Punto punto = new Punto(x, y);
 		Aliado aliado = new Pirata();
 		aliado.setPunto(punto);
-		gui.agregarDibujo(aliado);
 		//mapa.getListaPrincipal().add(aliado);
 		mapa.add(aliado);
-		aliado.setMapa(mapa);
 	}
 	
 	

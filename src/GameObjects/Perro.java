@@ -6,7 +6,7 @@ public class Perro extends Enemigo {
 		
 	public Perro() {
 		// Vida, Daño, Rango, VelMov, VelAtaq, Puntos, Monedas
-		super(40, 5, 100, 3, 20, 35, 30); // rango = 100
+		super(40, 5, 100, 3, 20, 35, 30); 
 		visitor = new VisitorEnemigo(this);
 				
 		ruta_dibujo_quieto = null;

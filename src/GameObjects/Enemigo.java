@@ -38,7 +38,7 @@ public abstract class Enemigo extends GameObject   {
 		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_ataque));		
 		dibujo.setIcon(imagen);
 		Disparo disparo = new DisparoEnemigo(danio, null, rango);
-		Punto p = new Punto(punto.getX()-disparo.getAncho(), punto.getY());
+		Punto p = new Punto(punto.getX()-disparo.getAncho()+10, punto.getY());
 		disparo.setPunto(p);
 		mapa.add(disparo);	
 	}
