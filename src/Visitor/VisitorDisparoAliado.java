@@ -1,10 +1,10 @@
 package Visitor;
-import Disparos.DisparoAliado;
-import Disparos.DisparoEnemigo;
-import GameObjects.Aliado;
-import GameObjects.Enemigo;
 import GameObjects.GameObject;
-import GameObjects.Premio;
+import GameObjects.Aliados.Aliado;
+import GameObjects.Disparos.DisparoAliado;
+import GameObjects.Disparos.DisparoEnemigo;
+import GameObjects.Enemigos.Enemigo;
+import GameObjects.Premios.Premio;
 
 /*
  * Clase usada por disparos aliados

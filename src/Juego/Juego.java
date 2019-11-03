@@ -1,9 +1,9 @@
 package Juego;
 import java.util.Random;
 
-import GameObjects.Aliado;
 import GameObjects.GameObject;
-import GameObjects.Pirata;
+import GameObjects.Aliados.Aliado;
+import GameObjects.Aliados.Pirata;
 import Tienda.Tienda;
 
 public class Juego {
@@ -15,12 +15,12 @@ public class Juego {
 	
 	public Juego(){
 
-		tienda = new Tienda(this); 
+		tienda = new Tienda(this); 		
 		gui = new GUI(tienda);
 		gui.setVisible(true);
 		mapa = new Mapa(gui);
-		crearAliado();
-//		crearAliado1();
+		gui.setMapa(mapa);
+		//crearAliado();
 		mapa.crearNivelUno();
 		
 		movimiento = new Movimiento(this);
@@ -44,19 +44,6 @@ public class Juego {
 		mapa.add(aliado);
 		aliado.setMapa(mapa);
 	}
-	
-
-	private void crearAliado1() {
-		Random random = new Random();
-		int x = 100-77-20;
-		int y = 220;
-		Punto punto = new Punto(x, y);
-		Aliado aliado = new Pirata();
-		aliado.setPunto(punto);
-		//mapa.getListaPrincipal().add(aliado);
-		mapa.add(aliado);
-	}
-	
 	
 	public void interactuar() {	
 
@@ -83,7 +70,7 @@ public class Juego {
 			mapa.getListaPrincipal().add(obj);
 			gui.agregarDibujo(obj);
 			obj.setMapa(mapa);
-		}
+		}		
 		mapa.resetLista(mapa.getListaAgregar());
 		
 		

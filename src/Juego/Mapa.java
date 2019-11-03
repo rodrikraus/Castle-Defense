@@ -5,9 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import GameObjects.Enemigo;
 import GameObjects.GameObject;
-import GameObjects.Perro;
+import GameObjects.Enemigos.Enemigo;
+import GameObjects.Enemigos.Perro;
 
 public class Mapa {
 
@@ -47,16 +47,36 @@ public class Mapa {
 	public List<GameObject> getListaEliminar() {
 		return lista_a_eliminar;
 	}
+	
+	public boolean puedoAgregarObjeto(GameObject obj) {
+		boolean puedoInsertar = true;
 		
-	public GameObject intersectaObjeto(GameObject obj) {
+		if( obj == null )
+			return false;
+		
+		int x = obj.getPunto().getX();
+		int y = obj.getPunto().getY();
+		int ancho = obj.getAncho();
+		int largo = obj.getLargo();
+		Rectangle rec = new Rectangle(x, y, ancho, largo);	
+		
+		for(GameObject elem : lista_principal)
+			if(elem.getDibujo().getBounds().intersects(rec)) {
+				puedoInsertar = false;	
+				return false;
+			}
+		
+		return puedoInsertar;
+	}
+		
+	public GameObject intersectaObjeto(GameObject obj) {		
 		for(GameObject elem : lista_principal)
 			if(obj!=elem && elem.getDibujo().getBounds().intersects(obj.getDibujo().getBounds()))
 					return elem;
 		return null;
 	}
 	
-	public GameObject intersectaRango(GameObject obj) {
-		
+	public GameObject intersectaRango(GameObject obj) {		
 		Rectangle tamanioObj = obj.getDibujo().getBounds();
 		tamanioObj.width += obj.getRango();
 		for(GameObject elem : lista_principal) {
@@ -64,7 +84,6 @@ public class Mapa {
 				return elem;
 		}
 		return null;
-		
 	}
 	
 	public GameObject intersectaRangoDeEnemigo(GameObject obj) {
@@ -91,9 +110,14 @@ public class Mapa {
 		Punto punto = new Punto(x,y);
 		Enemigo enemigo = new Perro();
 		enemigo.setPunto(punto);
-		//lista_principal.add(enemigo);
 		add(enemigo);
 		enemigo.setMapa(this);
+		
+		Punto p = new Punto(600, 100);
+		Enemigo e = new Perro();
+		e.setPunto(p);
+		add(e);
+		e.setMapa(this);
 		
 		
 /*

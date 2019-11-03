@@ -1,6 +1,7 @@
 package Juego;
 import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.util.List;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -14,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import GameObjects.GameObject;
+import GameObjects.Aliados.Aliado;
+import GameObjects.Aliados.Pirata;
 import Tienda.Tienda;
 
 import java.awt.Color;
@@ -38,6 +41,7 @@ public class GUI extends JFrame {
 	private JLabel lblTienda; // por que global??
     private Point initialClick;
     private Tienda tienda;
+    private Mapa mapa;
 
 	private Punto punto = null; // punto para saber coordenada de insertar aliado de tienda
     
@@ -53,9 +57,28 @@ public class GUI extends JFrame {
 		crearPanelCesped();
 		this.agregarBotonesGenerales();
 		this.agregarFondo();
-		this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");
+		agregarBotonesTienda(tienda.getListaBotones());
+		//this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");  no se puede .wav
 		
 
+	}
+	
+	public void setMapa(Mapa m) {
+		mapa = m;
+	}
+	
+	public void agregarBotonesTienda(List<JButton> lista) {
+		int x = 5;
+		int y = 30;
+		int ancho = 70;
+		int largo = 60;
+		
+		for(JButton boton : lista) {
+			boton.setBounds(x, y, ancho, largo);
+			panelTienda.add(boton);
+			x = x + ancho + 10;
+		}
+		
 	}
 	
 	public Rectangle getRectanglePanelCesped() {
@@ -78,14 +101,17 @@ public class GUI extends JFrame {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int x = e.getPoint().x;
-				int y = e.getPoint().y;
+				int x = e.getPoint().x - 30;
+				int y = e.getPoint().y - 30;
 				punto = new Punto(x, y);
 				GameObject obj = tienda.getToAdd();
 				if(obj!=null) {
 					obj.setPunto(punto);
-					panelCesped.add(obj.getDibujo());
-					tienda.setToAdd(null);
+					if(mapa.puedoAgregarObjeto(obj)) {
+						mapa.add(obj);
+						obj.setMapa(mapa);
+						tienda.setToAdd(null);
+					}
 				}
 			}
 		});
@@ -176,13 +202,16 @@ public class GUI extends JFrame {
 			panelTienda.setLayout(null);
 			{
 				lblTienda = new JLabel("Tienda");
-				lblTienda.setBounds(30, 12, 54, 17);
+				lblTienda.setBounds(10, 5, 54, 17);
 				lblTienda.setFont(new Font("Dialog", Font.BOLD, 14));
 				panelTienda.add(lblTienda);
 			}
 		}
-	}	
-
+	}
+	
+	/*
+	 * No se puede utilizar sonido .wav
+	 * 
 	private void agregarMusicaDeFondo(String ruta) {
 		try {
 			
@@ -199,5 +228,6 @@ public class GUI extends JFrame {
 		} catch (UnsupportedAudioFileException e) {
 			e.printStackTrace();
 		}		
-	}
+	} 
+	*/
 }

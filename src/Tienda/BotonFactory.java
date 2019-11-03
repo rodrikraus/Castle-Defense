@@ -1,10 +1,11 @@
 package Tienda;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import GameObjects.Aliado;
+import GameObjects.Aliados.Aliado;
 import Juego.Mapa;
 
 public abstract class BotonFactory extends JButton {
@@ -12,8 +13,10 @@ public abstract class BotonFactory extends JButton {
 	protected Mapa mapa;
 	
 	protected BotonFactory(Tienda t, Mapa m) {
+		super();
 		tienda = t;
 		mapa = m;
+		setFont(new Font("Dialog", Font.LAYOUT_LEFT_TO_RIGHT, 10));
 		//Entrada e= crear();
 		//t.setToAdd(e);
 		
