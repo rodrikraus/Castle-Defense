@@ -33,6 +33,7 @@ public class GUI extends JFrame {
 	private JPanel panelFondo,panelTienda, panelCesped;
 	private JLabel fondo;
 	private JLabel lblTienda; 
+	private JLabel lblMonedas;
     private Point initialClick;
     private Tienda tienda;
     private Mapa mapa;
@@ -72,6 +73,11 @@ public class GUI extends JFrame {
 			panelTienda.add(boton);
 			x = x + ancho + 10;
 		}
+		/*
+		JButton btn= new JButton();
+		btn.setText("Vender Aliado");
+		
+		*/
 		
 	}
 	
@@ -199,6 +205,11 @@ public class GUI extends JFrame {
 				lblTienda.setBounds(10, 5, 54, 17);
 				lblTienda.setFont(new Font("Dialog", Font.BOLD, 14));
 				panelTienda.add(lblTienda);
+				
+				lblMonedas = new JLabel("Monedas");
+				lblMonedas.setBounds(680, 5, 65, 17);
+				lblMonedas.setFont(new Font("Dialog", Font.BOLD, 14));
+				panelTienda.add(lblMonedas);
 			}
 		}
 	}

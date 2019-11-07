@@ -12,9 +12,10 @@ public class Juego {
 	protected Movimiento movimiento;
 	protected Mapa mapa;
 	protected Tienda tienda;
+	protected int monedas;
 	
 	public Juego(){
-
+		
 		tienda = new Tienda(this); 		
 		gui = new GUI(tienda);
 		gui.setVisible(true);
@@ -22,9 +23,9 @@ public class Juego {
 		gui.setMapa(mapa);
 		//crearAliado();
 		mapa.crearNivelUno();
-		
 		movimiento = new Movimiento(this);
 		movimiento.run();	
+		monedas=250;
 	}	
 
 	public Mapa getMapa() {
@@ -87,6 +88,16 @@ public class Juego {
 		gui.gameOver();
 		
 	}
+	
+	
+	public int getMonedas() {
+		return monedas;
+	}
+	
+	public void setMonedas(int i) {
+		monedas=i;		
+	}
+	
 	
 }
 
