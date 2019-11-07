@@ -23,7 +23,14 @@ public abstract class BotonFactory extends JButton {
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Aliado aliado = crearAliado();
-				tienda.setToAdd(aliado);
+				//tienda.setToAdd(aliado);
+				
+				if(tienda.monedas-aliado.getCosto()>0) {
+					//Aliado aliado = crearAliado();
+					tienda.setToAdd(aliado);
+					tienda.setMonedas(tienda.monedas-aliado.getCosto());
+				}
+				
 				
 	//			Punto punto = tienda.getJuego().getGUI().activarOyentePanelCesped();
 	//			aliado.setUbicacion(punto);

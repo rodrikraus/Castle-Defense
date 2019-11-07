@@ -12,7 +12,7 @@ public class Juego {
 	protected Movimiento movimiento;
 	protected Mapa mapa;
 	protected Tienda tienda;
-	protected int monedas;
+	//protected int monedas;
 	
 	public Juego(){
 		
@@ -25,7 +25,7 @@ public class Juego {
 		mapa.crearNivelUno();
 		movimiento = new Movimiento(this);
 		movimiento.run();	
-		monedas=250;
+		//monedas=250;
 	}	
 
 	public Mapa getMapa() {
@@ -89,7 +89,7 @@ public class Juego {
 		
 	}
 	
-	
+	/*
 	public int getMonedas() {
 		return monedas;
 	}
@@ -97,7 +97,7 @@ public class Juego {
 	public void setMonedas(int i) {
 		monedas=i;		
 	}
-	
+	*/
 	
 }
 

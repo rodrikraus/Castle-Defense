@@ -256,6 +256,10 @@ public class GUI extends JFrame {
 		System.exit(0);
 		
 	}
+	
+	public void setMonedas(int i) {
+		lblValorMonedas.setText(""+i);		
+	}
 
 	
 	

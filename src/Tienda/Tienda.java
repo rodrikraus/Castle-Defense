@@ -16,6 +16,7 @@ public class Tienda {
 	public Tienda(Juego j){
 		juego = j;
 		toAdd = null;
+		monedas=250;
 	}
 	
 
@@ -49,6 +50,15 @@ public class Tienda {
 		
 		
 		return toReturn;
+	}
+	
+	public int getMonedas() {
+		return monedas;
+	}
+	
+	public void setMonedas(int i) {
+		monedas=i;
+		juego.getGUI().setMonedas(i);
 	}
 	
 }
