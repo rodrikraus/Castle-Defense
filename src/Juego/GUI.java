@@ -212,9 +212,9 @@ public class GUI extends JFrame {
 	
 	public void gameOver(){
 		
-		ImageIcon imagenn = new ImageIcon(getClass().getClassLoader().getResource("img/gui/gameover.gif"));
+		ImageIcon imagenn = new ImageIcon(getClass().getClassLoader().getResource("img/gui/gameoverr.png"));
 		fondoo = new JLabel(imagenn);
-		fondoo.setBounds(0, 0, 756, 485);
+		fondoo.setBounds(0, 0, 755, 444);
 		panelFondo.add(fondoo);			
 	}
 	
