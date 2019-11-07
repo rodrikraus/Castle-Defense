@@ -26,11 +26,19 @@ public abstract class Disparo extends GameObject {
 	}
 	
 	@Override
-	public void interactuar() {
+	/*public void interactuar() {
 		mover();
 		GameObject objIntersectado = mapa.intersectaObjeto(this);
 		if(objIntersectado != null) 
 			objIntersectado.accept(visitor);	
+	}*/
+	
+	public boolean interactuar() {
+	mover();
+	GameObject objIntersectado = mapa.intersectaObjeto(this);
+	if(objIntersectado != null) 
+		objIntersectado.accept(visitor);	
+	return true;
 	}
 
 	@Override

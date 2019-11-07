@@ -54,7 +54,8 @@ public abstract class GameObject {
 	}
 
 	public abstract void accept(Visitor v);	
-	public abstract void interactuar();
+	//public abstract void interactuar();
+	public abstract boolean interactuar();
 	public abstract void mover();
 	public abstract void atacar(GameObject obj); 
 	public abstract void iniciarAtaque(GameObject obj);

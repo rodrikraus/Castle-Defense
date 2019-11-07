@@ -23,9 +23,14 @@ public abstract class Premio extends GameObject {
 	}
 
 	@Override
+	/*
 	public void interactuar() {
 		// TODO Auto-generated method stub
 
+	}*/
+	
+	public boolean interactuar() {
+		return true;
 	}
 
 	@Override

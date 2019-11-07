@@ -46,13 +46,27 @@ public abstract class Enemigo extends GameObject   {
 		mapa.add(disparo);	
 	}
 	
-
+	/*
 	public void interactuar() {		
 		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);
 		if(objIntersectado!=null) 
 			objIntersectado.accept(visitor);
 		else
 			mover();			
+	}*/
+	
+	
+	public boolean interactuar() {		
+		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);
+		if(objIntersectado!=null) 
+			objIntersectado.accept(visitor);
+		else
+			mover();
+		
+		if (this.punto.getX()==0)
+			return false;
+		else return true;
+		
 	}
 	
 	public void mover() {	
@@ -65,9 +79,10 @@ public abstract class Enemigo extends GameObject   {
 			punto.setX(newX);
 			dibujo.setLocation(newX, (int)rectangulo.getY());
 		}
+		/*
 		if (newX==0) {
 			System.out.println("PERDISTE BOBOLON");
-		}
+		}*/
 		
 	}
 		

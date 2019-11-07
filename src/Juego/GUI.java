@@ -38,6 +38,7 @@ public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel panelFondo,panelTienda, panelCesped;
 	private JLabel fondo; // por que global?
+	private JLabel fondoo;
 	private JLabel lblTienda; // por que global??
     private Point initialClick;
     private Tienda tienda;
@@ -208,6 +209,15 @@ public class GUI extends JFrame {
 			}
 		}
 	}
+	
+	public void gameOver(){
+		
+		ImageIcon imagenn = new ImageIcon(getClass().getClassLoader().getResource("img/gui/gameover.gif"));
+		fondoo = new JLabel(imagenn);
+		fondoo.setBounds(0, 0, 756, 485);
+		panelFondo.add(fondoo);			
+	}
+	
 	
 	/*
 	 * No se puede utilizar sonido .wav

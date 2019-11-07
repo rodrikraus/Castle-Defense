@@ -52,8 +52,18 @@ public class Juego {
 //		System.out.println("Tamaño lista agregar: "+mapa.getListaAgregar().size());
 	
 		for(GameObject obj : mapa.getListaPrincipal()) {
-			if(obj.getVida()>0)
+			if(obj.getVida()>0) {
+				
+				/*
 				obj.interactuar();
+				*/
+				boolean noEsFin;
+				noEsFin=obj.interactuar();
+				if (noEsFin==false) {
+					finDelJuego();
+				}
+				
+			}			
 			else
 				obj.morir();
 		}
@@ -73,7 +83,13 @@ public class Juego {
 		}		
 		mapa.resetLista(mapa.getListaAgregar());
 		
+	}
+	
+	private void finDelJuego() {
+		System.out.println("PERDISTE BOBOLON");	
+		gui.gameOver();
 		
 	}
+	
 }
 

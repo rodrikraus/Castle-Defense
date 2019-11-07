@@ -38,12 +38,20 @@ public abstract class Aliado extends GameObject  {
 	}
 
 	@Override
-	public void interactuar() {
+	/*public void interactuar() {
 		GameObject objIntersectado = mapa.intersectaRango(this);
 		if(objIntersectado != null) {
 			objIntersectado.accept(visitor);
 		}
-	}	
+	}*/
+	
+	public boolean interactuar() {
+		GameObject objIntersectado = mapa.intersectaRango(this);
+		if(objIntersectado != null) {
+		objIntersectado.accept(visitor);
+		}
+		return true;
+	}
 	
 	public void accept(Visitor v) {
 		v.visit(this);
