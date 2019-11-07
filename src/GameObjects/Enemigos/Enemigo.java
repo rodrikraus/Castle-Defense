@@ -52,7 +52,7 @@ public abstract class Enemigo extends GameObject   {
 		if(objIntersectado!=null) 
 			objIntersectado.accept(visitor);
 		else
-			mover();
+			mover();			
 	}
 	
 	public void mover() {	
@@ -65,6 +65,10 @@ public abstract class Enemigo extends GameObject   {
 			punto.setX(newX);
 			dibujo.setLocation(newX, (int)rectangulo.getY());
 		}
+		if (newX==0) {
+			System.out.println("PERDISTE BOBOLON");
+		}
+		
 	}
 		
 	
