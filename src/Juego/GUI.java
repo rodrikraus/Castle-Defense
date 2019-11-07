@@ -34,6 +34,7 @@ public class GUI extends JFrame {
 	private JLabel fondo;
 	private JLabel lblTienda; 
 	private JLabel lblMonedas;
+	private JLabel lblValorMonedas;
     private Point initialClick;
     private Tienda tienda;
     private Mapa mapa;
@@ -210,6 +211,12 @@ public class GUI extends JFrame {
 				lblMonedas.setBounds(680, 5, 65, 17);
 				lblMonedas.setFont(new Font("Dialog", Font.BOLD, 14));
 				panelTienda.add(lblMonedas);
+				
+				//label actualizable
+				lblValorMonedas = new JLabel("$$$");
+				lblValorMonedas.setBounds(700, 20, 65, 17);
+				lblValorMonedas.setFont(new Font("Dialog", Font.BOLD, 14));
+				panelTienda.add(lblValorMonedas);
 			}
 		}
 	}
