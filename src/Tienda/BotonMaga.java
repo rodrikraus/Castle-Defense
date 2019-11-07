@@ -14,7 +14,8 @@ public class BotonMaga extends BotonFactory{
 
 	protected BotonMaga(Tienda t, Mapa m) {
 		super(t, m);
-		setText("Maga");
+		String txt= "<html><body>Maga<br>65</body></html>";
+		setText(txt);
 		//panelTienda.add(btn_pirata);
 	}
 

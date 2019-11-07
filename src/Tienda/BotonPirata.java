@@ -14,7 +14,8 @@ public class BotonPirata extends BotonFactory{
 
 	protected BotonPirata(Tienda t, Mapa m) {
 		super(t, m);
-		setText("Pirata");
+		String txt= "<html><body>Pirata<br>$20</body></html>";
+		setText(txt);
 		//panelTienda.add(btn_pirata);
 	}
 

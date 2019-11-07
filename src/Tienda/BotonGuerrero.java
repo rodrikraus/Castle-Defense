@@ -14,7 +14,8 @@ public class BotonGuerrero extends BotonFactory{
 
 	protected BotonGuerrero(Tienda t, Mapa m) {
 		super(t, m);
-		setText("Guerrero");
+		String txt= "<html><body>Guerrero<br>$70</body></html>";
+		setText(txt);
 		//panelTienda.add(btn_pirata);
 	}
 

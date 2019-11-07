@@ -6,7 +6,7 @@ public class Guerrero extends Aliado {
 	
 	public Guerrero() {
 		// Vida, Daño, Rango, VelMov, VelAtaq, Costo
-		super(40, 10, 200, 0, 20, 160); 
+		super(40, 10, 200, 0, 20, 70); 
 		visitor = new VisitorAliado(this);
 		
 		ruta_dibujo_quieto = "img/aliados/guerrero.gif";

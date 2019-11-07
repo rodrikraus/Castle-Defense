@@ -14,7 +14,8 @@ public class BotonGolem extends BotonFactory{
 
 	protected BotonGolem(Tienda t, Mapa m) {
 		super(t, m);
-		setText("Golem");
+		String txt= "<html><body>Golem<br>$160</body></html>";
+		setText(txt);
 		//panelTienda.add(btn_pirata);
 	}
 

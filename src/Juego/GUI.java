@@ -64,7 +64,7 @@ public class GUI extends JFrame {
 	public void agregarBotonesTienda(List<JButton> lista) {
 		int x = 5;
 		int y = 30;
-		int ancho = 70;
+		int ancho = 90;
 		int largo = 60;
 		
 		for(JButton boton : lista) {

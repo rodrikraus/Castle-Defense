@@ -6,7 +6,7 @@ public class Ninja extends Aliado {
 	
 	public Ninja() {
 		// Vida, Daño, Rango, VelMov, VelAtaq, Costo
-		super(40, 10, 200, 0, 20, 160); 
+		super(40, 10, 200, 0, 20, 50); 
 		visitor = new VisitorAliado(this);
 		
 		ruta_dibujo_quieto = "img/aliados/ninja.gif";
