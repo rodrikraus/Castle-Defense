@@ -1,13 +1,6 @@
 package Juego;
-import java.io.BufferedInputStream;
-import java.io.IOException;
 import java.util.List;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,15 +8,16 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import GameObjects.GameObject;
-import GameObjects.Aliados.Aliado;
-import GameObjects.Aliados.Pirata;
 import Tienda.Tienda;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -37,9 +31,8 @@ public class GUI extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	private JPanel panelFondo,panelTienda, panelCesped;
-	private JLabel fondo; // por que global?
-	private JLabel fondoo;
-	private JLabel lblTienda; // por que global??
+	private JLabel fondo;
+	private JLabel lblTienda; 
     private Point initialClick;
     private Tienda tienda;
     private Mapa mapa;
@@ -48,7 +41,7 @@ public class GUI extends JFrame {
     
 	public GUI(Tienda t) {		
 		tienda = t;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 580);
 		setUndecorated(true);
 		panelFondo = new JPanel();
@@ -212,11 +205,40 @@ public class GUI extends JFrame {
 	
 	public void gameOver(){
 		
-		ImageIcon imagenn = new ImageIcon(getClass().getClassLoader().getResource("img/gui/gameoverr.png"));
-		fondoo = new JLabel(imagenn);
-		fondoo.setBounds(0, 0, 755, 444);
-		panelFondo.add(fondoo);			
+		// Borramos todo del panel
+        panelFondo.removeAll();
+  
+        // Cargamos la imagen del GameOver
+  		ImageIcon img_gameOver = new ImageIcon(getClass().getClassLoader().getResource("img/gui/gameover.gif"));
+		JLabel lbl_gameOver = new JLabel(img_gameOver);	
+		
+		// Obtengo el ancho y el alto de la nueva imagen
+		int ancho = img_gameOver.getIconWidth();
+		int largo = img_gameOver.getIconHeight();
+		lbl_gameOver.setBounds(0, 0, ancho, largo);
+		
+		// Establezco el tamaño de la ventana al tamaño de la imagen
+		this.setSize(ancho, largo);
+		
+		// Agrego la imagen al panel
+		panelFondo.add(lbl_gameOver);
+		
+		// Refresco el panel
+		panelFondo.repaint();		
+		
+		
+		// Esperamos unos segundos para cerrar el juego...
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		// Cerramos el juego
+		System.exit(0);
+		
 	}
+
 	
 	
 	/*

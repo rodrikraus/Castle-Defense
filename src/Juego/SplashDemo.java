@@ -20,7 +20,7 @@ public class SplashDemo extends JWindow {
          
         // Establezco los bounds de la ventana, poniendola en el medio de la pantalla
         int width = 509;
-        int height =305;
+        int height = 305;
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screen.width-width)/2;
         int y = (screen.height-height)/2;
@@ -30,7 +30,7 @@ public class SplashDemo extends JWindow {
         ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource("img/mapa/splash.jpg"));
         JLabel label = new JLabel(imagen);
         JLabel copyrt = new JLabel
-                ("Copyright 2019, Juan Ignacio Fabrega - Rodrigo Kraus - Matias Schewer", JLabel.CENTER);
+                ("Copyright 2019, Juan Ignacio Fabrega - Rodrigo Kraus - Matias David Schwerdt", JLabel.CENTER);
         copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
         content.add(label, BorderLayout.CENTER);
         content.add(copyrt, BorderLayout.SOUTH);
@@ -46,7 +46,7 @@ public class SplashDemo extends JWindow {
         setVisible(false);
          
     }
-
+/*
     public static void main(String[] args) {
          
         // Asi se crearia
@@ -57,4 +57,5 @@ public class SplashDemo extends JWindow {
         System.exit(0); // Esto en el juego no es necesario porque lo puedo cerrar con la x
          
     }
+    */
 }

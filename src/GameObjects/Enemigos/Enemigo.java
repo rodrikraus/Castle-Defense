@@ -63,9 +63,10 @@ public abstract class Enemigo extends GameObject   {
 		else
 			mover();
 		
-		if (this.punto.getX()==0)
+		if (this.punto.getX()<=0)
 			return false;
-		else return true;
+		
+		return true;
 		
 	}
 	
