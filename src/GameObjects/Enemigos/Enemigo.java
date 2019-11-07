@@ -63,6 +63,7 @@ public abstract class Enemigo extends GameObject   {
 		else
 			mover();
 		
+		// Si llegue al castillo, retorno falso
 		if (this.punto.getX()<=0)
 			return false;
 		

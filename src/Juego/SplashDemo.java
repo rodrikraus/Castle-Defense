@@ -20,7 +20,7 @@ public class SplashDemo extends JWindow {
          
         // Establezco los bounds de la ventana, poniendola en el medio de la pantalla
         int width = 509;
-        int height = 305;
+        int height = 305 + 30;  
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screen.width-width)/2;
         int y = (screen.height-height)/2;
@@ -29,8 +29,13 @@ public class SplashDemo extends JWindow {
         // Construyo el splash screen
         ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource("img/mapa/splash.jpg"));
         JLabel label = new JLabel(imagen);
+        
+        // La etiqueta "<br>" hace un salto de linea en el texto de un JLabel
         JLabel copyrt = new JLabel
-                ("Copyright 2019, Juan Ignacio Fabrega - Rodrigo Kraus - Matias David Schwerdt", JLabel.CENTER);
+        		("<html>Copyright 2019 <br> Juan Ignacio Fabrega  -"
+        				+ "  Rodrigo Kraus  -  Matias David Schwerdt </html>", JLabel.CENTER);
+        
+        
         copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
         content.add(label, BorderLayout.CENTER);
         content.add(copyrt, BorderLayout.SOUTH);

@@ -1,5 +1,4 @@
 package Juego;
-import java.util.Random;
 
 import GameObjects.GameObject;
 import GameObjects.Aliados.Aliado;
@@ -35,7 +34,7 @@ public class Juego {
 	public GUI getGUI() {
 		return gui;
 	}
-	
+	/*
 	private void crearAliado() {
 		int x = 100;
 		int y = 200;
@@ -45,8 +44,10 @@ public class Juego {
 		mapa.add(aliado);
 		aliado.setMapa(mapa);
 	}
+	*/
 	
 	public void interactuar() {	
+		boolean puedoSeguirMoviendome;
 
 //		System.out.println("Tamaño lista principal: "+mapa.getListaPrincipal().size());
 //		System.out.println("Tamaño lista eliminar: "+mapa.getListaEliminar().size());
@@ -56,9 +57,8 @@ public class Juego {
 			if(obj.getVida()>0) {				/*
 				obj.interactuar();
 				*/
-				boolean noEsFin;
-				noEsFin = obj.interactuar();
-				if(noEsFin==false) 
+				puedoSeguirMoviendome = obj.interactuar();
+				if( !puedoSeguirMoviendome ) 
 					finDelJuego();
 			}			
 			else
@@ -83,7 +83,6 @@ public class Juego {
 	}
 	
 	private void finDelJuego() {
-		System.out.println("PERDISTE BOBOLON");	
 		movimiento.setDeboMover(false);
 		gui.gameOver();
 		

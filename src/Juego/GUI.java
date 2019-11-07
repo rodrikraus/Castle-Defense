@@ -227,7 +227,7 @@ public class GUI extends JFrame {
         panelFondo.removeAll();
   
         // Cargamos la imagen del GameOver
-  		ImageIcon img_gameOver = new ImageIcon(getClass().getClassLoader().getResource("img/gui/gameover.gif"));
+  		ImageIcon img_gameOver = new ImageIcon(getClass().getClassLoader().getResource("img/gui/gameover.png"));
 		JLabel lbl_gameOver = new JLabel(img_gameOver);	
 		
 		// Obtengo el ancho y el alto de la nueva imagen
