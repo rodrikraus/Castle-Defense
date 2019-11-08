@@ -21,13 +21,11 @@ public class VisitorEnemigo extends Visitor {
 		obj.atacar(a);
 //		System.out.println("VisitorEnemigo.visit(Aliado)");
 		
-		
 	}
 
 	@Override
 	public void visit(Enemigo e) {
-//		No debe hacer nada	
-		
+		obj.mover();
 //		System.out.println("VisitorEnemigo.visit(Enemigo)");	
 	}
 

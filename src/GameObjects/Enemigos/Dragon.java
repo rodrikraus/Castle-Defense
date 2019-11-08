@@ -42,11 +42,11 @@ public class Dragon extends Enemigo {
 		
 	}
 	
-	public void iniciarAtaque(GameObject obj) { //REDEFINO PQ EL DRAGON DISPARA BUGEADO
+	public void iniciarAtaque(GameObject obj) { //REDEFINO PQ EL DRAGON DISPARA MAS ARRIBA
 		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_ataque));		
 		dibujo.setIcon(imagen);
 		Disparo disparo = new DisparoEnemigo(danio, null, rango);
-		Punto p = new Punto(punto.getX()-disparo.getAncho()+10, punto.getY()+50);
+		Punto p = new Punto(punto.getX()-disparo.getAncho()+10, punto.getY()+60);
 		disparo.setPunto(p);
 		mapa.add(disparo);	
 	}
