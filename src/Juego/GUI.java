@@ -269,8 +269,20 @@ public class GUI extends JFrame {
 	}
 
 	public void crearLabelOleada() {
-		ImageIcon imgOleada1 = new ImageIcon(getClass().getClassLoader().getResource("img/gui/gameover.png"));
-		lblOleada = new JLabel();
+		ImageIcon imgOleada1 = new ImageIcon(getClass().getClassLoader().getResource("img/gui/oleada1.gif"));
+		int ancho = imgOleada1.getIconWidth();
+		int largo = imgOleada1.getIconHeight();
+		lblOleada = new JLabel(imgOleada1);
+		lblOleada.setBounds(280, 150, ancho, largo);
+		panelFondo.add(lblOleada);
+	}
+	
+	public void mostrarOleada2() {
+		lblOleada.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/gui/oleada2.gif")));
+	}
+	
+	public void mostrarOleada3() {
+		lblOleada.setIcon(new ImageIcon(getClass().getClassLoader().getResource("img/gui/oleada3.gif")));
 	}
 	
 	
