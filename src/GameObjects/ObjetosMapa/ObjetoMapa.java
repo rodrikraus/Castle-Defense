@@ -39,6 +39,13 @@ public class ObjetoMapa extends GameObject {
 
 	}
 	
+	public void setDobleDanio(boolean b) {
+		//no hace nada
+	}
+	public void setDobleOro(boolean b) {
+		//no hace nada
+	}
+	
 
 	public void toClick() {};
 

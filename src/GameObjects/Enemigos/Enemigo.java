@@ -18,6 +18,7 @@ import Visitor.Visitor;
 public abstract class Enemigo extends GameObject   {
 	
 	protected int puntos;
+	protected boolean tiraDobleOro;
 	
 	public Enemigo(int vida, int danio, int rango, int velMov, int velAt, int puntos, int monedas) {
 
@@ -26,6 +27,7 @@ public abstract class Enemigo extends GameObject   {
 		velocidad_ataque = velAt;
 		this.puntos = puntos;
 		this.monedas = monedas;
+		tiraDobleOro = false;
 	}	
 	
 	@Override
@@ -127,7 +129,12 @@ public abstract class Enemigo extends GameObject   {
 		
 	}
 
-	
+	public void setDobleDanio(boolean b) {
+		//no hace nada
+	}
+	public void setDobleOro(boolean b) {
+		tiraDobleOro = b;
+	}
 
 	public void toClick() {};
 

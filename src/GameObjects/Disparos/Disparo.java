@@ -61,6 +61,12 @@ public abstract class Disparo extends GameObject {
 //		return 0;
 //	}
 	
+	public void setDobleDanio(boolean b) {
+		//no hace nada
+	}
+	public void setDobleOro(boolean b) {
+		
+	}
 	
 	public void toClick() {};
 

@@ -115,6 +115,7 @@ public abstract class GameObject {
 	
 	public abstract void toClick();
 
-	
+	public abstract void setDobleDanio(boolean b);
+	public abstract void setDobleOro(boolean b);
 	
 }

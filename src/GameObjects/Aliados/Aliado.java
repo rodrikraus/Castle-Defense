@@ -11,6 +11,7 @@ import Visitor.Visitor;
 public abstract class Aliado extends GameObject  {
 
 	protected boolean herido;
+	protected boolean haceDobleDanio;
 	
 	public Aliado(int vida, int danio, int rango, int velMov, int velAt, int costo) {
 
@@ -19,6 +20,7 @@ public abstract class Aliado extends GameObject  {
 		velocidad_ataque = velAt;
 		this.costo = costo;		
 		herido = false;
+		haceDobleDanio = false;
 	}
 
 	@Override
@@ -83,6 +85,13 @@ public abstract class Aliado extends GameObject  {
 			tienda.setPuedoVender(false);	
 			morir();	
 		}
+	}
+	
+	public void setDobleDanio(boolean b) {
+		haceDobleDanio = b;
+	}
+	public void setDobleOro(boolean b) {
+		//no hace nada
 	}
 		
 }
