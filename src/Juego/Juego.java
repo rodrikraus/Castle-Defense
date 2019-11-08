@@ -46,7 +46,6 @@ public class Juego {
 		for(GameObject obj : mapa.getListaPrincipal()) {
 			if(contadorDobleDanio > 0) {
 				obj.setDobleDanio(true);
-				System.out.println(contadorDobleDanio);
 				contadorDobleDanio--;
 			} else {
 				obj.setDobleDanio(false);
