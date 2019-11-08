@@ -26,6 +26,7 @@ public abstract class GameObject {
 	protected int largo; 
 	protected Visitor visitor;
 	
+	
 	protected String ruta_dibujo_quieto;
 	protected String ruta_dibujo_moviendose;
 	protected String ruta_dibujo_ataque;
@@ -91,5 +92,6 @@ public abstract class GameObject {
 	public int getVelocidad_movimiento() { return velocidad_movimiento ;}
 	
 	public Visitor getVisitor() { return visitor ;}
+	
 	
 }

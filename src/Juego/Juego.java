@@ -11,7 +11,6 @@ public class Juego {
 	protected Movimiento movimiento;
 	protected Mapa mapa;
 	protected Tienda tienda;
-	//protected int monedas;
 	
 	public Juego(){
 		
@@ -20,7 +19,6 @@ public class Juego {
 		gui.setVisible(true);
 		mapa = new Mapa(gui);
 		gui.setMapa(mapa);
-		//crearAliado();
 		mapa.crearNivelUno();
 		movimiento = new Movimiento(this);
 		movimiento.run();	
@@ -67,6 +65,7 @@ public class Juego {
 			mapa.getListaPrincipal().add(obj);
 			gui.agregarDibujo(obj);
 			obj.setMapa(mapa);
+//			tienda.setMonedas(tienda.getMonedas() + obj.getMonedas());
 		}		
 		mapa.resetLista(mapa.getListaAgregar());
 		
