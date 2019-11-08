@@ -175,24 +175,26 @@ public class GUI extends JFrame {
 					}
 					tienda.setToAdd(null);
 				}
+				else {
 
-				GameObject objClickeado = mapa.intersectaClickConGameObject(punto);
-				if(tienda.getPuedoVender()){
+					GameObject objClickeado = mapa.intersectaClickConGameObject(punto);
 					if(objClickeado!=null) {
-						System.out.println("click en objeto");
-						
-						// si valorClick > 0, entonces es el costo de vender un aliado
-						int valorClick = objClickeado.toClick();
-						if(valorClick>0)
-							tienda.sumarMonedas(valorClick);
-						tienda.setPuedoVender(false);
+						objClickeado.toClick();
+						/*
+						if(tienda.getPuedoVender()){
+							
+							int valorClick = objClickeado.toClick();
+							if(valorClick>0)
+								tienda.sumarMonedas(valorClick);
+							tienda.setPuedoVender(false);
+						}
+						*/
 					}
-					
 				}
-				
 				
 				botonVender.setEnabled(true);
 				tienda.estadoBotones(true);
+				tienda.setPuedoVender(false);
 			}
 		});
 	}

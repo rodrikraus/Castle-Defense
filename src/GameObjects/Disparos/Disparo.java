@@ -55,10 +55,13 @@ public abstract class Disparo extends GameObject {
 	}	
 
 
-	@Override
-	// Que pasa cuando se le hace click ??
-	public int toClick() {
-		return 0;
-	}
+//	@Override
+//	// Que pasa cuando se le hace click ??
+//	public int toClick() {
+//		return 0;
+//	}
+	
+	
+	public void toClick() {};
 
 }

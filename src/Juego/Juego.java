@@ -14,7 +14,7 @@ public class Juego {
 	
 	public Juego(){
 		
-		tienda = new Tienda(this); 		
+		tienda = Tienda.Instancia(this);
 		gui = new GUI(tienda);
 		gui.setVisible(true);
 		mapa = new Mapa(gui, this);

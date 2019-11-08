@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 
 import Juego.Mapa;
 import Juego.Punto;
+import Tienda.Tienda;
 import Visitor.Visitor;
 
 public abstract class GameObject {
@@ -24,12 +25,13 @@ public abstract class GameObject {
 	protected int ancho; 
 	protected int largo; 
 	protected Visitor visitor;
-	
+
 	protected int monedas, costo;
 	
 	protected String ruta_dibujo_quieto;
 	protected String ruta_dibujo_moviendose;
 	protected String ruta_dibujo_ataque;
+
 	
 	public GameObject(int vida, int danio, int rango, int velMov) {
 		this.vida = vida;
@@ -111,7 +113,8 @@ public abstract class GameObject {
 		this.costo = costo;
 	}
 	
+	public abstract void toClick();
+
 	
-	public abstract int toClick();
 	
 }

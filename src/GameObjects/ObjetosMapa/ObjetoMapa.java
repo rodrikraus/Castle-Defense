@@ -38,12 +38,15 @@ public class ObjetoMapa extends GameObject {
 		// TODO Auto-generated method stub
 
 	}
+	
 
-	@Override
-	// Que pasa cuando se le hace click ??
-	public int toClick() {
-		return 0;
-	}
+	public void toClick() {};
+
+//	@Override
+//	// Que pasa cuando se le hace click ??
+//	public int toClick() {
+//		return 0;
+//	}
 }
 
 

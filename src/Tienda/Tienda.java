@@ -9,6 +9,9 @@ import Juego.Juego;
 
 public class Tienda {
 	
+	// PATRON SINGLETON
+	private static Tienda instancia = null;
+	
 	protected Juego juego;
 	protected GameObject toAdd;
 	protected int monedas;
@@ -17,7 +20,7 @@ public class Tienda {
 	protected boolean botonesActivos;
 	protected boolean puedoVender;
 	
-	public Tienda(Juego j){
+	private Tienda(Juego j){
 		juego = j;
 		toAdd = null;
 		monedas = 50;
@@ -39,6 +42,14 @@ public class Tienda {
 		listaBotones.add(btn_golem);	
 		
 		estadoBotones(true);
+	}
+	
+	
+	public static Tienda Instancia(Juego juego) {
+		if(instancia==null)
+			instancia = new Tienda(juego);
+		return instancia;
+		
 	}
 	
 

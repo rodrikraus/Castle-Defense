@@ -5,6 +5,7 @@ import GameObjects.GameObject;
 import GameObjects.Disparos.Disparo;
 import GameObjects.Disparos.DisparoAliado;
 import Juego.Punto;
+import Tienda.Tienda;
 import Visitor.Visitor;
 
 public abstract class Aliado extends GameObject  {
@@ -71,15 +72,17 @@ public abstract class Aliado extends GameObject  {
 	public void setHerido(boolean h) {
 		herido = h;
 	}
-
 	
-	@Override
-	// Que pasa cuando se le hace click ??
-	public int toClick() {
-		morir();
-		if(herido)
-			return (costo / 2);
-		else
-			return costo;
+	public void toClick() {
+		// Calculo las monedas a sumar
+		int monedas = herido ? costo/2 : costo;				
+				
+		Tienda tienda = Tienda.Instancia(null);
+		if(tienda.getPuedoVender()) {
+			tienda.sumarMonedas(monedas);
+			tienda.setPuedoVender(false);	
+			morir();	
+		}
 	}
+		
 }

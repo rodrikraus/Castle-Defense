@@ -19,4 +19,10 @@ public class Dinamita extends Premio {
 		cambiarDibujo(ruta_dibujo_quieto);
 
 	}
+
+	@Override
+	public void toClick() {
+		// TODO Auto-generated method stub
+		
+	}
 }
