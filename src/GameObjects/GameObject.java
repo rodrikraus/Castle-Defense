@@ -1,7 +1,6 @@
 package GameObjects;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import Juego.Mapa;
@@ -113,5 +112,6 @@ public abstract class GameObject {
 	}
 	
 	
+	public abstract int toClick();
 	
 }

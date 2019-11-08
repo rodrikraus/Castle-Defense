@@ -1,5 +1,6 @@
 package Juego;
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
@@ -190,6 +191,14 @@ public class Mapa {
 	
 	public void mostrarPantallaGanadora() {
 		gui.youWin();
+	}
+	
+	public GameObject intersectaClickConGameObject(Punto p) {
+		Rectangle rec = new Rectangle(p.getX()-7, p.getY()-7, 14, 14);
+		for(GameObject elem : lista_principal)
+			if(elem.getDibujo().getBounds().intersects(rec))
+					return elem;
+		return null;
 	}
 
 }

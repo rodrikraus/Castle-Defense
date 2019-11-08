@@ -36,6 +36,7 @@ public class GUI extends JFrame {
     private Point initialClick;
     private Tienda tienda;
     private Mapa mapa;
+    private JButton botonVender;
 
 	private Punto punto = null; // punto para saber coordenada de insertar aliado de tienda
     
@@ -73,11 +74,26 @@ public class GUI extends JFrame {
 			panelTienda.add(boton);
 			x = x + ancho + 10;
 		}
-		/*
-		JButton btn= new JButton();
-		btn.setText("Vender Aliado");
 		
-		*/
+		botonVender = new JButton();
+		botonVender.setFont(new Font("Dialog", Font.LAYOUT_LEFT_TO_RIGHT, 10));
+		botonVender.setText("Vender Aliado");
+		botonVender.setBounds(x, y, ancho+30, largo);
+		panelTienda.add(botonVender);
+		x = x + ancho + 10;
+		
+		botonVender.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// se activa el modo vender
+				
+				tienda.estadoBotones(false);
+				botonVender.setEnabled(false);
+				tienda.setPuedoVender(true);
+				
+			}
+		});
+		
+		
 		
 	}
 	
@@ -111,11 +127,21 @@ public class GUI extends JFrame {
 						mapa.add(obj);
 						obj.setMapa(mapa);
 						tienda.restarMonedas(obj.getCosto());
-//						tienda.setToAdd(null);
-//						tienda.actualizarMonedas();
 					}
+					tienda.setToAdd(null);
 				}
-				tienda.setToAdd(null);
+				
+				if(tienda.getPuedoVender()){
+					GameObject objClickeado = mapa.intersectaClickConGameObject(punto);
+					if(objClickeado!=null) {
+						System.out.println("click en objeto");
+						int aliadoVendido = objClickeado.toClick();
+						tienda.sumarMonedas(aliadoVendido);
+						tienda.setPuedoVender(false);
+					}
+					
+				}
+				botonVender.setEnabled(true);
 				tienda.estadoBotones(true);
 			}
 		});

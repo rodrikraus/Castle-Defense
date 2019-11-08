@@ -9,6 +9,7 @@ import Visitor.Visitor;
 
 public abstract class Aliado extends GameObject  {
 
+	protected boolean herido;
 	
 	public Aliado(int vida, int danio, int rango, int velMov, int velAt, int costo) {
 
@@ -16,6 +17,7 @@ public abstract class Aliado extends GameObject  {
 		super(vida, danio, rango, velMov);
 		velocidad_ataque = velAt;
 		this.costo = costo;		
+		herido = false;
 	}
 
 	@Override
@@ -62,6 +64,22 @@ public abstract class Aliado extends GameObject  {
 		// Los aliados no se mueven		
 	}
 	
-	  
+	public boolean getHerido() {
+		return herido;
+	}
+	
+	public void setHerido(boolean h) {
+		herido = h;
+	}
 
+	
+	@Override
+	// Que pasa cuando se le hace click ??
+	public int toClick() {
+		morir();
+		if(herido)
+			return (costo / 2);
+		else
+			return costo;
+	}
 }

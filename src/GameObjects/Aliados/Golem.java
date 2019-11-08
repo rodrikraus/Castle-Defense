@@ -28,5 +28,7 @@ public class Golem extends Aliado {
 		mapa.add(disparo);
 		disparo.setMapa(mapa);
 	}
+
+	
 	
 }

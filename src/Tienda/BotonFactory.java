@@ -34,23 +34,6 @@ public abstract class BotonFactory extends JButton {
 				
 				// Lo guardo en la tienda para que pueda ser agregado
 				tienda.setToAdd(aliado);
-/*
-				//tienda.actualizarEstadoBotones();
-				tienda.estadoBotones(false);				
-				Aliado aliado = crearAliado();
-				
-				int nuevaCantidadDeMonedas = tienda.getMonedas() - aliado.getCosto();
-				if(nuevaCantidadDeMonedas >= 0) {
-					tienda.setToAdd(aliado);
-				}
-				else {
-					aliado = null;
-					tienda.estadoBotones(true);				}
-				
-
-				tienda.actualizarEstadoBotones();
-*/
-				
 				
 			}
 		});
