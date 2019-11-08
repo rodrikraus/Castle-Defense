@@ -10,14 +10,11 @@ import javax.swing.border.EmptyBorder;
 import GameObjects.GameObject;
 import Tienda.Tienda;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -270,23 +267,24 @@ public class GUI extends JFrame {
 	
 public void youWin(){
 		
+	System.out.println("you winn");
 		// Borramos todo del panel
         panelFondo.removeAll();
   
         // Cargamos la imagen del GameOver
-  		ImageIcon img_gameOver = new ImageIcon(getClass().getClassLoader().getResource("img/gui/youwin.png"));
-		JLabel lbl_gameOver = new JLabel(img_gameOver);	
+  		ImageIcon img_youWin = new ImageIcon(getClass().getClassLoader().getResource("img/gui/youwin.png"));
+		JLabel lbl_youWin = new JLabel(img_youWin);	
 		
 		// Obtengo el ancho y el alto de la nueva imagen
-		int ancho = img_gameOver.getIconWidth();
-		int largo = img_gameOver.getIconHeight();
-		lbl_gameOver.setBounds(0, 0, ancho, largo);
+		int ancho = img_youWin.getIconWidth();
+		int largo = img_youWin .getIconHeight();
+		lbl_youWin.setBounds(0, 0, ancho, largo);
 		
 		// Establezco el tamaño de la ventana al tamaño de la imagen
 		this.setSize(ancho, largo);
 		
 		// Agrego la imagen al panel
-		panelFondo.add(lbl_gameOver);
+		panelFondo.add(lbl_youWin);
 		
 		// Refresco el panel
 		panelFondo.repaint();		
