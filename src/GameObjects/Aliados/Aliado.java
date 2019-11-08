@@ -39,6 +39,7 @@ public abstract class Aliado extends GameObject  {
 		Punto p = new Punto(punto.getX()+ancho-30, punto.getY());
 		if(haceDobleDanio) {
 			Disparo disparo = new DisparoAliado(danio*2, p, rango);
+			disparo.cambiarDibujo("img/disparos/disparo_angosto_potenciado.gif");
 			mapa.add(disparo);
 			disparo.setMapa(mapa);
 		} else {
