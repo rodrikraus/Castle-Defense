@@ -35,13 +35,14 @@ public class GUI extends JFrame {
 	private JLabel lblTienda; 
 	private JLabel lblMonedas;
 	private JLabel lblValorMonedas;
+	private JLabel lblOleada;
     private Point initialClick;
     private Tienda tienda;
     private Mapa mapa;
 
 	private Punto punto = null; // punto para saber coordenada de insertar aliado de tienda
     
-	public GUI(Tienda t) {		
+	public GUI(Tienda t) {
 		tienda = t;
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 580);
@@ -50,6 +51,7 @@ public class GUI extends JFrame {
 		panelFondo.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(panelFondo);
 		panelFondo.setLayout(null);
+		crearLabelOleada();
 		crearPanelCesped();
 		this.agregarBotonesGenerales();
 		this.agregarFondo();
@@ -266,6 +268,10 @@ public class GUI extends JFrame {
 		lblValorMonedas.setText(""+tienda.getMonedas());		
 	}
 
+	public void crearLabelOleada() {
+		ImageIcon imgOleada1 = new ImageIcon(getClass().getClassLoader().getResource("img/gui/gameover.png"));
+		lblOleada = new JLabel();
+	}
 	
 	
 	/*
