@@ -103,7 +103,7 @@ public class Mapa {
 		String oleadas = "ppjbpv jpjjpbm bjppd"; //v m y d son los bosses finales de cada oleada
 													//entonces cada vez q muera alguno cambia la oleada o (si es d) ganas.
 		int contador = 700;
-		final int ESPACIOENTREENEMIGOS = 200;
+		final int ESPACIOENTREENEMIGOS = 300;
 		final int ALTURA = 150;
 		
 		for(int i = 0; i < oleadas.length(); i++) {

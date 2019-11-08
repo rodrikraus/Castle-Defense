@@ -24,14 +24,12 @@ public class Mono extends Enemigo {
 	
 	public void morir() {        //REDEFINO EL METODO MORIR DENUEVO
 		Random random = new Random();
-		int numero = random.nextInt(10);
-		if(numero<=3) {
-			System.out.println("Tirando doble oro al piso.");
+		int numero = random.nextInt(100);
+		if(numero<=8) { // Tiro el doble oro
 			GameObject poder = new DobleOro(new Punto(this.getPunto().getX(), this.getPunto().getY()));
 			mapa.add(poder);
 		}
-		if (numero>=4 && numero<=6) {
-			System.out.println("Tirando doble danio al piso.");
+		if (numero>=40 && numero<=50) { // Tiro el doble danio
 			GameObject poder = new DobleDanio(new Punto(this.getPunto().getX(), this.getPunto().getY()));
 			mapa.add(poder);
 		}
