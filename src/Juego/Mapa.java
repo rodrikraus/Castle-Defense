@@ -189,7 +189,7 @@ public class Mapa {
 	}
 	
 	public void mostrarPantallaGanadora() {
-		gui.gameOver();
+		gui.youWin();
 	}
 
 }

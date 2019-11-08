@@ -267,6 +267,42 @@ public class GUI extends JFrame {
 	public void actualizarMonedas() {
 		lblValorMonedas.setText(""+tienda.getMonedas());		
 	}
+	
+public void youWin(){
+		
+		// Borramos todo del panel
+        panelFondo.removeAll();
+  
+        // Cargamos la imagen del GameOver
+  		ImageIcon img_gameOver = new ImageIcon(getClass().getClassLoader().getResource("img/gui/youwin.png"));
+		JLabel lbl_gameOver = new JLabel(img_gameOver);	
+		
+		// Obtengo el ancho y el alto de la nueva imagen
+		int ancho = img_gameOver.getIconWidth();
+		int largo = img_gameOver.getIconHeight();
+		lbl_gameOver.setBounds(0, 0, ancho, largo);
+		
+		// Establezco el tamaño de la ventana al tamaño de la imagen
+		this.setSize(ancho, largo);
+		
+		// Agrego la imagen al panel
+		panelFondo.add(lbl_gameOver);
+		
+		// Refresco el panel
+		panelFondo.repaint();		
+		
+		
+		// Esperamos unos segundos para cerrar el juego...
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		// Cerramos el juego
+		System.exit(0);
+		
+	}
 
 	public void crearLabelOleada() {
 		ImageIcon imgOleada1 = new ImageIcon(getClass().getClassLoader().getResource("img/gui/oleada1.gif"));

@@ -26,7 +26,7 @@ public class Dragon extends Enemigo {
 		cambiarDibujo(ruta_dibujo_moviendose);
 	}
 	
-	public void morir() {        //REDEFINO EL METODO MORIR DENUEVO
+	public void morir() {        //REDEFINO EL METODO MORIR PARA INDICAR QUE GANO EL JUGADOR
 		Random random = new Random();
 		int numero = random.nextInt(100);
 		if(numero<=8) { // Tiro el doble oro
