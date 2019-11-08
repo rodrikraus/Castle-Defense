@@ -46,6 +46,7 @@ public class Juego {
 		for(GameObject obj : mapa.getListaPrincipal()) {
 			if(contadorDobleDanio > 0) {
 				obj.setDobleDanio(true);
+				System.out.println(contadorDobleDanio);
 				contadorDobleDanio--;
 			} else {
 				obj.setDobleDanio(false);
@@ -96,11 +97,11 @@ public class Juego {
 	}
 
 	public void activarContadorDobleDanio() {
-		contadorDobleDanio = 100;
+		contadorDobleDanio = 5000;
 	}
 
 	public void activarContadorDobleOro() {
-		contadorDobleOro = 100;
+		contadorDobleOro = 5000;
 	}
 	
 }
