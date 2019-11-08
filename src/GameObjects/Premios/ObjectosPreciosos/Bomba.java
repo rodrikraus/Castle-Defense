@@ -19,4 +19,10 @@ public class Bomba extends Premio {
 		
 	}
 
+	@Override
+	public int toClick() {
+		
+		return -1;
+	}
+	
 }

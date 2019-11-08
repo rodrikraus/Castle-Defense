@@ -36,7 +36,7 @@ public class GUI extends JFrame {
     private Point initialClick;
     private Tienda tienda;
     private Mapa mapa;
-    private JButton botonVender;
+    private JButton botonVender, botonBomba, botonDinamita;
 
 	private Punto punto = null; // punto para saber coordenada de insertar aliado de tienda
     
@@ -80,9 +80,9 @@ public class GUI extends JFrame {
 		botonVender = new JButton();
 		botonVender.setFont(new Font("Dialog", Font.LAYOUT_LEFT_TO_RIGHT, 10));
 		botonVender.setText("Vender Aliado");
-		botonVender.setBounds(x, y, ancho+30, largo);
+		botonVender.setBounds(x, y, ancho+15, largo);
 		panelTienda.add(botonVender);
-		x = x + ancho + 10;
+		x = x + ancho + 25;
 		
 		botonVender.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -97,6 +97,49 @@ public class GUI extends JFrame {
 		
 		
 		
+
+		botonBomba = new JButton();
+		botonBomba.setFont(new Font("Dialog", Font.LAYOUT_LEFT_TO_RIGHT, 10));
+		botonBomba.setText("Bomba");
+		botonBomba.setBounds(x, y, ancho-10, largo/2 -10);
+		botonBomba.setEnabled(false);
+		panelTienda.add(botonBomba);
+//		x = x + ancho + 10;
+
+		botonBomba.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+			}
+		});
+		
+
+		botonDinamita = new JButton();
+		botonDinamita.setFont(new Font("Dialog", Font.LAYOUT_LEFT_TO_RIGHT, 10));
+		botonDinamita.setText("TNT");
+		botonDinamita.setBounds(x, y+(largo/2), ancho-10, largo/2 - 10);
+		botonDinamita.setEnabled(false);
+		panelTienda.add(botonDinamita);
+		x = x + ancho + 10;
+
+		botonDinamita.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// se activa el modo vender
+				
+				
+			}
+		});
+		
+		
+	}
+	
+	public void setEstadoBotonBomba(boolean b) {
+		botonBomba.setEnabled(b);
+	}
+
+	public void setEstadoBotonDinamita(boolean b) {
+		botonDinamita.setEnabled(b);
 	}
 	
 	public Rectangle getRectanglePanelCesped() {
@@ -137,8 +180,9 @@ public class GUI extends JFrame {
 					GameObject objClickeado = mapa.intersectaClickConGameObject(punto);
 					if(objClickeado!=null) {
 						System.out.println("click en objeto");
-						int aliadoVendido = objClickeado.toClick();
-						tienda.sumarMonedas(aliadoVendido);
+						GameObject aliadoVendido = objClickeado.toClick();
+						if(aliadoVendido>=0)
+							tienda.sumarMonedas(aliadoVendido);
 						tienda.setPuedoVender(false);
 					}
 					

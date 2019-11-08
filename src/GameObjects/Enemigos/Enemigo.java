@@ -10,6 +10,8 @@ import GameObjects.Disparos.Disparo;
 import GameObjects.Disparos.DisparoEnemigo;
 import GameObjects.Premios.MagiasTemporales.DobleDanio;
 import GameObjects.Premios.MagiasTemporales.DobleOro;
+import GameObjects.Premios.ObjectosPreciosos.Bomba;
+import GameObjects.Premios.ObjectosPreciosos.Dinamita;
 import Juego.Punto;
 import Visitor.Visitor;
 
@@ -102,17 +104,24 @@ public abstract class Enemigo extends GameObject   {
 	
 	public void morir() {        //redefino el metodo morir para tener una chance de tirar un premio cuando muera
 		Random random = new Random();
-		int numero = random.nextInt(10);
+		int numero = random.nextInt(20);
 		if(numero<=3) {
-			System.out.println("Tirando doble oro al piso.");
 			GameObject poder = new DobleOro(new Punto(this.getPunto().getX(), this.getPunto().getY()));
 			mapa.add(poder);
 		}
 		if (numero>=4 && numero<=6) {
-			System.out.println("Tirando doble danio al piso.");
 			GameObject poder = new DobleDanio(new Punto(this.getPunto().getX(), this.getPunto().getY()));
 			mapa.add(poder);
 		}
+		if(numero>=7 && numero<=9) {
+			GameObject poder = new Bomba(new Punto(this.getPunto().getX(), this.getPunto().getY()));
+			mapa.add(poder);
+		}
+		if(numero>=10 && numero<=12) {
+			GameObject poder = new Dinamita(new Punto(this.getPunto().getX(), this.getPunto().getY()));
+			mapa.add(poder);
+		}
+		
 		mapa.getListaEliminar().add(this);
 		
 		
