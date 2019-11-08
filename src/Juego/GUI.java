@@ -109,12 +109,13 @@ public class GUI extends JFrame {
 					obj.setPunto(punto);
 					if(mapa.puedoAgregarObjeto(obj)) {
 						mapa.add(obj);
-						actualizarMonedas();
 						obj.setMapa(mapa);
-						tienda.setToAdd(null);
-						tienda.actualizarMonedas();
+						tienda.restarMonedas(obj.getCosto());
+//						tienda.setToAdd(null);
+//						tienda.actualizarMonedas();
 					}
 				}
+				tienda.setToAdd(null);
 				tienda.estadoBotones(true);
 			}
 		});
@@ -267,7 +268,6 @@ public class GUI extends JFrame {
 	
 public void youWin(){
 		
-	System.out.println("you winn");
 		// Borramos todo del panel
         panelFondo.removeAll();
   

@@ -14,11 +14,13 @@ public class Tienda {
 	protected int monedas;
 	protected List<JButton> listaBotones;
 	protected int newMonedas;
+	protected boolean botonesActivos;
 	
 	public Tienda(Juego j){
 		juego = j;
 		toAdd = null;
 		monedas = 50;
+		botonesActivos = true;
 		
 		listaBotones = new LinkedList<JButton>();
 
@@ -34,7 +36,7 @@ public class Tienda {
 		listaBotones.add(btn_guerrero);
 		listaBotones.add(btn_golem);	
 		
-		actualizarEstadoBotones();
+		estadoBotones(true);
 	}
 	
 
@@ -57,20 +59,15 @@ public class Tienda {
 	public int getMonedas() {
 		return monedas;
 	}
-	
-	public void actualizarEstadoBotones() {
-		for(JButton boton : listaBotones)
-			if(((BotonFactory) boton).getCosto() > monedas)
-				boton.setEnabled(false);
-			else
-				boton.setEnabled(true);
-	}
-	
+		
+	// Si es TRUE se activan solo los que se pueden activar
+	// Si es FALSE se desactivan todos
 	public void estadoBotones(boolean estado) {
+		botonesActivos = estado;
 		for(JButton boton : listaBotones)
-			if(((BotonFactory) boton).getCosto() > monedas)
-				boton.setEnabled(false);
-			else
+			if(((BotonFactory) boton).getCosto() >= monedas) 
+				boton.setEnabled(false);			
+			else 
 				boton.setEnabled(estado);
 	}
 	
@@ -78,10 +75,10 @@ public class Tienda {
 	public void setMonedas(int i) {
 		monedas = i;
 		juego.getGUI().actualizarMonedas();
-		actualizarEstadoBotones();
+		estadoBotones(true);
 		
 	}
-
+/*
 	public int getNewMonedas() {
 		return newMonedas;
 	}
@@ -95,6 +92,20 @@ public class Tienda {
 		monedas = newMonedas;
 		juego.getGUI().actualizarMonedas();
 		actualizarEstadoBotones();
+	}
+	*/
+	public void sumarMonedas(int i) {
+		monedas = monedas + i;
+		juego.getGUI().actualizarMonedas();
+		if(botonesActivos)
+			estadoBotones(true);
+	}
+	
+	public void restarMonedas(int i) {
+		monedas = monedas - i;
+		juego.getGUI().actualizarMonedas();
+		if(botonesActivos)
+			estadoBotones(true);
 	}
 	
 }

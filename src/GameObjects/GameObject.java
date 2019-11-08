@@ -26,7 +26,7 @@ public abstract class GameObject {
 	protected int largo; 
 	protected Visitor visitor;
 	
-	protected int monedas;
+	protected int monedas, costo;
 	
 	protected String ruta_dibujo_quieto;
 	protected String ruta_dibujo_moviendose;
@@ -40,6 +40,7 @@ public abstract class GameObject {
 		frecuencia_ataques = 0;
 		punto = null;
 		monedas = 0;
+		costo = 0;
 		
 	}
 	
@@ -102,5 +103,15 @@ public abstract class GameObject {
 	public void setMonedas(int monedas) {
 		this.monedas = monedas;
 	}
+
+	public int getCosto() {
+		return costo;
+	}
+
+	public void setCosto(int costo) {
+		this.costo = costo;
+	}
+	
+	
 	
 }

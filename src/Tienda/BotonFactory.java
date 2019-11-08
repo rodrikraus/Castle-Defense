@@ -26,26 +26,32 @@ public abstract class BotonFactory extends JButton {
 		this.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				// Deshabilito todos los botones
+				tienda.estadoBotones(false);	
+				
+				// Creo el aliado
+				Aliado aliado = crearAliado();
+				
+				// Lo guardo en la tienda para que pueda ser agregado
+				tienda.setToAdd(aliado);
+/*
+				//tienda.actualizarEstadoBotones();
 				tienda.estadoBotones(false);				
 				Aliado aliado = crearAliado();
 				
-				tienda.setNewMonedas(tienda.getMonedas() - aliado.getCosto());
-				if(tienda.getNewMonedas() >= 0) {
+				int nuevaCantidadDeMonedas = tienda.getMonedas() - aliado.getCosto();
+				if(nuevaCantidadDeMonedas >= 0) {
 					tienda.setToAdd(aliado);
 				}
 				else {
 					aliado = null;
 					tienda.estadoBotones(true);				}
 				
+
+				tienda.actualizarEstadoBotones();
+*/
 				
-	//			Punto punto = tienda.getJuego().getGUI().activarOyentePanelCesped();
-	//			aliado.setUbicacion(punto);
 				
-	//			tienda.getJuego().getGUI().agregarDibujo(aliado);
-	//			mapa.getListaPrincipal().add(aliado);
-	//			aliado.setMapa(mapa);
-				// obtener posicion en la que se va a agregar
-				// llamar oyente de GUI para capturar posicion de click
 			}
 		});
 	}

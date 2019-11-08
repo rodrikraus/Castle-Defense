@@ -9,8 +9,6 @@ import Visitor.Visitor;
 
 public abstract class Aliado extends GameObject  {
 
-	protected int costo;
-	
 	
 	public Aliado(int vida, int danio, int rango, int velMov, int velAt, int costo) {
 
@@ -65,8 +63,5 @@ public abstract class Aliado extends GameObject  {
 	}
 	
 	  
-	public void setCosto(int c) { costo = c ;}
-	public int getCosto() { return costo ;}
-		
 
 }
