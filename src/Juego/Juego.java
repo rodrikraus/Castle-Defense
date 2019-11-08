@@ -54,6 +54,7 @@ public class Juego {
 		}
 		
 		for(GameObject obj : mapa.getListaEliminar()) {
+			tienda.setMonedas(tienda.getMonedas() + obj.getMonedas());
 			mapa.getListaPrincipal().remove(obj);
 			obj.getDibujo().setVisible(false);
 			obj = null;
@@ -65,7 +66,6 @@ public class Juego {
 			mapa.getListaPrincipal().add(obj);
 			gui.agregarDibujo(obj);
 			obj.setMapa(mapa);
-//			tienda.setMonedas(tienda.getMonedas() + obj.getMonedas());
 		}		
 		mapa.resetLista(mapa.getListaAgregar());
 		

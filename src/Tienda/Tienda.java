@@ -18,7 +18,7 @@ public class Tienda {
 	public Tienda(Juego j){
 		juego = j;
 		toAdd = null;
-		monedas = 500;
+		monedas = 50;
 		
 		listaBotones = new LinkedList<JButton>();
 
@@ -32,7 +32,9 @@ public class Tienda {
 		listaBotones.add(btn_ninja);
 		listaBotones.add(btn_maga);
 		listaBotones.add(btn_guerrero);
-		listaBotones.add(btn_golem);		
+		listaBotones.add(btn_golem);	
+		
+		actualizarEstadoBotones();
 	}
 	
 
@@ -76,6 +78,7 @@ public class Tienda {
 	public void setMonedas(int i) {
 		monedas = i;
 		juego.getGUI().actualizarMonedas();
+		actualizarEstadoBotones();
 		
 	}
 
@@ -91,6 +94,7 @@ public class Tienda {
 	public void actualizarMonedas() {
 		monedas = newMonedas;
 		juego.getGUI().actualizarMonedas();
+		actualizarEstadoBotones();
 	}
 	
 }

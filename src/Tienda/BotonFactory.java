@@ -30,7 +30,7 @@ public abstract class BotonFactory extends JButton {
 				Aliado aliado = crearAliado();
 				
 				tienda.setNewMonedas(tienda.getMonedas() - aliado.getCosto());
-				if(tienda.getNewMonedas() > 0) {
+				if(tienda.getNewMonedas() >= 0) {
 					tienda.setToAdd(aliado);
 				}
 				else {

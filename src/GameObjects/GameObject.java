@@ -26,6 +26,7 @@ public abstract class GameObject {
 	protected int largo; 
 	protected Visitor visitor;
 	
+	protected int monedas;
 	
 	protected String ruta_dibujo_quieto;
 	protected String ruta_dibujo_moviendose;
@@ -38,6 +39,7 @@ public abstract class GameObject {
 		this.velocidad_movimiento = velMov;
 		frecuencia_ataques = 0;
 		punto = null;
+		monedas = 0;
 		
 	}
 	
@@ -93,5 +95,12 @@ public abstract class GameObject {
 	
 	public Visitor getVisitor() { return visitor ;}
 	
+
+	public int getMonedas() {
+		return monedas;
+	}
+	public void setMonedas(int monedas) {
+		this.monedas = monedas;
+	}
 	
 }

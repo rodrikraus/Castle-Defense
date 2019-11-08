@@ -16,7 +16,6 @@ import Visitor.Visitor;
 public abstract class Enemigo extends GameObject   {
 	
 	protected int puntos;
-	protected int monedas;
 	
 	public Enemigo(int vida, int danio, int rango, int velMov, int velAt, int puntos, int monedas) {
 		super(vida, danio, rango, velMov);
@@ -95,13 +94,6 @@ public abstract class Enemigo extends GameObject   {
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
-	public int getMonedas() {
-		return monedas;
-	}
-	public void setMonedas(int monedas) {
-		this.monedas = monedas;
-	}
-	
 	public void accept(Visitor v){
 		v.visit(this);
 	} 
