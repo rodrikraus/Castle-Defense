@@ -27,6 +27,7 @@ public class DobleDanio extends Premio {
 		    public void mouseClicked(MouseEvent e)  
 		    {  
 		       mapa.getJuego().activarContadorDobleDanio();
+		       morir();
 
 		    }  
 		}); 

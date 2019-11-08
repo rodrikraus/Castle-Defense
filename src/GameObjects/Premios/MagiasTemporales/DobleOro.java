@@ -26,6 +26,7 @@ public class DobleOro extends Premio {
 		    public void mouseClicked(MouseEvent e)  
 		    {  
 		       mapa.getJuego().activarContadorDobleOro();
+		       morir();
 
 		    }  
 		}); 
