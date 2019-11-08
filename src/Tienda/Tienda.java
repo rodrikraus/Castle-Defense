@@ -12,11 +12,27 @@ public class Tienda {
 	protected Juego juego;
 	protected GameObject toAdd;
 	protected int monedas;
+	protected List<JButton> listaBotones;
+	protected int newMonedas;
 	
 	public Tienda(Juego j){
 		juego = j;
 		toAdd = null;
-		monedas=250;
+		monedas = 500;
+		
+		listaBotones = new LinkedList<JButton>();
+
+		JButton btn_pirata = new BotonPirata(this, juego.getMapa());
+		JButton btn_ninja = new BotonNinja(this, juego.getMapa());
+		JButton btn_maga = new BotonMaga(this, juego.getMapa());
+		JButton btn_guerrero = new BotonGuerrero(this, juego.getMapa());
+		JButton btn_golem = new BotonGolem(this, juego.getMapa());
+	
+		listaBotones.add(btn_pirata);
+		listaBotones.add(btn_ninja);
+		listaBotones.add(btn_maga);
+		listaBotones.add(btn_guerrero);
+		listaBotones.add(btn_golem);		
 	}
 	
 
@@ -33,32 +49,48 @@ public class Tienda {
 	}
 
 	public List<JButton> getListaBotones() {
-		List<JButton> toReturn = new LinkedList<JButton>();
-		
-		JButton btn_pirata = new BotonPirata(this, juego.getMapa());
-		JButton btn_ninja = new BotonNinja(this, juego.getMapa());
-		JButton btn_maga = new BotonMaga(this, juego.getMapa());
-		JButton btn_guerrero = new BotonGuerrero(this, juego.getMapa());
-		JButton btn_golem = new BotonGolem(this, juego.getMapa());
-		
-
-		toReturn.add(btn_pirata);
-		toReturn.add(btn_ninja);
-		toReturn.add(btn_maga);
-		toReturn.add(btn_guerrero);
-		toReturn.add(btn_golem);
-		
-		
-		return toReturn;
+		return listaBotones;
 	}
 	
 	public int getMonedas() {
 		return monedas;
 	}
 	
+	public void actualizarEstadoBotones() {
+		for(JButton boton : listaBotones)
+			if(((BotonFactory) boton).getCosto() > monedas)
+				boton.setEnabled(false);
+			else
+				boton.setEnabled(true);
+	}
+	
+	public void estadoBotones(boolean estado) {
+		for(JButton boton : listaBotones)
+			if(((BotonFactory) boton).getCosto() > monedas)
+				boton.setEnabled(false);
+			else
+				boton.setEnabled(estado);
+	}
+	
+	
 	public void setMonedas(int i) {
-		monedas=i;
-		juego.getGUI().setMonedas(i);
+		monedas = i;
+		juego.getGUI().actualizarMonedas();
+		
+	}
+
+	public int getNewMonedas() {
+		return newMonedas;
+	}
+	
+	public void setNewMonedas(int newMonedas) {
+		this.newMonedas = newMonedas;
+	}
+
+
+	public void actualizarMonedas() {
+		monedas = newMonedas;
+		juego.getGUI().actualizarMonedas();
 	}
 	
 }

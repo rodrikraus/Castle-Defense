@@ -110,10 +110,13 @@ public class GUI extends JFrame {
 					obj.setPunto(punto);
 					if(mapa.puedoAgregarObjeto(obj)) {
 						mapa.add(obj);
+						actualizarMonedas();
 						obj.setMapa(mapa);
 						tienda.setToAdd(null);
+						tienda.actualizarMonedas();
 					}
 				}
+				tienda.estadoBotones(true);
 			}
 		});
 	}
@@ -207,14 +210,16 @@ public class GUI extends JFrame {
 				lblTienda.setFont(new Font("Dialog", Font.BOLD, 14));
 				panelTienda.add(lblTienda);
 				
-				lblMonedas = new JLabel("Monedas");
-				lblMonedas.setBounds(680, 5, 65, 17);
+				lblMonedas = new JLabel("Monedas  $");
+				//lblMonedas.setBounds(680, 5, 65, 17);
+				lblMonedas.setBounds(570, 5, 91, 17);
 				lblMonedas.setFont(new Font("Dialog", Font.BOLD, 14));
 				panelTienda.add(lblMonedas);
 				
 				//label actualizable
-				lblValorMonedas = new JLabel("$$$");
-				lblValorMonedas.setBounds(700, 20, 65, 17);
+				lblValorMonedas = new JLabel(""+tienda.getMonedas());
+//				lblValorMonedas.setBounds(700, 20, 65, 17);
+				lblValorMonedas.setBounds(670, 5, 60, 17);
 				lblValorMonedas.setFont(new Font("Dialog", Font.BOLD, 14));
 				panelTienda.add(lblValorMonedas);
 			}
@@ -257,8 +262,8 @@ public class GUI extends JFrame {
 		
 	}
 	
-	public void setMonedas(int i) {
-		lblValorMonedas.setText(""+i);		
+	public void actualizarMonedas() {
+		lblValorMonedas.setText(""+tienda.getMonedas());		
 	}
 
 	

@@ -14,17 +14,18 @@ public class BotonGuerrero extends BotonFactory{
 
 	protected BotonGuerrero(Tienda t, Mapa m) {
 		super(t, m);
-		String txt= "<html><body>Guerrero<br>$70</body></html>";
+
+		Aliado aliado = new Guerrero();
+		costo = aliado.getCosto();
+		
+		String txt = "<html><body>Guerrero<br>$"+costo+"</body></html>";
 		setText(txt);
-		//panelTienda.add(btn_pirata);
 	}
 
 	@Override
 	public Aliado crearAliado() {
-		// verificar monedas
-		Aliado toReturn = new Guerrero();
-		
-		return toReturn;
+		return new Guerrero();
 	} 
+	
 	
 }

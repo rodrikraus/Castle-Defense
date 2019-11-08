@@ -120,6 +120,8 @@ public abstract class Enemigo extends GameObject   {
 			mapa.add(poder);
 		}
 		mapa.getListaEliminar().add(this);
+		
+		
 	}
 
 }

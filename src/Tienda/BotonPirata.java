@@ -6,6 +6,7 @@ import Juego.Mapa;
 
 public class BotonPirata extends BotonFactory{
 
+
 	
 	/**
 	 * 
@@ -14,17 +15,17 @@ public class BotonPirata extends BotonFactory{
 
 	protected BotonPirata(Tienda t, Mapa m) {
 		super(t, m);
-		String txt= "<html><body>Pirata<br>$20</body></html>";
+		
+		Aliado aliado = new Pirata();
+		costo = aliado.getCosto();
+		
+		String txt = "<html><body>Pirata<br>$"+costo+"</body></html>";
 		setText(txt);
-		//panelTienda.add(btn_pirata);
 	}
 
 	@Override
 	public Aliado crearAliado() {
-		// verificar monedas
-		Aliado toReturn = new Pirata();
-		
-		return toReturn;
+		return new Pirata();
 	} 
 	
 }

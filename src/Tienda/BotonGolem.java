@@ -14,17 +14,18 @@ public class BotonGolem extends BotonFactory{
 
 	protected BotonGolem(Tienda t, Mapa m) {
 		super(t, m);
-		String txt= "<html><body>Golem<br>$160</body></html>";
+		
+		Aliado aliado = new Golem();
+		costo = aliado.getCosto();
+		
+		String txt = "<html><body>Golem<br>$"+costo+"</body></html>";
 		setText(txt);
-		//panelTienda.add(btn_pirata);
 	}
 
 	@Override
 	public Aliado crearAliado() {
-		// verificar monedas
-		Aliado toReturn = new Golem();
-		
-		return toReturn;
+		return new Golem();
 	} 
 	
+
 }
