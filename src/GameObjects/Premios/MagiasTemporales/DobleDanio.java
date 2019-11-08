@@ -1,16 +1,16 @@
-package GameObjects.Premios;
+package GameObjects.Premios.MagiasTemporales;
 
-import javax.swing.JButton;
 
+import GameObjects.Premios.Premio;
 import Juego.Punto;
 import Visitor.VisitorPremio;
 
 public class DobleDanio extends Premio {
 
 	public DobleDanio(Punto p) {
-		super(1,0,0,0);
+		super();
 		punto = p;
-		visitor= new VisitorPremio(this);
+		visitor = new VisitorPremio(this);
 		
 		ruta_dibujo_quieto = "img/mapa/powerupDobleDanio.gif";
 		ruta_dibujo_moviendose = null;

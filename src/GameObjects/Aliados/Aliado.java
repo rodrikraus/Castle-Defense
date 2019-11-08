@@ -13,6 +13,8 @@ public abstract class Aliado extends GameObject  {
 	
 	
 	public Aliado(int vida, int danio, int rango, int velMov, int velAt, int costo) {
+
+		// vida, daño, rango, velocidad de Movimiento
 		super(vida, danio, rango, velMov);
 		velocidad_ataque = velAt;
 		this.costo = costo;		

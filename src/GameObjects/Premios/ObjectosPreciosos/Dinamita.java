@@ -1,23 +1,22 @@
-package GameObjects.Premios;
+package GameObjects.Premios.ObjectosPreciosos;
 
-import javax.swing.JButton;
-
+import GameObjects.Premios.Premio;
 import Juego.Punto;
 import Visitor.VisitorPremio;
 
-public class DobleOro extends Premio {
+public class Dinamita extends Premio {
 
-	public DobleOro(Punto p) {
-		super(1, 0, 0, 0);
+
+	public Dinamita(Punto p) {
+		super();
 		punto = p;
 		visitor = new VisitorPremio(this);
-
-		ruta_dibujo_quieto = "img/mapa/powerupDobleOro.gif";
+		
+		ruta_dibujo_quieto = "img/mapa/tnt.gif";
 		ruta_dibujo_moviendose = null;
 		ruta_dibujo_ataque = null;
 		
 		cambiarDibujo(ruta_dibujo_quieto);
 
 	}
-
 }

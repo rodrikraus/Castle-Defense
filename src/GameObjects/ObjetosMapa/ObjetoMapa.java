@@ -1,11 +1,11 @@
-package GameObjects.Premios;
+package GameObjects.ObjetosMapa;
 
 import GameObjects.GameObject;
 import Visitor.Visitor;
 
-public abstract class Premio extends GameObject {
+public class ObjetoMapa extends GameObject {
 
-	public Premio() {
+	public ObjetoMapa() {
 		// vida, daño, rango, velocidad de Movimiento
 		super(1, 0, 0, 0);
 
@@ -40,3 +40,5 @@ public abstract class Premio extends GameObject {
 	}
 
 }
+
+

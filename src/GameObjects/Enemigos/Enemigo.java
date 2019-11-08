@@ -8,8 +8,8 @@ import javax.swing.ImageIcon;
 import GameObjects.GameObject;
 import GameObjects.Disparos.Disparo;
 import GameObjects.Disparos.DisparoEnemigo;
-import GameObjects.Premios.DobleDanio;
-import GameObjects.Premios.DobleOro;
+import GameObjects.Premios.MagiasTemporales.DobleDanio;
+import GameObjects.Premios.MagiasTemporales.DobleOro;
 import Juego.Punto;
 import Visitor.Visitor;
 
@@ -18,6 +18,8 @@ public abstract class Enemigo extends GameObject   {
 	protected int puntos;
 	
 	public Enemigo(int vida, int danio, int rango, int velMov, int velAt, int puntos, int monedas) {
+
+		// vida, daño, rango, velocidad de Movimiento
 		super(vida, danio, rango, velMov);
 		velocidad_ataque = velAt;
 		this.puntos = puntos;
