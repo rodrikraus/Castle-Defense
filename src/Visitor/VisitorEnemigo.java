@@ -45,7 +45,7 @@ public class VisitorEnemigo extends Visitor {
 	
 	@Override
 	public void visit(Premio p) {
-		obj.atacar(p);
+		//obj.atacar(p);
 	}
 
 	@Override
