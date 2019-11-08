@@ -11,6 +11,8 @@ public class Juego {
 	protected Movimiento movimiento;
 	protected Mapa mapa;
 	protected Tienda tienda;
+	int contadorDobleDanio;
+	int contadorDobleOro;
 	
 	public Juego(){
 		
@@ -21,7 +23,9 @@ public class Juego {
 		gui.setMapa(mapa);
 		mapa.crearNivelUno();
 		movimiento = new Movimiento(this);
-		movimiento.run();	
+		movimiento.run();
+		contadorDobleDanio = 0;
+		contadorDobleOro = 0;
 	}	
 
 	public Mapa getMapa() {
@@ -39,7 +43,19 @@ public class Juego {
 //		System.out.println("Tamaño lista eliminar: "+mapa.getListaEliminar().size());
 //		System.out.println("Tamaño lista agregar: "+mapa.getListaAgregar().size());
 	
-		
+		for(GameObject obj : mapa.getListaPrincipal()) {
+			if(contadorDobleDanio > 0) {
+				obj.setDobleDanio(true);
+			} else {
+				obj.setDobleDanio(false);
+			}
+			
+			if(contadorDobleOro > 0) {
+				obj.setDobleOro(true);
+			} else {
+				obj.setDobleOro(false);
+			}
+		}
 		
 		for(GameObject obj : mapa.getListaPrincipal()) {
 			if(obj.getVida()>0) {				/*
@@ -75,6 +91,14 @@ public class Juego {
 		movimiento.setDeboMover(false);
 		gui.gameOver();
 		
+	}
+
+	public void activarContadorDobleDanio() {
+		contadorDobleDanio = 100;
+	}
+
+	public void activarContadorDobleOro() {
+		contadorDobleOro = 100;
 	}
 	
 }

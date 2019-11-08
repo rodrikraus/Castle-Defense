@@ -1,5 +1,8 @@
 package GameObjects.Premios.MagiasTemporales;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import GameObjects.Premios.Premio;
 import Juego.Punto;
 import Visitor.VisitorPremio;
@@ -16,6 +19,16 @@ public class DobleOro extends Premio {
 		ruta_dibujo_ataque = null;
 		
 		cambiarDibujo(ruta_dibujo_quieto);
+		
+		//accion al clickear
+		dibujo.addMouseListener(new MouseAdapter()  
+		{  
+		    public void mouseClicked(MouseEvent e)  
+		    {  
+		       mapa.getJuego().activarContadorDobleOro();
+
+		    }  
+		}); 
 
 	}
 

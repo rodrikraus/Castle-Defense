@@ -45,7 +45,7 @@ public abstract class Premio extends GameObject {
 		//no hace nada
 	}
 	public void setDobleOro(boolean b) {
-		
+		//no hace nada
 	}
 
 }
