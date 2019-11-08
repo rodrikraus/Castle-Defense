@@ -180,9 +180,8 @@ public class GUI extends JFrame {
 					GameObject objClickeado = mapa.intersectaClickConGameObject(punto);
 					if(objClickeado!=null) {
 						System.out.println("click en objeto");
-						GameObject aliadoVendido = objClickeado.toClick();
-						if(aliadoVendido>=0)
-							tienda.sumarMonedas(aliadoVendido);
+						int aliadoVendido = objClickeado.toClick();
+						tienda.sumarMonedas(aliadoVendido);
 						tienda.setPuedoVender(false);
 					}
 					
