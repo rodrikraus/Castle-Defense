@@ -17,7 +17,7 @@ public class Juego {
 		tienda = new Tienda(this); 		
 		gui = new GUI(tienda);
 		gui.setVisible(true);
-		mapa = new Mapa(gui);
+		mapa = new Mapa(gui, this);
 		gui.setMapa(mapa);
 		mapa.crearNivelUno();
 		movimiento = new Movimiento(this);

@@ -12,17 +12,19 @@ import GameObjects.Enemigos.*;
 public class Mapa {
 
 	protected GUI gui;
+	protected Juego juego;
 	protected static List<GameObject> lista_principal;
 	protected static List<GameObject> lista_a_agregar;
 	protected static List<GameObject> lista_a_eliminar;
 	
 	
 	
-	public Mapa(GUI g) {
+	public Mapa(GUI g, Juego j) {
 		lista_principal = new LinkedList<GameObject>();
 		lista_a_agregar = new LinkedList<GameObject>();
 		lista_a_eliminar = new LinkedList<GameObject>();
 		gui = g;
+		juego = j;
 	}
 
 	public GUI getGui() {

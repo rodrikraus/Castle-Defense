@@ -19,5 +19,6 @@ public class DobleDanio extends Premio {
 		cambiarDibujo(ruta_dibujo_quieto);
 
 	}
+	
 
 }
