@@ -4,6 +4,7 @@ import GameObjects.Aliados.Aliado;
 import GameObjects.Disparos.DisparoAliado;
 import GameObjects.Disparos.DisparoEnemigo;
 import GameObjects.Enemigos.Enemigo;
+import GameObjects.ObjetosMapa.ObjetoMapa;
 import GameObjects.Premios.Premio;
 
 /*
@@ -42,5 +43,11 @@ public class VisitorDisparoEnemigo extends Visitor {
 	@Override
 	public void visit(Premio p) {
 		obj.atacar(p);
+	}
+
+	@Override
+	public void visit(ObjetoMapa OM) {
+		// TODO Auto-generated method stub
+		
 	}
 }

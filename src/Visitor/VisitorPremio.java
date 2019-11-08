@@ -5,6 +5,7 @@ import GameObjects.Aliados.Aliado;
 import GameObjects.Disparos.DisparoAliado;
 import GameObjects.Disparos.DisparoEnemigo;
 import GameObjects.Enemigos.Enemigo;
+import GameObjects.ObjetosMapa.ObjetoMapa;
 import GameObjects.Premios.Premio;;
 
 public class VisitorPremio extends Visitor {
@@ -39,5 +40,11 @@ public class VisitorPremio extends Visitor {
 	@Override
 	public void visit(Premio p) {
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void visit(ObjetoMapa OM) {
+		// TODO Auto-generated method stub
+		
 	}
 }

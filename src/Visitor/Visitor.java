@@ -5,6 +5,7 @@ import GameObjects.Aliados.Aliado;
 import GameObjects.Disparos.DisparoAliado;
 import GameObjects.Disparos.DisparoEnemigo;
 import GameObjects.Enemigos.Enemigo;
+import GameObjects.ObjetosMapa.ObjetoMapa;
 import GameObjects.Premios.Premio;
 
 public abstract class Visitor {
@@ -26,4 +27,6 @@ public abstract class Visitor {
 	public abstract void visit(DisparoEnemigo d);
 
 	public abstract void visit(Premio p);
+
+	public abstract void visit(ObjetoMapa OM);
 }

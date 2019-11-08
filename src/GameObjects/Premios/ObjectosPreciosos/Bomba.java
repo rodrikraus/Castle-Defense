@@ -11,7 +11,7 @@ public class Bomba extends Premio {
 		punto = p;
 		visitor = new VisitorPremio(this);
 		
-		ruta_dibujo_quieto = "img/mapa/tnt.gif";  // falta gif
+		ruta_dibujo_quieto = "img/mapa/bomba.gif";
 		ruta_dibujo_moviendose = null;
 		ruta_dibujo_ataque = null;
 		
