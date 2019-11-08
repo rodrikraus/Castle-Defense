@@ -100,8 +100,8 @@ public class Mapa {
 	public void crearNivelUno(){
 		Random random = new Random();
 		
-		String oleadas = "ddpjm2mvbppp3";
-		//int tiempo = 100;  //lo pongo aca asi es mas facil de cambiar
+		String oleadas = "ppjbpv jpjjpbm bjppd"; //v m y d son los bosses finales de cada oleada
+													//entonces cada vez q muera alguno cambia la oleada o (si es d) ganas.
 		int contador = 700;
 		final int ESPACIOENTREENEMIGOS = 200;
 		final int ALTURA = 150;
@@ -110,13 +110,11 @@ public class Mapa {
 			switch(oleadas.charAt(i)) {
 				case '2': { // Muestro oleada 2
 					gui.mostrarOleada2();
-					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
 					break;
 				}
 				
 				case '3': { // Muestro oleada 3
 					gui.mostrarOleada3();
-					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
 					break;
 				}
 				
@@ -127,7 +125,6 @@ public class Mapa {
 					add(enemigo);
 					enemigo.setMapa(this);
 					contador += ESPACIOENTREENEMIGOS;
-					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
 					break;
 				}
 			
@@ -138,7 +135,6 @@ public class Mapa {
 					add(enemigo);
 					enemigo.setMapa(this);
 					contador += ESPACIOENTREENEMIGOS;
-					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
 					break;
 				}
 			
@@ -149,7 +145,6 @@ public class Mapa {
 					add(enemigo);
 					enemigo.setMapa(this);
 					contador += ESPACIOENTREENEMIGOS;
-					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
 					break;
 				}
 				case 'm': { // Creo un mono
@@ -159,7 +154,6 @@ public class Mapa {
 					add(enemigo);
 					enemigo.setMapa(this);
 					contador += ESPACIOENTREENEMIGOS;
-					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
 					break;
 				}
 				
@@ -170,7 +164,6 @@ public class Mapa {
 					add(enemigo);
 					enemigo.setMapa(this);
 					contador += ESPACIOENTREENEMIGOS;
-					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
 					break;
 				}
 				
@@ -181,11 +174,22 @@ public class Mapa {
 					add(enemigo);
 					enemigo.setMapa(this);
 					contador += ESPACIOENTREENEMIGOS;
-					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
 					break;
 				}
 			}
 		}
+	}
+	
+	public void mostrarOleada2() {
+		gui.mostrarOleada2();
+	}
+	
+	public void mostrarOleada3() {
+		gui.mostrarOleada3();
+	}
+	
+	public void mostrarPantallaGanadora() {
+		gui.gameOver();
 	}
 
 }
