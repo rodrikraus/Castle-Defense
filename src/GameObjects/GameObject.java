@@ -113,7 +113,7 @@ public abstract class GameObject {
 		this.costo = costo;
 	}
 	
-	public abstract void toClick();
+//	public abstract void toClick();
 
 	public abstract void setDobleDanio(boolean b);
 	public abstract void setDobleOro(boolean b);

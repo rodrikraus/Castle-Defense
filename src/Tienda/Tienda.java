@@ -25,7 +25,7 @@ public class Tienda {
 		toAdd = null;
 		monedas = 50;
 		botonesActivos = true;
-		puedoVender = false;
+		puedoVender = true;
 		
 		listaBotones = new LinkedList<JButton>();
 
@@ -109,6 +109,7 @@ public class Tienda {
 	}
 	
 	public void setPuedoVender(boolean b) {
+		juego.getGUI().setEstadoBotonVender(!b);
 		puedoVender = b;
 	}
 	

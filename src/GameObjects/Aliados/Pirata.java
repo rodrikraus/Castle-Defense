@@ -14,6 +14,9 @@ public class Pirata extends Aliado {
 		ruta_dibujo_moviendose = null;
 		
 		cambiarDibujo(ruta_dibujo_quieto);  // éste método se encuentra en GameObject
+		
+
+		activarOyente();
 	}	
 	
 }

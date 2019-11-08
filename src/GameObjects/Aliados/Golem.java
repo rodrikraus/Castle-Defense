@@ -18,6 +18,8 @@ public class Golem extends Aliado {
 		ruta_dibujo_moviendose = null;
 		
 		cambiarDibujo(ruta_dibujo_quieto);  // éste método se encuentra en GameObject
+		
+		activarOyente();
 	}	
 	
 	public void iniciarAtaque(GameObject obj) { //REDEFINO PARA PODER CAMBIAR EL ICONO DEL DISPARO

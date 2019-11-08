@@ -38,6 +38,8 @@ public class GUI extends JFrame {
     private Mapa mapa;
     private JButton botonVender, botonBomba, botonDinamita;
 
+    
+    
 	private Punto punto = null; // punto para saber coordenada de insertar aliado de tienda
     
 	public GUI(Tienda t) {
@@ -89,8 +91,8 @@ public class GUI extends JFrame {
 				// se activa el modo vender
 				
 				tienda.estadoBotones(false);
-				botonVender.setEnabled(false);
 				tienda.setPuedoVender(true);
+//				botonVender.setEnabled(false);
 				
 			}
 		});
@@ -134,6 +136,11 @@ public class GUI extends JFrame {
 		
 	}
 	
+
+	public void setEstadoBotonVender(boolean b) {
+		botonVender.setEnabled(b);
+	}
+	
 	public void setEstadoBotonBomba(boolean b) {
 		botonBomba.setEnabled(b);
 	}
@@ -174,30 +181,22 @@ public class GUI extends JFrame {
 						tienda.restarMonedas(obj.getCosto());
 					}
 					tienda.setToAdd(null);
-				}
+				}/*
 				else {
 
 					GameObject objClickeado = mapa.intersectaClickConGameObject(punto);
 					if(objClickeado!=null) {
 						objClickeado.toClick();
-						/*
-						if(tienda.getPuedoVender()){
-							
-							int valorClick = objClickeado.toClick();
-							if(valorClick>0)
-								tienda.sumarMonedas(valorClick);
-							tienda.setPuedoVender(false);
-						}
-						*/
 					}
-				}
+				}*/
 				
-				botonVender.setEnabled(true);
+//				botonVender.setEnabled(true);
 				tienda.estadoBotones(true);
-				tienda.setPuedoVender(false);
+//				tienda.setPuedoVender(false);
 			}
 		});
 	}
+	
 
 	public void agregarDibujo(GameObject e) {		
 		int x = e.getPunto().getX();

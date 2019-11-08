@@ -1,4 +1,7 @@
 package GameObjects.Aliados;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.ImageIcon;
 
 import GameObjects.GameObject;
@@ -21,8 +24,43 @@ public abstract class Aliado extends GameObject  {
 		this.costo = costo;		
 		herido = false;
 		haceDobleDanio = false;
-	}
 
+		
+	}	
+	
+	public void activarOyente() {
+
+		//accion al clickear
+		
+		dibujo.addMouseListener(new MouseAdapter(){			
+		    public void mouseClicked(MouseEvent e){  
+					
+				Tienda tienda = Tienda.Instancia(null);
+				if(tienda.getPuedoVender()) {
+					int monedas = herido ? costo/2 : costo;	
+					tienda.sumarMonedas(monedas);
+					morir();
+					
+				}
+				tienda.setPuedoVender(false);	
+				tienda.estadoBotones(true);
+		    }  
+		}); 
+		
+	}
+/*
+	public void toClick() {
+		// Calculo las monedas a sumar
+		int monedas = herido ? costo/2 : costo;				
+				
+		Tienda tienda = Tienda.Instancia(null);
+		if(tienda.getPuedoVender()) {
+			tienda.sumarMonedas(monedas);
+			tienda.setPuedoVender(false);	
+			morir();	
+		}
+	}
+*/
 	@Override
 	public void atacar(GameObject obj) {
 		frecuencia_ataques++;
@@ -82,17 +120,6 @@ public abstract class Aliado extends GameObject  {
 		herido = h;
 	}
 	
-	public void toClick() {
-		// Calculo las monedas a sumar
-		int monedas = herido ? costo/2 : costo;				
-				
-		Tienda tienda = Tienda.Instancia(null);
-		if(tienda.getPuedoVender()) {
-			tienda.sumarMonedas(monedas);
-			tienda.setPuedoVender(false);	
-			morir();	
-		}
-	}
 	
 	public void setDobleDanio(boolean b) {
 		haceDobleDanio = b;
