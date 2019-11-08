@@ -42,7 +42,7 @@ public class GUI extends JFrame {
     
 	public GUI(Tienda t) {
 		tienda = t;
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 756, 580);
 		setUndecorated(true);
 		panelFondo = new JPanel();
@@ -55,6 +55,8 @@ public class GUI extends JFrame {
 		this.agregarFondo();
 		agregarBotonesTienda(tienda.getListaBotones());
 		//this.agregarMusicaDeFondo("/sound/musica_de_fondo.wav");  no se puede .wav
+
+		setLocationRelativeTo(null);
 		
 
 	}

@@ -15,6 +15,7 @@ public class SplashDemo extends JWindow {
     // por la cantidad de tiempo especificada en el constructor
     public void showSplash() {
          
+
         JPanel content = (JPanel)getContentPane();
         //content.setBackground(Color.white);
          
