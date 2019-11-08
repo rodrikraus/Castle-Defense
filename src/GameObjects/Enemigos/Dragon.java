@@ -2,7 +2,11 @@ package GameObjects.Enemigos;
 
 import java.util.Random;
 
+import javax.swing.ImageIcon;
+
 import GameObjects.GameObject;
+import GameObjects.Disparos.Disparo;
+import GameObjects.Disparos.DisparoEnemigo;
 import GameObjects.Premios.MagiasTemporales.DobleDanio;
 import GameObjects.Premios.MagiasTemporales.DobleOro;
 import Juego.Punto;
@@ -36,6 +40,15 @@ public class Dragon extends Enemigo {
 		mapa.getListaEliminar().add(this);
 		mapa.mostrarPantallaGanadora();
 		
+	}
+	
+	public void iniciarAtaque(GameObject obj) { //REDEFINO PQ EL DRAGON DISPARA BUGEADO
+		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_ataque));		
+		dibujo.setIcon(imagen);
+		Disparo disparo = new DisparoEnemigo(danio, null, rango);
+		Punto p = new Punto(punto.getX()-disparo.getAncho()+10, punto.getY()+50);
+		disparo.setPunto(p);
+		mapa.add(disparo);	
 	}
 	
 
