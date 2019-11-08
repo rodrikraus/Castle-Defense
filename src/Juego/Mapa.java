@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import GameObjects.GameObject;
-import GameObjects.Enemigos.Enemigo;
-import GameObjects.Enemigos.Perro;
+import GameObjects.Enemigos.*;
 
 public class Mapa {
 
@@ -101,36 +100,92 @@ public class Mapa {
 	public void crearNivelUno(){
 		Random random = new Random();
 		
-		// fijo el x,y para tester, lo correcto sería usar el random de mas abajo
-		int x = 500; 
-		int y = 200;
+		String oleadas = "ddpjm2mvbppp3";
+		//int tiempo = 100;  //lo pongo aca asi es mas facil de cambiar
+		int contador = 700;
+		final int ESPACIOENTREENEMIGOS = 200;
+		final int ALTURA = 150;
 		
-		//int x = 400 + random.nextInt(600 - 400 );
-		//int y = 200 + random.nextInt(300 - 200);
-		Punto punto = new Punto(x,y);
-		Enemigo enemigo = new Perro();
-		enemigo.setPunto(punto);
-		add(enemigo);
-		enemigo.setMapa(this);
-		
-		Punto p = new Punto(600, 100);
-		Enemigo e = new Perro();
-		e.setPunto(p);
-		add(e);
-		e.setMapa(this);
-		
-		
-/*
-		Punto punto1 = new Punto(600,100);
-		Enemigo enemigo1 = new Perro();
-		enemigo1.setPunto(punto1);
-		lista_principal.add(enemigo1);
-		enemigo1.setMapa(this);
-		gui.agregarDibujo(enemigo1);
-		*/
+		for(int i = 0; i < oleadas.length(); i++) {
+			switch(oleadas.charAt(i)) {
+				case '2': { // Muestro oleada 2
+					gui.mostrarOleada2();
+					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
+					break;
+				}
+				
+				case '3': { // Muestro oleada 3
+					gui.mostrarOleada3();
+					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
+					break;
+				}
+				
+				case 'p': { // Creo un perro
+					Punto punto = new Punto(contador, random.nextInt(ALTURA));
+					Enemigo enemigo = new Perro();
+					enemigo.setPunto(punto);
+					add(enemigo);
+					enemigo.setMapa(this);
+					contador += ESPACIOENTREENEMIGOS;
+					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
+					break;
+				}
+			
+				case 'd': { // Creo un dragon
+					Punto punto = new Punto(contador, random.nextInt(ALTURA));
+					Enemigo enemigo = new Dragon();
+					enemigo.setPunto(punto);
+					add(enemigo);
+					enemigo.setMapa(this);
+					contador += ESPACIOENTREENEMIGOS;
+					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
+					break;
+				}
+			
+				case 'j': { // Creo un jabali
+					Punto punto = new Punto(contador, random.nextInt(ALTURA));
+					Enemigo enemigo = new Jabali();
+					enemigo.setPunto(punto);
+					add(enemigo);
+					enemigo.setMapa(this);
+					contador += ESPACIOENTREENEMIGOS;
+					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
+					break;
+				}
+				case 'm': { // Creo un mono
+					Punto punto = new Punto(contador, random.nextInt(ALTURA));
+					Enemigo enemigo = new Mono();
+					enemigo.setPunto(punto);
+					add(enemigo);
+					enemigo.setMapa(this);
+					contador += ESPACIOENTREENEMIGOS;
+					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
+					break;
+				}
+				
+				case 'b': { // Creo un monstruo violeta
+					Punto punto = new Punto(contador, random.nextInt(ALTURA));
+					Enemigo enemigo = new Violeta();
+					enemigo.setPunto(punto);
+					add(enemigo);
+					enemigo.setMapa(this);
+					contador += ESPACIOENTREENEMIGOS;
+					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
+					break;
+				}
+				
+				case 'v': { // Creo una vampira
+					Punto punto = new Punto(contador, random.nextInt(ALTURA));
+					Enemigo enemigo = new Vampira();
+					enemigo.setPunto(punto);
+					add(enemigo);
+					enemigo.setMapa(this);
+					contador += ESPACIOENTREENEMIGOS;
+					//try {Thread.sleep(tiempo);} catch (InterruptedException e) {e.printStackTrace();}
+					break;
+				}
+			}
+		}
 	}
-	
-	public void crearNivelDos() {
-	
-	}
+
 }
