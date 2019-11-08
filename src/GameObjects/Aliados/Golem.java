@@ -1,5 +1,9 @@
 package GameObjects.Aliados;
 
+import GameObjects.GameObject;
+import GameObjects.Disparos.Disparo;
+import GameObjects.Disparos.DisparoAliado;
+import Juego.Punto;
 import Visitor.VisitorAliado;
 
 public class Golem extends Aliado {
@@ -15,5 +19,14 @@ public class Golem extends Aliado {
 		
 		cambiarDibujo(ruta_dibujo_quieto);  // éste método se encuentra en GameObject
 	}	
+	
+	public void iniciarAtaque(GameObject obj) { //REDEFINO PARA PODER CAMBIAR EL ICONO DEL DISPARO
+		flushDibujo(ruta_dibujo_ataque);		
+		Punto p = new Punto(punto.getX()+ancho-30, punto.getY());  
+		Disparo disparo = new DisparoAliado(danio, p, rango);
+		disparo.cambiarDibujo("img/disparos/disparo_golem.gif");
+		mapa.add(disparo);
+		disparo.setMapa(mapa);
+	}
 	
 }

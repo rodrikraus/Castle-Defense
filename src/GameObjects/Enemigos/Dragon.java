@@ -42,13 +42,14 @@ public class Dragon extends Enemigo {
 		
 	}
 	
-	public void iniciarAtaque(GameObject obj) { //REDEFINO PQ EL DRAGON DISPARA MAS ARRIBA
+	public void iniciarAtaque(GameObject obj) { //REDEFINO PQ EL DRAGON DISPARA UN DISPARO MAS GRANDE
 		ImageIcon imagen = new ImageIcon(this.getClass().getClassLoader().getResource(ruta_dibujo_ataque));		
 		dibujo.setIcon(imagen);
 		Disparo disparo = new DisparoEnemigo(danio, null, rango);
-		Punto p = new Punto(punto.getX()-disparo.getAncho()+10, punto.getY()+60);
+		disparo.cambiarDibujo("img/disparos/disparo_dragon.gif");
+		Punto p = new Punto(punto.getX()-disparo.getAncho()+10, punto.getY());
 		disparo.setPunto(p);
-		mapa.add(disparo);	
+		mapa.add(disparo);
 	}
 	
 
