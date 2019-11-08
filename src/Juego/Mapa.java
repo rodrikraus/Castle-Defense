@@ -202,5 +202,9 @@ public class Mapa {
 					return elem;
 		return null;
 	}
+	
+	public Juego getJuego() {
+		return juego;
+	}
 
 }
