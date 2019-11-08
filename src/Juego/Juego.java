@@ -24,7 +24,6 @@ public class Juego {
 		mapa.crearNivelUno();
 		movimiento = new Movimiento(this);
 		movimiento.run();	
-		//monedas=250;
 	}	
 
 	public Mapa getMapa() {
@@ -34,17 +33,6 @@ public class Juego {
 	public GUI getGUI() {
 		return gui;
 	}
-	/*
-	private void crearAliado() {
-		int x = 100;
-		int y = 200;
-		Punto punto = new Punto(x, y);
-		Aliado aliado = new Pirata();
-		aliado.setPunto(punto);
-		mapa.add(aliado);
-		aliado.setMapa(mapa);
-	}
-	*/
 	
 	public void interactuar() {	
 		boolean puedoSeguirMoviendome;
@@ -89,16 +77,6 @@ public class Juego {
 		gui.gameOver();
 		
 	}
-	
-	/*
-	public int getMonedas() {
-		return monedas;
-	}
-	
-	public void setMonedas(int i) {
-		monedas=i;		
-	}
-	*/
 	
 }
 
