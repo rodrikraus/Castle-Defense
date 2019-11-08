@@ -20,9 +20,4 @@ public class Dinamita extends Premio {
 
 	}
 
-	@Override
-	public void toClick() {
-		// TODO Auto-generated method stub
-		
-	}
 }

@@ -39,7 +39,6 @@ public abstract class Premio extends GameObject {
 
 	}
 
-	public void toClick() {};
 	
 	public void setDobleDanio(boolean b) {
 		//no hace nada

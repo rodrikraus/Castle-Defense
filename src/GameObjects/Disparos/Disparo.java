@@ -68,6 +68,5 @@ public abstract class Disparo extends GameObject {
 		//no hace nada
 	}
 	
-	public void toClick() {};
 
 }

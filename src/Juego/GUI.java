@@ -92,7 +92,6 @@ public class GUI extends JFrame {
 				
 				tienda.estadoBotones(false);
 				tienda.setPuedoVender(true);
-//				botonVender.setEnabled(false);
 				
 			}
 		});
@@ -181,18 +180,8 @@ public class GUI extends JFrame {
 						tienda.restarMonedas(obj.getCosto());
 					}
 					tienda.setToAdd(null);
-				}/*
-				else {
-
-					GameObject objClickeado = mapa.intersectaClickConGameObject(punto);
-					if(objClickeado!=null) {
-						objClickeado.toClick();
-					}
-				}*/
-				
-//				botonVender.setEnabled(true);
+				}
 				tienda.estadoBotones(true);
-//				tienda.setPuedoVender(false);
 			}
 		});
 	}

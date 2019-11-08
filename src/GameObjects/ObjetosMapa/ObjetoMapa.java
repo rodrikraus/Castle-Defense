@@ -47,13 +47,6 @@ public class ObjetoMapa extends GameObject {
 	}
 	
 
-	public void toClick() {};
-
-//	@Override
-//	// Que pasa cuando se le hace click ??
-//	public int toClick() {
-//		return 0;
-//	}
 }
 
 

@@ -51,15 +51,6 @@ public abstract class Enemigo extends GameObject   {
 		mapa.add(disparo);	
 	}
 	
-	/*
-	public void interactuar() {		
-		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);
-		if(objIntersectado!=null) 
-			objIntersectado.accept(visitor);
-		else
-			mover();			
-	}*/
-	
 	
 	public boolean interactuar() {		
 		GameObject objIntersectado = mapa.intersectaRangoDeEnemigo(this);
@@ -85,12 +76,7 @@ public abstract class Enemigo extends GameObject   {
 			newX = newX - velocidad_movimiento;		
 			punto.setX(newX);
 			dibujo.setLocation(newX, (int)rectangulo.getY());
-		}
-		/*
-		if (newX==0) {
-			System.out.println("PERDISTE BOBOLON");
-		}*/
-		
+		}		
 	}
 		
 	
@@ -136,11 +122,4 @@ public abstract class Enemigo extends GameObject   {
 		tiraDobleOro = b;
 	}
 
-	public void toClick() {};
-
-//	@Override
-//	// Que pasa cuando se le hace click ??
-//	public int toClick() {
-//		return 0;
-//	}
 }
