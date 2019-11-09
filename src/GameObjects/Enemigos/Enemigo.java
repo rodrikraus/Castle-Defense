@@ -111,7 +111,10 @@ public abstract class Enemigo extends GameObject   {
 		}
 		
 		mapa.getListaEliminar().add(this);
-		
+		if(tiraDobleOro)
+			mapa.getJuego().getTienda().sumarMonedas(monedas*2);
+		else 
+			mapa.getJuego().getTienda().sumarMonedas(monedas);
 		
 	}
 

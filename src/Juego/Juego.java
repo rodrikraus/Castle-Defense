@@ -72,7 +72,6 @@ public class Juego {
 		}
 		
 		for(GameObject obj : mapa.getListaEliminar()) {
-			tienda.sumarMonedas(obj.getMonedas());
 			mapa.getListaPrincipal().remove(obj);
 			obj.getDibujo().setVisible(false);
 			obj = null;
@@ -101,6 +100,10 @@ public class Juego {
 
 	public void activarContadorDobleOro() {
 		contadorDobleOro = 5000;
+	}
+	
+	public Tienda getTienda() {
+		return tienda;
 	}
 	
 }
