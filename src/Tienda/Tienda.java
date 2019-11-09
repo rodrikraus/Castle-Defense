@@ -5,6 +5,8 @@ import java.util.List;
 import javax.swing.JButton;
 
 import GameObjects.GameObject;
+import GameObjects.Premios.ObjectosPreciosos.Bomba;
+import GameObjects.Premios.ObjectosPreciosos.Dinamita;
 import Juego.Juego;
 
 public class Tienda {
@@ -19,13 +21,18 @@ public class Tienda {
 	protected int newMonedas;
 	protected boolean botonesActivos;
 	protected boolean puedoVender;
+	protected Dinamita dinamita;
+	protected Bomba bomba;
 	
+
 	private Tienda(Juego j){
 		juego = j;
 		toAdd = null;
 		monedas = 50;
 		botonesActivos = true;
 		puedoVender = true;
+		dinamita = null;
+		bomba = null;
 		
 		listaBotones = new LinkedList<JButton>();
 
@@ -116,5 +123,24 @@ public class Tienda {
 	public boolean getPuedoVender() {
 		return puedoVender;
 	}
+	
+
+	public Dinamita getDinamita() {
+		return dinamita;
+	}
+
+	public void setDinamita(Dinamita dinamita) {
+		this.dinamita = dinamita;
+	}
+
+	public Bomba getBomba() {
+		return bomba;
+	}
+
+
+	public void setBomba(Bomba bomba) {
+		this.bomba = bomba;
+	}
+
 	
 }

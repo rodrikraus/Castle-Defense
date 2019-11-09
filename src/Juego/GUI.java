@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import GameObjects.GameObject;
+import GameObjects.Premios.ObjectosPreciosos.Bomba;
 import Tienda.Tienda;
 
 import java.awt.Color;
@@ -109,9 +110,14 @@ public class GUI extends JFrame {
 
 		botonBomba.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
-				
+
+				tienda.estadoBotones(false);
+				botonVender.setEnabled(false);
+				botonBomba.setEnabled(false);
+				botonDinamita.setEnabled(false);
+
+				Tienda tienda = Tienda.Instancia(null);
+				tienda.setToAdd(tienda.getBomba());
 			}
 		});
 		
@@ -126,8 +132,13 @@ public class GUI extends JFrame {
 
 		botonDinamita.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// se activa el modo vender
+
+				tienda.estadoBotones(false);
+				botonVender.setEnabled(false);
+				botonBomba.setEnabled(false);
+				botonDinamita.setEnabled(false);
 				
+
 				
 			}
 		});
@@ -137,6 +148,7 @@ public class GUI extends JFrame {
 	
 
 	public void setEstadoBotonVender(boolean b) {
+		
 		botonVender.setEnabled(b);
 	}
 	
@@ -172,6 +184,8 @@ public class GUI extends JFrame {
 				int y = e.getPoint().y - 30;
 				punto = new Punto(x, y);
 				GameObject obj = tienda.getToAdd();
+				GameObject bomba = tienda.getBomba();
+				GameObject dinamita = tienda.getDinamita();
 				if(obj!=null) {
 					obj.setPunto(punto);
 					if(mapa.puedoAgregarObjeto(obj)) {
@@ -181,7 +195,28 @@ public class GUI extends JFrame {
 					}
 					tienda.setToAdd(null);
 				}
+				else 
+					if(bomba!=null) {
+						bomba.setPunto(punto);
+						if(mapa.puedoAgregarObjeto(bomba)) 
+							mapa.add(bomba);	
+						tienda.setBomba(null);		
+					}
+					else
+						if(dinamita!=null) {
+							dinamita.setPunto(punto);
+							if(mapa.puedoAgregarObjeto(dinamita)) 
+								mapa.add(dinamita);	
+							tienda.setDinamita(null);	
+						}
+				
+				
+				botonVender.setEnabled(true);	
 				tienda.estadoBotones(true);
+				if(tienda.getDinamita()!=null)
+					botonDinamita.setEnabled(true);
+				if(tienda.getBomba()!=null)
+					botonBomba.setEnabled(true);
 			}
 		});
 	}
