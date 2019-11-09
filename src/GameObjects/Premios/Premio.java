@@ -7,7 +7,7 @@ public abstract class Premio extends GameObject {
 
 	public Premio() {
 		// vida, daño, rango, velocidad de Movimiento
-		super(1, 0, 0, 0);
+		super(50, 0, 0, 0);
 
 	}
 
