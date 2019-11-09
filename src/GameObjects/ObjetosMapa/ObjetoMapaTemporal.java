@@ -18,6 +18,10 @@ public class ObjetoMapaTemporal extends GameObject {
 
 	
 	public boolean interactuar() {
+		GameObject objChocado = mapa.intersectaPunto(punto);
+		if(objChocado != null) {
+			objChocado.accept(visitor);
+		}
 		return true;
 	}
 

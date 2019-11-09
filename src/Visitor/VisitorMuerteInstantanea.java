@@ -23,7 +23,7 @@ public class VisitorMuerteInstantanea extends Visitor {
 
 	@Override
 	public void visit(Enemigo e) {
-		e.morir();
+		e.morir(); //esto no esta andando porque no se visita nunca al enemigo
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class VisitorMuerteInstantanea extends Visitor {
 
 	@Override
 	public void visit(ObjetoMapaTemporal OM) {
-		OM.morir();
+		//no hace nada (para que no se choque con el mismo al spawnear y desaparezca instantaneamente)
 	}
 
 	@Override

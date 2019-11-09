@@ -194,7 +194,7 @@ public class Mapa {
 		
 		// Hasta encontrar un lugar valido, avanzo 50 pixeles a la derecha
 		Punto punto = new Punto(random.nextInt(400), random.nextInt(150));
-		while(intersectaClickConGameObject(punto) != null)
+		while(intersectaPunto(punto) != null)
 			punto.setX(punto.getX() + 50);
 		
 		switch(generarObjeto) {
@@ -241,7 +241,7 @@ public class Mapa {
 		
 		// Hasta encontrar un lugar valido, avanzo 50 pixeles a la derecha
 		Punto punto = new Punto(random.nextInt(400), random.nextInt(150));
-		while(intersectaClickConGameObject(punto) != null)
+		while(intersectaPunto(punto) != null)
 			punto.setX(punto.getX() + 50);
 		
 		switch(generarObjeto) {
@@ -283,6 +283,14 @@ public class Mapa {
 	
 	public GameObject intersectaClickConGameObject(Punto p) {
 		Rectangle rec = new Rectangle(p.getX()-7, p.getY()-7, 14, 14);
+		for(GameObject elem : lista_principal)
+			if(elem.getDibujo().getBounds().intersects(rec))
+					return elem;
+		return null;
+	}
+	
+	public GameObject intersectaPunto(Punto p) {
+		Rectangle rec = new Rectangle(p.getX(), p.getY(), 50, 30);
 		for(GameObject elem : lista_principal)
 			if(elem.getDibujo().getBounds().intersects(rec))
 					return elem;
