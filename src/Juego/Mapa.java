@@ -21,7 +21,7 @@ public class Mapa {
 	protected static List<GameObject> lista_a_agregar;
 	protected static List<GameObject> lista_a_eliminar;
 	Random random;
-	private static String oleadas = "ppjbpv jpjjpbm bjppd"; //v m y d son los bosses finales de cada oleada (OBLIGATORIO ESE ORDEN)
+	private static String oleadas = "vvvppjbpv jpjjpbm bjppd"; //v m y d son los bosses finales de cada oleada (OBLIGATORIO ESE ORDEN)
     //entonces cada vez q muera alguno cambia la oleada o (si es d) ganas.
 	
 	
@@ -289,7 +289,7 @@ public class Mapa {
 	}
 	
 	public GameObject intersectaPunto(Punto p) {
-		Rectangle rec = new Rectangle(p.getX(), p.getY(), 50, 30);
+		Rectangle rec = new Rectangle(p.getX(), p.getY(), 50, 50);
 		for(GameObject elem : lista_principal)
 			if(elem.getDibujo().getBounds().intersects(rec))
 					return elem;

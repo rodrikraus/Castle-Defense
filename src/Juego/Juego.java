@@ -11,8 +11,8 @@ public class Juego {
 	protected Movimiento movimiento;
 	protected Mapa mapa;
 	protected Tienda tienda;
-	int contadorDobleDanio;
-	int contadorDobleOro;
+	protected int contadorDobleDanio;
+	protected int contadorDobleOro;
 	
 	public Juego(){
 		

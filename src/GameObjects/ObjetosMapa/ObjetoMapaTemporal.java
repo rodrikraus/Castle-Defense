@@ -4,10 +4,13 @@ import GameObjects.GameObject;
 import Visitor.Visitor;
 
 public class ObjetoMapaTemporal extends GameObject {
+	
+	protected int tiempoDeVida;
 
 	public ObjetoMapaTemporal() {
 		// vida, daño, rango, velocidad de Movimiento
 		super(9999, 0, 0, 0);
+		tiempoDeVida = 300;
 
 	}
 
@@ -18,10 +21,13 @@ public class ObjetoMapaTemporal extends GameObject {
 
 	
 	public boolean interactuar() {
-		GameObject objChocado = mapa.intersectaPunto(punto);
+		GameObject objChocado = mapa.intersectaObjeto(this);
 		if(objChocado != null) {
 			objChocado.accept(visitor);
 		}
+		tiempoDeVida--;
+		if(tiempoDeVida < 0)
+			morir();
 		return true;
 	}
 
