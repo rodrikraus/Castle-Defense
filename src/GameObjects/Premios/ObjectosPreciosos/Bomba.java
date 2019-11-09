@@ -24,8 +24,10 @@ public class Bomba extends Premio {
 		ruta_dibujo_moviendose = null;
 		ruta_dibujo_ataque = "img/mapa/explosion_bomba.gif";
 
-		if(explotado)
+		if(explotado) {
 			cambiarDibujo(ruta_dibujo_ataque);
+			vida = 9999;
+		}
 		else
 			cambiarDibujo(ruta_dibujo_quieto);
 		
