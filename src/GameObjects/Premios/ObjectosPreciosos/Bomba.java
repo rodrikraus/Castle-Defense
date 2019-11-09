@@ -11,7 +11,6 @@ import Visitor.VisitorPremio;
 
 public class Bomba extends Premio {
 
-
 	protected boolean explotado;
 	
 	public Bomba(Punto p, boolean explotado) {
@@ -48,7 +47,6 @@ public class Bomba extends Premio {
 	public void setExplotado(boolean explotado) {
 		this.explotado = explotado;
 	}
-
 
 	@Override
 	protected boolean getExplotado() {

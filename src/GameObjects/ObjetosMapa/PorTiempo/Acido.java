@@ -1,13 +1,13 @@
 package GameObjects.ObjetosMapa.PorTiempo;
 
-import GameObjects.ObjetosMapa.ObjetoMapa;
-import Visitor.VisitorObjetoMapa;
+import GameObjects.ObjetosMapa.ObjetoMapaTemporal;
+import Visitor.VisitorMuerteInstantanea;
 
-public class Acido extends ObjetoMapa {
+public class Acido extends ObjetoMapaTemporal {
 	
-	public Acido(){
+	public Acido() {
 		super();
-		visitor = new VisitorObjetoMapa(this);
+		visitor = new VisitorMuerteInstantanea(this);
 		
 		ruta_dibujo_quieto =  "img/mapa/acido.gif";
 		ruta_dibujo_moviendose = null;

@@ -1,13 +1,13 @@
 package GameObjects.ObjetosMapa.PorVida;
 
-import GameObjects.ObjetosMapa.ObjetoMapa;
+import GameObjects.ObjetosMapa.ObjetoMapaVida;
 import Juego.Punto;
 import Visitor.VisitorObjetoMapa;
 
-public class Barricada extends ObjetoMapa {
+public class Barricada extends ObjetoMapaVida {
 	
 	public Barricada(Punto p){
-		super();
+		super(150);
 		punto = p;
 		visitor = new VisitorObjetoMapa(this);
 		

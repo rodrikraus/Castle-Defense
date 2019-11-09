@@ -212,7 +212,7 @@ public class GUI extends JFrame {
 							
 						//	if(mapa.puedoAgregarObjeto(dinamita)) 
 								mapa.add(dinamita);	
-							tienda.setDinamita(null);	
+							tienda.setDinamita(null);
 						}
 				
 				

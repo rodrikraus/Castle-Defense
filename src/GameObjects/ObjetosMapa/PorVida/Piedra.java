@@ -1,13 +1,13 @@
 package GameObjects.ObjetosMapa.PorVida;
 
-import GameObjects.ObjetosMapa.ObjetoMapa;
+import GameObjects.ObjetosMapa.ObjetoMapaVida;
 import Juego.Punto;
 import Visitor.VisitorObjetoMapa;
 
-public class Piedra extends ObjetoMapa {
+public class Piedra extends ObjetoMapaVida {
 	
 	public Piedra(Punto p){
-		super();
+		super(100);
 		punto = p;
 		visitor = new VisitorObjetoMapa(this);
 		

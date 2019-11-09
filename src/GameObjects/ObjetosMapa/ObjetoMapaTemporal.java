@@ -3,11 +3,11 @@ package GameObjects.ObjetosMapa;
 import GameObjects.GameObject;
 import Visitor.Visitor;
 
-public class ObjetoMapa extends GameObject {
+public class ObjetoMapaTemporal extends GameObject {
 
-	public ObjetoMapa() {
+	public ObjetoMapaTemporal() {
 		// vida, daño, rango, velocidad de Movimiento
-		super(1, 0, 0, 0);
+		super(9999, 0, 0, 0);
 
 	}
 

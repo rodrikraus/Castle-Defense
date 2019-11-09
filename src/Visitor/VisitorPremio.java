@@ -5,7 +5,8 @@ import GameObjects.Aliados.Aliado;
 import GameObjects.Disparos.DisparoAliado;
 import GameObjects.Disparos.DisparoEnemigo;
 import GameObjects.Enemigos.Enemigo;
-import GameObjects.ObjetosMapa.ObjetoMapa;
+import GameObjects.ObjetosMapa.ObjetoMapaTemporal;
+import GameObjects.ObjetosMapa.ObjetoMapaVida;
 import GameObjects.Premios.Premio;;
 
 public class VisitorPremio extends Visitor {
@@ -42,7 +43,13 @@ public class VisitorPremio extends Visitor {
 	}
 
 	@Override
-	public void visit(ObjetoMapa OM) {
+	public void visit(ObjetoMapaTemporal OM) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void visit(ObjetoMapaVida OM) {
 		// TODO Auto-generated method stub
 		
 	}

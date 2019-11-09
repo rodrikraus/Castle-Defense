@@ -1,6 +1,5 @@
 package Juego;
-import java.awt.Color;
-import java.awt.Point;
+
 import java.awt.Rectangle;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,6 +8,11 @@ import java.util.Random;
 import GameObjects.GameObject;
 import GameObjects.Enemigos.*;
 
+import GameObjects.ObjetosMapa.PorTiempo.Acido;
+import GameObjects.ObjetosMapa.PorTiempo.Fuego;
+import GameObjects.ObjetosMapa.PorVida.Barricada;
+import GameObjects.ObjetosMapa.PorVida.Piedra;
+
 public class Mapa {
 
 	protected GUI gui;
@@ -16,6 +20,7 @@ public class Mapa {
 	protected static List<GameObject> lista_principal;
 	protected static List<GameObject> lista_a_agregar;
 	protected static List<GameObject> lista_a_eliminar;
+	Random random;
 	
 	
 	
@@ -25,6 +30,7 @@ public class Mapa {
 		lista_a_eliminar = new LinkedList<GameObject>();
 		gui = g;
 		juego = j;
+		random = new Random();
 	}
 
 	public GUI getGui() {
@@ -107,11 +113,9 @@ public class Mapa {
 		return null;
 	}
 	
-	
 	public void crearNivelUno(){
-		Random random = new Random();
 		
-		String oleadas = "ppjbpv jpjjpbm bjppd"; //v m y d son los bosses finales de cada oleada (OBLIGATORIO ESE ORDEN)
+		String oleadas = "vppjbpv jpjjpbm bjppd"; //v m y d son los bosses finales de cada oleada (OBLIGATORIO ESE ORDEN)
 											     //entonces cada vez q muera alguno cambia la oleada o (si es d) ganas.
 		int contador = 700;
 		final int ESPACIOENTREENEMIGOS = 300;
@@ -119,17 +123,7 @@ public class Mapa {
 		final int ALTURA = 150;
 		
 		for(int i = 0; i < oleadas.length(); i++) {
-			switch(oleadas.charAt(i)) {
-				case '2': { // Muestro oleada 2
-					gui.mostrarOleada2();
-					break;
-				}
-				
-				case '3': { // Muestro oleada 3
-					gui.mostrarOleada3();
-					break;
-				}
-				
+			switch(oleadas.charAt(i)) {	
 				case 'p': { // Creo un perro
 					Punto punto = new Punto(contador, random.nextInt(ALTURA));
 					Enemigo enemigo = new Perro();
@@ -194,10 +188,93 @@ public class Mapa {
 	
 	public void mostrarOleada2() {
 		gui.mostrarOleada2();
+		
+		// Creo 2 objetos del mapa random
+		int generarObjeto = random.nextInt(4);
+		
+		// Hasta encontrar un lugar valido, avanzo 50 pixeles a la derecha
+		Punto punto = new Punto(random.nextInt(400), random.nextInt(150));
+		while(intersectaClickConGameObject(punto) != null)
+			punto.setX(punto.getX() + 50);
+		
+		switch(generarObjeto) {
+			case 0: { // Creo una vampira
+				GameObject objetoMapa = new Acido();
+				objetoMapa.setPunto(punto);
+				add(objetoMapa);
+				objetoMapa.setMapa(this);
+				break;
+			}
+			
+			case 1: { // Creo una vampira
+				GameObject objetoMapa = new Fuego();
+				objetoMapa.setPunto(punto);
+				add(objetoMapa);
+				objetoMapa.setMapa(this);
+				break;
+			}
+			
+			case 2: { // Creo una vampira
+				GameObject objetoMapa = new Barricada(punto);
+				add(objetoMapa);
+				objetoMapa.setMapa(this);
+				break;
+			}
+			
+			case 3: { // Creo una vampira
+				GameObject objetoMapa = new Piedra(punto);
+				add(objetoMapa);
+				objetoMapa.setMapa(this);
+				break;
+			}
+			
+		}
+		
+		
 	}
 	
 	public void mostrarOleada3() {
 		gui.mostrarOleada3();
+		
+		// Creo 2 objetos del mapa random
+		int generarObjeto = random.nextInt(4);
+		
+		// Hasta encontrar un lugar valido, avanzo 50 pixeles a la derecha
+		Punto punto = new Punto(random.nextInt(400), random.nextInt(150));
+		while(intersectaClickConGameObject(punto) != null)
+			punto.setX(punto.getX() + 50);
+		
+		switch(generarObjeto) {
+			case 0: { // Creo una vampira
+				GameObject objetoMapa = new Acido();
+				objetoMapa.setPunto(punto);
+				add(objetoMapa);
+				objetoMapa.setMapa(this);
+				break;
+			}
+			
+			case 1: { // Creo una vampira
+				GameObject objetoMapa = new Fuego();
+				objetoMapa.setPunto(punto);
+				add(objetoMapa);
+				objetoMapa.setMapa(this);
+				break;
+			}
+			
+			case 2: { // Creo una vampira
+				GameObject objetoMapa = new Barricada(punto);
+				add(objetoMapa);
+				objetoMapa.setMapa(this);
+				break;
+			}
+			
+			case 3: { // Creo una vampira
+				GameObject objetoMapa = new Piedra(punto);
+				add(objetoMapa);
+				objetoMapa.setMapa(this);
+				break;
+			}
+		}			
 	}
 	
 	public void mostrarPantallaGanadora() {
