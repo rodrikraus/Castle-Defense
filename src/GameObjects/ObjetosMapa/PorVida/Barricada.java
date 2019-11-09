@@ -7,7 +7,7 @@ import Visitor.VisitorObjetoMapa;
 public class Barricada extends ObjetoMapaVida {
 	
 	public Barricada(Punto p){
-		super(150);
+		super(60);
 		punto = p;
 		visitor = new VisitorObjetoMapa(this);
 		

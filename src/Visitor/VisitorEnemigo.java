@@ -52,12 +52,10 @@ public class VisitorEnemigo extends Visitor {
 	@Override
 	public void visit(ObjetoMapaTemporal OM) {
 		obj.mover();
-		
 	}
 
 	@Override
 	public void visit(ObjetoMapaVida OM) {
-		// TODO Auto-generated method stub
-		
+		obj.atacar(OM);
 	}
 }

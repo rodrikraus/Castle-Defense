@@ -48,13 +48,12 @@ public class VisitorDisparoEnemigo extends Visitor {
 
 	@Override
 	public void visit(ObjetoMapaTemporal OM) {
-		// TODO Auto-generated method stub
+		obj.morir();
 		
 	}
 
 	@Override
 	public void visit(ObjetoMapaVida OM) {
-		// TODO Auto-generated method stub
-		
+		obj.atacar(OM);
 	}
 }

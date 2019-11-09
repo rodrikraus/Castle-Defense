@@ -7,7 +7,7 @@ import Visitor.VisitorObjetoMapa;
 public class Piedra extends ObjetoMapaVida {
 	
 	public Piedra(Punto p){
-		super(100);
+		super(40);
 		punto = p;
 		visitor = new VisitorObjetoMapa(this);
 		

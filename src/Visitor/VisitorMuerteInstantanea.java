@@ -48,7 +48,7 @@ public class VisitorMuerteInstantanea extends Visitor {
 
 	@Override
 	public void visit(ObjetoMapaVida OM) {
-		// TODO Auto-generated method stub
+		OM.morir();
 		
 	}
 

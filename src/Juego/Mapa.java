@@ -115,7 +115,7 @@ public class Mapa {
 	
 	public void crearNivelUno(){
 		
-		String oleadas = "vppjbpv jpjjpbm bjppd"; //v m y d son los bosses finales de cada oleada (OBLIGATORIO ESE ORDEN)
+		String oleadas = "vvvvppjbpv jpjjpbm bjppd"; //v m y d son los bosses finales de cada oleada (OBLIGATORIO ESE ORDEN)
 											     //entonces cada vez q muera alguno cambia la oleada o (si es d) ganas.
 		int contador = 700;
 		final int ESPACIOENTREENEMIGOS = 300;

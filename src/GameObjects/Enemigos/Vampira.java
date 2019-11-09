@@ -12,7 +12,7 @@ public class Vampira extends Enemigo {
 		
 	public Vampira() {
 		// Vida, Daño, Rango, VelMov, VelAtaq, Puntos, Monedas
-		super(40, 5, 100, 3, 20, 35, 30); 
+		super(40, 15, 100, 3, 20, 35, 30); 
 		visitor = new VisitorEnemigo(this);
 				
 		ruta_dibujo_quieto = null;

@@ -18,6 +18,8 @@ public class ObjetoMapaVida extends GameObject {
 
 	
 	public boolean interactuar() {
+		if(this.vida < 0)
+			morir();
 		return true;
 	}
 
