@@ -23,19 +23,8 @@ public class Vampira extends Enemigo {
 	}	
 	
 	public void morir() {        //REDEFINO EL METODO MORIR DENUEVO
-		Random random = new Random();
-		int numero = random.nextInt(100);
-		if(numero<=8) { // Tiro el doble oro
-			GameObject poder = new DobleOro(new Punto(this.getPunto().getX(), this.getPunto().getY()));
-			mapa.add(poder);
-		}
-		if (numero>=40 && numero<=50) { // Tiro el doble danio
-			GameObject poder = new DobleDanio(new Punto(this.getPunto().getX(), this.getPunto().getY()));
-			mapa.add(poder);
-		}
-		mapa.getListaEliminar().add(this);
-		mapa.mostrarOleada2();
-		
+		super.morir();
+		mapa.mostrarOleada2();	
 	}
 	
 
