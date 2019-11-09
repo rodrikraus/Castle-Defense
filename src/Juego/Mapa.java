@@ -71,6 +71,14 @@ public class Mapa {
 		return puedoInsertar;
 	}
 		
+	public List<GameObject> todosLosQueIntersecta(GameObject obj){
+		List<GameObject> lista = new LinkedList<GameObject>();		
+		for(GameObject elem : lista_principal)
+			if(obj!=elem && elem.getDibujo().getBounds().intersects(obj.getDibujo().getBounds()))
+				lista.add(elem);				
+		return lista;
+	}
+	
 	public GameObject intersectaObjeto(GameObject obj) {		
 		for(GameObject elem : lista_principal)
 			if(obj!=elem && elem.getDibujo().getBounds().intersects(obj.getDibujo().getBounds()))

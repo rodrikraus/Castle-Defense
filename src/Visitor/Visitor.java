@@ -29,4 +29,6 @@ public abstract class Visitor {
 	public abstract void visit(Premio p);
 
 	public abstract void visit(ObjetoMapa OM);
+	
+	
 }

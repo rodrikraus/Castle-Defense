@@ -5,9 +5,13 @@ import Visitor.Visitor;
 
 public abstract class Premio extends GameObject {
 
+	protected int tiempo_de_vida;
+	
 	public Premio() {
 		// vida, daño, rango, velocidad de Movimiento
-		super(1, 0, 0, 0);
+		super(1, 1000, 0, 0);
+		tiempo_de_vida = 25;
+		
 
 	}
 
@@ -18,8 +22,17 @@ public abstract class Premio extends GameObject {
 
 	
 	public boolean interactuar() {
+		
+		if(getExplotado()) {
+			for(GameObject obj : mapa.todosLosQueIntersecta(this))
+				obj.accept(visitor);
+			if(tiempo_de_vida-- <0)
+				morir();
+		}
 		return true;
 	}
+
+	protected abstract boolean getExplotado();
 
 	@Override
 	public void mover() {
@@ -29,7 +42,8 @@ public abstract class Premio extends GameObject {
 
 	@Override
 	public void atacar(GameObject obj) {
-		// TODO Auto-generated method stub
+		obj.setVida(-10);
+		
 
 	}
 

@@ -102,11 +102,11 @@ public abstract class Enemigo extends GameObject   {
 			mapa.add(poder);
 		}
 		if(numero>=7 && numero<=9) {
-			GameObject poder = new Bomba(new Punto(this.getPunto().getX(), this.getPunto().getY()));
+			GameObject poder = new Bomba(new Punto(this.getPunto().getX(), this.getPunto().getY()),false);
 			mapa.add(poder);
 		}
-		if(numero>=10 && numero<=12) {
-			GameObject poder = new Dinamita(new Punto(this.getPunto().getX(), this.getPunto().getY()));
+		if(numero>=10 && numero<=20) {
+			GameObject poder = new Dinamita(new Punto(this.getPunto().getX(), this.getPunto().getY()), false);
 			mapa.add(poder);
 		}
 		

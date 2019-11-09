@@ -19,4 +19,10 @@ public class CampoDeProteccion extends Premio {
 		
 	}
 
+	@Override
+	protected boolean getExplotado() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

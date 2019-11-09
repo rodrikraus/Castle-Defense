@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import GameObjects.GameObject;
 import GameObjects.Premios.ObjectosPreciosos.Bomba;
+import GameObjects.Premios.ObjectosPreciosos.Dinamita;
 import Tienda.Tienda;
 
 import java.awt.Color;
@@ -184,8 +185,8 @@ public class GUI extends JFrame {
 				int y = e.getPoint().y - 30;
 				punto = new Punto(x, y);
 				GameObject obj = tienda.getToAdd();
-				GameObject bomba = tienda.getBomba();
-				GameObject dinamita = tienda.getDinamita();
+				Bomba bomba = tienda.getBomba();
+				Dinamita dinamita = tienda.getDinamita();
 				if(obj!=null) {
 					obj.setPunto(punto);
 					if(mapa.puedoAgregarObjeto(obj)) {
@@ -198,14 +199,18 @@ public class GUI extends JFrame {
 				else 
 					if(bomba!=null) {
 						bomba.setPunto(punto);
-						if(mapa.puedoAgregarObjeto(bomba)) 
+//						bomba.cambiarDibujoAExplotado();
+//						if(mapa.puedoAgregarObjeto(bomba)) 
 							mapa.add(bomba);	
-						tienda.setBomba(null);		
+						tienda.setBomba(null);
+							
 					}
 					else
 						if(dinamita!=null) {
+//							dinamita.cambiarDibujoAExplotado();
 							dinamita.setPunto(punto);
-							if(mapa.puedoAgregarObjeto(dinamita)) 
+							
+						//	if(mapa.puedoAgregarObjeto(dinamita)) 
 								mapa.add(dinamita);	
 							tienda.setDinamita(null);	
 						}
@@ -217,6 +222,7 @@ public class GUI extends JFrame {
 					botonDinamita.setEnabled(true);
 				if(tienda.getBomba()!=null)
 					botonBomba.setEnabled(true);
+				repaint();
 			}
 		});
 	}

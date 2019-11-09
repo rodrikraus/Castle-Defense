@@ -48,19 +48,7 @@ public abstract class Aliado extends GameObject  {
 		}); 
 		
 	}
-/*
-	public void toClick() {
-		// Calculo las monedas a sumar
-		int monedas = herido ? costo/2 : costo;				
-				
-		Tienda tienda = Tienda.Instancia(null);
-		if(tienda.getPuedoVender()) {
-			tienda.sumarMonedas(monedas);
-			tienda.setPuedoVender(false);	
-			morir();	
-		}
-	}
-*/
+	
 	@Override
 	public void atacar(GameObject obj) {
 		frecuencia_ataques++;
@@ -98,7 +86,7 @@ public abstract class Aliado extends GameObject  {
 	public boolean interactuar() {
 		GameObject objIntersectado = mapa.intersectaRango(this);
 		if(objIntersectado != null) {
-		objIntersectado.accept(visitor);
+			objIntersectado.accept(visitor);
 		}
 		return true;
 	}
