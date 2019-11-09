@@ -12,40 +12,37 @@ public class VisitorMuerteInstantanea extends Visitor {
 
 	public VisitorMuerteInstantanea(GameObject o) {
 		super(o);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void visit(Aliado a) {
-		obj.atacar(a);
+		a.morir();
 
 	}
 
 	@Override
 	public void visit(Enemigo e) {
-		obj.atacar(e);
+		e.morir();
 	}
 
 	@Override
 	public void visit(DisparoAliado d) {
-		obj.atacar(d);
-		}
+		d.morir();
+	}
 
 	@Override
 	public void visit(DisparoEnemigo d) {
-		obj.atacar(d);
-
+		d.morir();
 	}
 
 	@Override
 	public void visit(Premio p) {
-		obj.atacar(p);
-
+		p.morir();
 	}
 
 	@Override
 	public void visit(ObjetoMapa OM) {
-		obj.atacar(OM);
+		OM.morir();
 	}
 
 }
