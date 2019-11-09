@@ -107,6 +107,7 @@ public class Mapa {
 											     //entonces cada vez q muera alguno cambia la oleada o (si es d) ganas.
 		int contador = 700;
 		final int ESPACIOENTREENEMIGOS = 300;
+		final int ESPACIOENTREOLEADAS = 600;
 		final int ALTURA = 150;
 		
 		for(int i = 0; i < oleadas.length(); i++) {
@@ -137,7 +138,7 @@ public class Mapa {
 					enemigo.setPunto(punto);
 					add(enemigo);
 					enemigo.setMapa(this);
-					contador += ESPACIOENTREENEMIGOS;
+					contador += ESPACIOENTREOLEADAS;
 					break;
 				}
 			
@@ -156,7 +157,7 @@ public class Mapa {
 					enemigo.setPunto(punto);
 					add(enemigo);
 					enemigo.setMapa(this);
-					contador += ESPACIOENTREENEMIGOS;
+					contador += ESPACIOENTREOLEADAS;
 					break;
 				}
 				
@@ -176,7 +177,7 @@ public class Mapa {
 					enemigo.setPunto(punto);
 					add(enemigo);
 					enemigo.setMapa(this);
-					contador += ESPACIOENTREENEMIGOS;
+					contador += ESPACIOENTREOLEADAS;
 					break;
 				}
 			}
