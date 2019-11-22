@@ -33,7 +33,7 @@ public abstract class GameObject {
 	protected String ruta_dibujo_ataque;
 
 	
-	public GameObject(int vida, int danio, int rango, int velMov) {
+	protected GameObject(int vida, int danio, int rango, int velMov) {
 		this.vida = vida;
 		this.danio = danio;
 		this.rango = rango;

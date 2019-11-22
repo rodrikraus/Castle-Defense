@@ -20,7 +20,7 @@ public abstract class Enemigo extends GameObject   {
 	protected int puntos;
 	protected boolean tiraDobleOro;
 	
-	public Enemigo(int vida, int danio, int rango, int velMov, int velAt, int puntos, int monedas) {
+	protected Enemigo(int vida, int danio, int rango, int velMov, int velAt, int puntos, int monedas) {
 
 		// vida, daño, rango, velocidad de Movimiento
 		super(vida, danio, rango, velMov);

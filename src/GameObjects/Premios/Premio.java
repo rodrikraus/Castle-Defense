@@ -7,7 +7,7 @@ public abstract class Premio extends GameObject {
 
 	protected int tiempo_de_vida;
 	
-	public Premio() {
+	protected Premio() {
 		// vida, daño, rango, velocidad de Movimiento
 		super(1, 1000, 0, 0);
 		tiempo_de_vida = 25;

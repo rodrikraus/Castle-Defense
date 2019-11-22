@@ -10,7 +10,7 @@ import Juego.Punto;
 
 public abstract class Disparo extends GameObject {
 
-	public Disparo(int danio, Punto punto, int rango) {
+	protected Disparo(int danio, Punto punto, int rango) {
 		// vida, danio, rango, velocidad de movimiento
 		super(20, danio, rango, 3);
 		this.punto = punto;

@@ -16,7 +16,7 @@ public abstract class Aliado extends GameObject  {
 	protected boolean herido;
 	protected boolean haceDobleDanio;
 	
-	public Aliado(int vida, int danio, int rango, int velMov, int velAt, int costo) {
+	protected Aliado(int vida, int danio, int rango, int velMov, int velAt, int costo) {
 
 		// vida, daño, rango, velocidad de Movimiento
 		super(vida, danio, rango, velMov);
