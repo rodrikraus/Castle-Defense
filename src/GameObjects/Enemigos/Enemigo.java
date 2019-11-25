@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
+import Estados.*;
 import GameObjects.GameObject;
 import GameObjects.Disparos.Disparo;
 import GameObjects.Disparos.DisparoEnemigo;
@@ -18,7 +19,7 @@ import Visitor.Visitor;
 public abstract class Enemigo extends GameObject   {
 	
 	protected int puntos;
-	protected boolean tiraDobleOro;
+	protected Estado miEstado;
 	
 	protected Enemigo(int vida, int danio, int rango, int velMov, int velAt, int puntos, int monedas) {
 
@@ -27,7 +28,7 @@ public abstract class Enemigo extends GameObject   {
 		velocidad_ataque = velAt;
 		this.puntos = puntos;
 		this.monedas = monedas;
-		tiraDobleOro = false;
+		miEstado = new EstadoNormal(this);
 	}	
 	
 	@Override
@@ -92,7 +93,7 @@ public abstract class Enemigo extends GameObject   {
 	
 	public void morir() {        //redefino el metodo morir para tener una chance de tirar un premio cuando muera
 		Random random = new Random();
-		int numero = random.nextInt(20);
+		int numero = random.nextInt(7);
 		if(numero<=3) {
 			GameObject poder = new DobleOro(new Punto(this.getPunto().getX(), this.getPunto().getY()));
 			mapa.add(poder);
@@ -111,18 +112,20 @@ public abstract class Enemigo extends GameObject   {
 		}
 		
 		mapa.getListaEliminar().add(this);
-		if(tiraDobleOro)
-			mapa.getJuego().getTienda().sumarMonedas(monedas*2);
-		else 
-			mapa.getJuego().getTienda().sumarMonedas(monedas);
-		
+		miEstado.sumarMonedas();	
 	}
 
-	public void setDobleDanio(boolean b) {
+	public void setDobleDanio() {
 		//no hace nada
 	}
-	public void setDobleOro(boolean b) {
-		tiraDobleOro = b;
+	public void setDobleOro() {
+		miEstado = new EstadoDobleOro(this);
+	}
+	public void setEstadoNormal() {
+		miEstado = new EstadoNormal(this);
+	}
+	public int getMonedas() {
+		return monedas;
 	}
 
 }

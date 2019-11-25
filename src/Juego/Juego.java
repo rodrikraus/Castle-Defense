@@ -45,17 +45,17 @@ public class Juego {
 	
 		for(GameObject obj : mapa.getListaPrincipal()) {
 			if(contadorDobleDanio > 0) {
-				obj.setDobleDanio(true);
+				obj.setDobleDanio();
 				contadorDobleDanio--;
 			} else {
-				obj.setDobleDanio(false);
+				obj.setEstadoNormal();
 			}
 			
 			if(contadorDobleOro > 0) {
-				obj.setDobleOro(true);
+				obj.setDobleOro();
 				contadorDobleOro--;
 			} else {
-				obj.setDobleOro(false);
+				obj.setEstadoNormal();
 			}
 		}
 		

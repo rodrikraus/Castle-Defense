@@ -22,6 +22,7 @@ public class Golem extends Aliado {
 		activarOyente();
 	}	
 	
+	//Los golems no se ven afectados por el premio doble danio
 	public void iniciarAtaque(GameObject obj) { //REDEFINO PARA PODER CAMBIAR EL ICONO DEL DISPARO
 		flushDibujo(ruta_dibujo_ataque);		
 		Punto p = new Punto(punto.getX()+ancho-30, punto.getY());  

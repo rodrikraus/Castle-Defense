@@ -92,6 +92,8 @@ public abstract class GameObject {
 	public int getLargo() {	return largo ;}	
 	
 	public void setMapa(Mapa mapa) { this.mapa = mapa ;}
+	public Mapa getMapa() { return mapa ;}
+	
 
 	public int getVelocidad_movimiento() { return velocidad_movimiento ;}
 	
@@ -114,7 +116,8 @@ public abstract class GameObject {
 	}
 	
 
-	public abstract void setDobleDanio(boolean b);
-	public abstract void setDobleOro(boolean b);
+	public abstract void setDobleDanio();
+	public abstract void setDobleOro();
+	public abstract void setEstadoNormal();
 	
 }

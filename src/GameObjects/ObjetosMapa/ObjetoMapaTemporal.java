@@ -48,12 +48,23 @@ public class ObjetoMapaTemporal extends GameObject {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public void setDobleDanio(boolean b) {
-		//no hace nada
+
+	@Override
+	public void setDobleDanio() {
+		// TODO Auto-generated method stub
+		
 	}
-	public void setDobleOro(boolean b) {
-		//no hace nada
+
+	@Override
+	public void setDobleOro() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setEstadoNormal() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

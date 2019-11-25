@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 
+import Estados.*;
 import GameObjects.GameObject;
 import GameObjects.Disparos.Disparo;
 import GameObjects.Disparos.DisparoAliado;
@@ -14,7 +15,7 @@ import Visitor.Visitor;
 public abstract class Aliado extends GameObject  {
 
 	protected boolean herido;
-	protected boolean haceDobleDanio;
+	protected Estado miEstado;
 	
 	protected Aliado(int vida, int danio, int rango, int velMov, int velAt, int costo) {
 
@@ -23,7 +24,7 @@ public abstract class Aliado extends GameObject  {
 		velocidad_ataque = velAt;
 		this.costo = costo;		
 		herido = false;
-		haceDobleDanio = false;
+		miEstado = new EstadoNormal(this);
 
 		
 	}	
@@ -59,21 +60,30 @@ public abstract class Aliado extends GameObject  {
 		else
 			morir();
 	}
-
+	
+//	 ESTO ANDA BIEN PERO NO TIENE EL PATRON STATE
+//	public void iniciarAtaque(GameObject obj) { 
+//		flushDibujo(ruta_dibujo_ataque);		
+//		Punto p = new Punto(punto.getX()+ancho-30, punto.getY());
+//		if(haceDobleDanio) {
+//			Disparo disparo = new DisparoAliado(danio*2, p, rango);
+//			disparo.cambiarDibujo("img/disparos/disparo_angosto_potenciado.gif");
+//			mapa.add(disparo);
+//			disparo.setMapa(mapa);
+//		} else {
+//			Disparo disparo = new DisparoAliado(danio, p, rango);
+//			mapa.add(disparo);
+//			disparo.setMapa(mapa);
+//		}
+//	}
+	
 	public void iniciarAtaque(GameObject obj) { 
 		flushDibujo(ruta_dibujo_ataque);		
 		Punto p = new Punto(punto.getX()+ancho-30, punto.getY());
-		if(haceDobleDanio) {
-			Disparo disparo = new DisparoAliado(danio*2, p, rango);
-			disparo.cambiarDibujo("img/disparos/disparo_angosto_potenciado.gif");
-			mapa.add(disparo);
-			disparo.setMapa(mapa);
-		} else {
-			Disparo disparo = new DisparoAliado(danio, p, rango);
-			mapa.add(disparo);
-			disparo.setMapa(mapa);
-		}
+		miEstado.disparar(danio, p, rango);
 	}
+	
+	
 
 	@Override
 	/*public void interactuar() {
@@ -109,11 +119,16 @@ public abstract class Aliado extends GameObject  {
 	}
 	
 	
-	public void setDobleDanio(boolean b) {
-		haceDobleDanio = b;
+	public void setDobleDanio() {
+		miEstado = new EstadoDobleDaño(this);
 	}
-	public void setDobleOro(boolean b) {
+	
+	public void setDobleOro() {
 		//no hace nada
+	}
+	
+	public void setEstadoNormal() {
+		miEstado = new EstadoNormal(this);
 	}
 		
 }
