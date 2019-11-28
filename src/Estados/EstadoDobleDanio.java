@@ -5,9 +5,9 @@ import GameObjects.Disparos.Disparo;
 import GameObjects.Disparos.DisparoAliado;
 import Juego.Punto;
 
-public class EstadoDobleDaño extends Estado {
+public class EstadoDobleDanio extends Estado {
 
-	public EstadoDobleDaño(GameObject go) {
+	public EstadoDobleDanio(GameObject go) {
 		miEntidad = go;
 	}
 	

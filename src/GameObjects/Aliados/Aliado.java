@@ -120,7 +120,7 @@ public abstract class Aliado extends GameObject  {
 	
 	
 	public void setDobleDanio() {
-		miEstado = new EstadoDobleDaño(this);
+		miEstado = new EstadoDobleDanio(this);
 	}
 	
 	public void setDobleOro() {
