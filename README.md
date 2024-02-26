@@ -8,4 +8,4 @@
  ### English
  This program is a Tower-Defense video game, written in Java language, for the project of the subject "Programming Technology", Universidad Nacional del Sur (UNS).
 
-![alt text](https://github.com/rodrikraus/Castle-Defense/blob/master/readmeImages/screenshot.png)
+![plot](/readmeImages/screenshot.png)
